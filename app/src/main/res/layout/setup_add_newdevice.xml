@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activityRoot"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/color_bkground_none_color"
+    android:orientation="vertical"
+    tools:context="cn.ubia.SetupAddDeviceActivity">
+
+    <include layout="@layout/detail_title" />
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x96"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/ImageView06"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/connection_wif" />
+
+                <ImageView
+                    android:id="@+id/ImageView05"
+                    android:layout_width="@dimen/x214"
+                    android:layout_height="@dimen/x6"
+                    android:background="#dddddddd" />
+
+                <ImageView
+                    android:id="@+id/ImageView04"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/connection_search" />
+
+                <ImageView
+                    android:id="@+id/ImageView07"
+                    android:layout_width="@dimen/x214"
+                    android:layout_height="@dimen/x6"
+                    android:background="#dddddddd" />
+
+                <ImageView
+                    android:id="@+id/ImageView03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/connection_information" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x96"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/page11__setupwifi"
+                    android:textColor="@color/color_skin_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/page11__searchdevice"
+                    android:textColor="@color/color_skin_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/page11__modifydevice"
+                    android:textColor="@color/color_skin_color" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:orientation="vertical"
+                android:padding="10.0dip">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page12_p11_note"
+                    android:textColor="@color/color_text_color"
+                    android:textSize="@dimen/text_size_group2"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/connection_edit"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/page12_txtaccount"
+                        android:textColor="@color/color_text_color"
+                        android:visibility="gone" />
+
+                    <EditText
+                        android:id="@+id/devlogin"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/x54"
+                        android:layout_weight="2.0"
+                        android:background="@null"
+                        android:capitalize="characters"
+                        android:enabled="false"
+                        android:hint="@string/page12_txtaccount"
+                        android:maxLength="20"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true"
+                        android:text="admin"
+                        android:textColorHint="#666666"
+                        android:textCursorDrawable="@drawable/color_cursor" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x100"
+                    android:layout_marginRight="@dimen/x100"
+                    android:layout_marginTop="@dimen/x67"
+                    android:background="@drawable/connection_edit"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_vertical"
+                            android:text="@string/page12_p11_name_label"
+                            android:textColor="@color/color_text_color"
+                            android:visibility="gone" />
+
+                        <EditText
+                            android:id="@+id/devname"
+                            android:layout_width="fill_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="@dimen/x56"
+                            android:background="@null"
+                            android:capitalize="characters"
+                            android:hint="@string/page12_p11_name_label"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:singleLine="true"
+                            android:text="@string/device"
+                            android:textColor="#666666"
+                            android:textColorHint="#666666"
+                            android:textCursorDrawable="@drawable/color_cursor" />
+
+                        <ImageView
+                            android:id="@+id/down_name"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:padding="10dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/setting_down" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x100"
+                    android:layout_marginRight="@dimen/x100"
+                    android:layout_marginTop="@dimen/x26"
+                    android:background="@drawable/connection_edit">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/page12_p11_password_label"
+                        android:textColor="@color/color_text_color"
+                        android:visibility="gone" />
+
+                    <EditText
+                        android:id="@+id/devpwd223"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/x56"
+                        android:layout_weight="2.0"
+                        android:background="@null"
+                        android:capitalize="characters"
+                        android:hint="@string/page12_p11_password_label"
+                        android:inputType="textPassword"
+                        android:maxLength="12"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true"
+                        android:textColorHint="#666666"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:visibility="gone" />
+
+                    <cn.ubia.widget.EditTextDrawable
+                        android:id="@+id/devpwd"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:capitalize="characters"
+                        android:drawableRight="@drawable/add_icon_seen"
+                        android:hint="@string/page12_p11_password_label"
+                        android:inputType="textPassword"
+                        android:maxLength="12"
+
+                        android:singleLine="true"
+
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:textSize="@dimen/text_size_group2" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.100000024dip"
+                    android:layout_marginTop="10.0dip" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x100"
+                    android:layout_marginRight="@dimen/x100"
+                    android:layout_marginTop="@dimen/x26"
+                    android:background="@drawable/connection_edit">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/page12_p11_confirmpassword_label"
+                        android:textColor="@color/color_text_color"
+                        android:visibility="gone" />
+
+                    <EditText
+                        android:id="@+id/devpwd22"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/x56"
+                        android:layout_weight="2.0"
+                        android:background="@null"
+                        android:capitalize="characters"
+                        android:hint="@string/page12_p11_confirmpassword_label"
+                        android:inputType="textPassword"
+                        android:maxLength="12"
+
+                        android:singleLine="true"
+                        android:textColorHint="#666666"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:visibility="gone" />
+
+                    <cn.ubia.widget.EditTextDrawable
+                        android:id="@+id/devpwd2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:capitalize="characters"
+                        android:drawableRight="@drawable/add_icon_seen"
+                        android:hint="@string/page12_p11_confirmpassword_label"
+                        android:inputType="textPassword"
+                        android:maxLength="12"
+
+                        android:singleLine="true"
+
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:textSize="@dimen/text_size_group2" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.100000024dip"
+                    android:layout_marginTop="10.0dip"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x26">
+
+                    <TextView
+                        android:layout_width="10dp"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textColor="@color/color_text_color" />
+
+                    <TextView
+                        android:id="@+id/pwd_tip"
+                        android:layout_width="fill_parent"
+
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="@dimen/x100"
+                        android:layout_marginRight="@dimen/x100"
+                        android:layout_weight="2.0"
+                        android:gravity="center_vertical"
+                        android:text="@string/page12_p11_password_note"
+                        android:textColor="@color/color_text_color" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/putmode_title_tv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page23_camerainstall_direction"
+                    android:textColor="@color/color_text_color"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/devlocal_lv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x100"
+                    android:layout_marginRight="@dimen/x100"
+                    android:layout_marginTop="@dimen/x26"
+                    android:background="@drawable/connection_edit"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/devlocal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="@dimen/x50"
+                            android:layout_toLeftOf="@+id/down_local"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+
+                            android:hint="@string/location_right_chose"
+                            android:singleLine="true"
+                            android:textColor="#666666"
+
+                            android:textCursorDrawable="@drawable/color_cursor" />
+
+                        <ImageView
+
+                            android:id="@+id/down_local"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:padding="10dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/setting_down" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/putmode_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="15.0dip"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/page23_camerainstall"
+                        android:textColor="@color/color_text_color" />
+
+                    <LinearLayout
+                        android:id="@+id/face_horizon_ll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/face_horizon_iv"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="15.0dip"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/btn_facehorizontal"
+                            android:textColor="@color/color_text_color" />
+
+                        <TextView
+                            android:id="@+id/TextView01"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15.0dip"
+                            android:text="@string/page23_camerainstall_faceho"
+                            android:textColor="@color/color_text_color" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/face_down_ll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/face_down_iv"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="15.0dip"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/btn_facedown"
+                            android:textColor="@color/color_text_color" />
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15.0dip"
+                            android:text="@string/page23_camerainstall_facedown"
+                            android:textColor="@color/color_text_color" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/face_up_ll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/face_up_iv"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="15.0dip"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/btn_faceup"
+                            android:textColor="@color/color_text_color" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15.0dip"
+                            android:text="@string/page23_camerainstall_faceUp"
+                            android:textColor="@color/color_text_color" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.100000024dip"
+                    android:background="#ffdddddd"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.100000024dip"
+                    android:layout_marginTop="10.0dip"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/connection_edit"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/page4_txtLocation"
+                        android:textColor="@color/color_text_color" />
+
+                    <EditText
+                        android:id="@+id/devpos"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="1.0"
+                        android:background="@drawable/setup_select_camera"
+                        android:capitalize="characters"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@drawable/color_cursor" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/x150"
+                android:layout_marginRight="@dimen/x150"
+                android:layout_marginTop="25dp">
+
+                <Button
+                    android:id="@+id/btnok"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/selector_round_btn"
+                    android:text="@string/finish_btn"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

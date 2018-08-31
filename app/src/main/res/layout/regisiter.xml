@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1.0"
+        android:minWidth="320.0dip"
+        android:orientation="vertical"
+        android:padding="10.0dip" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/reg_username"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/edit_bg"
+                android:ems="10"
+                android:hint="@string/username"
+                android:imeOptions="actionNext|flagNoExtractUi"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1"
+                android:scrollHorizontally="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10.0dip"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/reg_password"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/edit_bg"
+                android:ems="10"
+                android:hint="@string/password"
+                android:imeOptions="actionDone|flagNoExtractUi"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:scrollHorizontally="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10.0dip"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/reg_repassword"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/edit_bg"
+                android:ems="10"
+                android:hint="@string/page1_repassword"
+                android:imeOptions="actionDone|flagNoExtractUi"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:scrollHorizontally="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10.0dip"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/edtValidCode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1.0"
+                android:background="@drawable/edit_bg"
+                android:ems="10"
+                android:hint="@string/Regsiter_valid_code"
+                android:imeOptions="actionDone|flagNoExtractUi"
+                android:maxLines="1"
+                android:scrollHorizontally="true" />
+
+            <FrameLayout
+                android:layout_width="60dp"
+                android:layout_height="fill_parent"
+                android:layout_margin="2dp" >
+
+                <ImageView
+                    android:id="@+id/imgValidCode"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:scaleType="fitXY" />
+
+                <ProgressBar
+                    style=""
+                    android:id="@+id/imgProgressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/regButton"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="25.0dip"
+            android:background="@drawable/register_bg"
+            android:text="@string/page1_text_register" />
+    </LinearLayout>
+
+</LinearLayout>

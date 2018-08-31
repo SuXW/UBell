@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/device_set_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:background="#30000000" />
+
+    <RelativeLayout
+          android:id="@+id/sel1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x140"
+        android:background="@color/white"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="23dp"
+            android:text="@string/Frontdoor"
+            android:textColor="@color/color_setting_txt"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.5px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_bkground_none_color" />
+    </RelativeLayout>
+
+    <RelativeLayout
+          android:id="@+id/sel2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x140"
+        android:background="@color/white"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="23dp"
+            android:text="@string/Livingroom"
+            android:textColor="@color/color_setting_txt"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.5px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_bkground_none_color" />
+    </RelativeLayout>
+
+    <RelativeLayout
+          android:id="@+id/sel3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x140"
+        android:background="@color/white"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="23dp"
+            android:text="@string/Backdoor"
+            android:textColor="@color/color_setting_txt"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.5px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_bkground_none_color" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x140"
+        android:background="@color/white"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="23dp"
+            android:text="@string/cancel"
+            android:textColor="@color/color_skin_color"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.5px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_bkground_none_color" />
+    </RelativeLayout>
+
+</LinearLayout>

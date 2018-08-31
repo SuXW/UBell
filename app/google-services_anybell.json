@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "120939907541",
+    "firebase_url": "https://anybell-5cdfa.firebaseio.com",
+    "project_id": "anybell-5cdfa",
+    "storage_bucket": "anybell-5cdfa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120939907541:android:6e94758c83e4f06b",
+        "android_client_info": {
+          "package_name": "cn.ubia.Anybell"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "120939907541-n2jpd7bj8vvbls8a9rpl9426t42j1bvm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeSFQZg2Ain2YhU5wxFwg5NeeeC5nGCsQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

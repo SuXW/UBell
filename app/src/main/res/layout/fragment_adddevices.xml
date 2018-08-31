@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/settings_bg_color"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rlfast_search"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/panel"
+        android:gravity="center_vertical"
+        android:padding="10dp">
+
+
+        <TextView
+            style="@style/Settings.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/fragment_fast_search"
+            android:textColor="@android:color/black" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_action_right" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlfirst_search"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/panel"
+        android:gravity="center_vertical"
+        android:padding="10dp" 
+        android:visibility="gone">
+
+        <TextView
+            style="@style/Settings.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/page14_first_search"
+            android:textColor="@android:color/black" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_action_right" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rllan_serach"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/panel"
+        android:gravity="center_vertical"
+        android:padding="10dp" >
+
+        <TextView
+            style="@style/Settings.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/page14_lan_serach"
+            android:textColor="@android:color/black" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_action_right" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rltwo_search"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/panel"
+        android:gravity="center_vertical"
+        android:padding="10dp" >
+
+        <TextView
+            style="@style/Settings.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/page14_two_search"
+            android:textColor="@android:color/black" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_action_right" />
+    </RelativeLayout>
+
+</LinearLayout>

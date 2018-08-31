@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "522283307442",
+    "firebase_url": "https://MPTool.firebaseio.com",
+    "project_id": "MPTool",
+    "storage_bucket": "MPTool.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522283307442:android:2d72888a8e62a665",
+        "android_client_info": {
+          "package_name": "cn.abc.MPTool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522283307442-o9tik9trilihjlftvhk3j16kaq6ho7mi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsT0D6H8khKUARjshHF34wDiq5AknJLvk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

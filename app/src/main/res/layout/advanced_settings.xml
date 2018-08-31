@@ -1,0 +1,984 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/detail_title" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0"
+        android:background="#ff3b3b3b"
+        android:padding="10.0dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page10_txtSecuritySetting"
+                    android:textColor="#ff000000"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@id/btnModifySecurityCode"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:text="@string/page10_btnModifySecurityCode" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@id/panelRecordSetting"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page10_txtRecordSetting"
+                    android:textColor="#ff000000"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="2.0"
+                        android:gravity="fill_vertical"
+                        android:text="@string/page10_txtRecordingMode"
+                        android:textColor="#ff333333" />
+
+                    <Spinner
+                        android:id="@id/spinRecordingMode"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@id/panelFormatSDCard"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8.0dip"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dip"
+                        android:layout_marginBottom="15.0dip"
+                        android:background="#ffeeeeee"
+                        android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                    <Button
+                        android:id="@id/btnFormatSDCard"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textSize="15dp"
+                        android:text="@string/page10_btnFormatSDCard" />
+
+                    <TextView
+                        android:id="@id/txtFormatSDCard"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.0dip"
+                        android:layout_weight="1.0"
+                        android:textSize="15dp"
+                        android:text="@string/page10_txtFormatSDCard"
+                        android:textColor="#ffff0000" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/panelPutMode_switch"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page10_alarm_putmode"
+                    android:textColor="#ff000000"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="2.0"
+                        android:gravity="fill_vertical"
+                        android:text="@string/page10_txtputmode"
+                        android:textColor="#ff333333"
+                         />
+
+                    <Spinner
+                        android:id="@+id/putmode_spiner"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0" />
+                </LinearLayout>
+            </LinearLayout>
+       <LinearLayout
+                android:id="@+id/panelpowermode"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page10_power"
+                    android:textColor="#ff000000"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="2.0"
+                        android:gravity="fill_vertical" 
+                        android:text="@string/page10_alarm_alert"
+                        android:visibility="gone"
+                        android:textColor="#ff333333" />
+
+                    <Spinner
+                        android:id="@+id/power_spiner"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0" />
+                </LinearLayout>
+            </LinearLayout>
+            
+       
+       
+            <LinearLayout
+                android:id="@+id/panelnotify_switch"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page10_alarm_alert"
+                    android:textColor="#ff000000"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="2.0"
+                        android:gravity="fill_vertical"
+                        android:visibility="gone"
+                        android:text="@string/page10_txtosdSetStatus"
+                        android:textColor="#ff333333" />
+
+                    <Spinner
+                        android:id="@+id/notify_spiner"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@id/panelEventSetting"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page10_txtEventSetting"
+                    android:textColor="#ff000000"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="2.0"
+                        android:gravity="fill_vertical"
+                        android:text="@string/page10_txtMotionDetectionSetting"
+                        android:textColor="#ff333333" 
+                        android:visibility="gone" />
+
+                    <Spinner
+                        android:id="@id/spinMotionDetection"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="2.0"
+                        android:gravity="fill_vertical"
+                        android:text="@string/page10_txtEventNotification"
+                        android:textColor="#ff333333" />
+
+                    <Spinner
+                        android:id="@id/spinEventNotification"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@id/panelVideoQualitySetting"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page10_txtVideoSetting"
+                    android:textColor="#ff000000"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="2.0"
+                        android:gravity="fill_vertical"
+                        android:text="@string/page10_txtVideoQuality"
+                        android:textColor="#ff333333" />
+
+                    <Spinner
+                        android:id="@id/spinVideoQuality"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@id/panelVideoFlip"
+                    android:layout_width="fill_parent"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="2.0"
+                        android:gravity="fill_vertical"
+                        android:text="@string/page10_txtVideoFlip"
+                        android:textColor="#ff333333" />
+
+                    <Spinner
+                        android:id="@id/spinVideoFlip"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@id/panelEnvironmentMode"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="2.0"
+                        android:gravity="fill_vertical"
+                        android:text="@string/page10_txtEnvironment"
+                        android:textColor="#ff333333" />
+
+                    <Spinner
+                        android:id="@id/spinEnvironment"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@id/panelVolumeSetting"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip"
+                android:visibility="gone" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page10_txtVolumeSetting"
+                    android:textColor="#ff000000"
+                    android:textSize="15dp"/>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/btnModifyVolumeSetting"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:text="@string/page10_btnVolumeSetting" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@id/panelPIRSetting"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip"
+                android:visibility="gone" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page10_txtPIRSetting"
+                    android:textColor="#ff000000"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="2.0"
+                        android:gravity="fill_vertical"
+                        android:text="@string/page10_txtPIRSetStatus"
+                        android:textColor="#ff333333" />
+
+                    <Spinner
+                        android:id="@id/spinPIRSetStatus"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/panelosdSetting"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page10_txtosdSetting"
+                    android:textColor="#ff000000"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="2.0"
+                        android:gravity="fill_vertical"
+                        android:text="@string/page10_txtosdSetStatus"
+                        android:textColor="#ff333333" />
+
+                    <Spinner
+                        android:id="@+id/spinosdSetStatus"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@id/panelWiFiSetting"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip"
+                android:visibility="gone" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page10_txtWiFiSetting"
+                    android:textColor="#ff000000"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="2.0"
+                        android:gravity="fill_vertical"
+                        android:text="@string/page10_txtWiFiSSID"
+                        android:textColor="#ff333333" />
+
+                    <TextView
+                        android:id="@id/txtWiFiSSID"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:singleLine="true"
+                        android:textColor="#ff000000"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="2.0"
+                        android:gravity="fill_vertical" />
+
+                    <TextView
+                        android:id="@id/txtWiFiStatus"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:textColor="#ff999999" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@id/btnManageWiFiNetworks"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5.0dip"
+                        android:textSize="15dp"
+                        android:text="@string/page10_btnManageWiFiNetworks" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@id/panelTimeZone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page10_txtTimeZoneSetting"
+                    android:textColor="#ff000000"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" >
+
+                        <Button
+                            android:id="@+id/btnAutoSyncTimeZone"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/page10_dialog_ManagCustomtime"
+                            android:textSize="15dp" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/TextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15.0dip"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/page10_dialog_ManagCustomtimezone"
+                            android:textColor="#ff000000"
+                            android:textSize="15dp" />
+
+                        <ToggleButton
+                            android:id="@+id/Switchbutton1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginLeft="350dp"
+                            android:background="@android:color/transparent"
+                            android:button="@drawable/ios7_btn"
+                            android:checked="false"
+                            android:gravity="center"
+                            android:text=""
+                            android:textOff=""
+                            android:textOn="" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Spinner
+                        android:id="@id/spinTimeZone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.0" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/panelUpdateSetting"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page10_u_firmware_update"
+                    android:textColor="#ff000000"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/btnUpdateSetting"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/page10_u_firmware_update_btn"
+                        android:textSize="15dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/panelQrSetting"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page10_page30_share_device_qr"
+                    android:textColor="#ff000000"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/btnQrSetting"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/page10_page30_share_device_qr"
+                        android:textSize="15dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@id/panelDeviceInfo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page10_txtDeviceInfo"
+                    android:textColor="#ff000000"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine"
+                    android:visibility="visible" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3.0dip"
+                    android:visibility="visible" >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="fill_vertical"
+                        android:text="@string/page10_txtVenderName"
+                        android:textColor="#ff333333" />
+                    <TextView
+                        android:id="@id/txtVenderName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:textColor="#ff000000" />
+                </RelativeLayout>
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine"
+                    android:visibility="visible" />
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="fill_vertical"
+                        android:text="@string/page10_txtDeviceModel"
+                        android:textColor="#ff333333" />
+
+                    <TextView
+                        android:id="@id/txtDeviceModel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:textColor="#ff000000" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3.0dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="fill_vertical"
+                        android:text="@string/page10_txtDeviceVersion"
+                        android:textColor="#ff333333" />
+
+                    <TextView
+                        android:id="@id/txtDeviceVersion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:textColor="#ff000000" />
+                </RelativeLayout>
+
+
+
+
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3.0dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="fill_vertical"
+                        android:text="@string/page10_txtStorageTotalSize"
+                        android:textColor="#ff333333" />
+
+                    <TextView
+                        android:id="@id/txtStorageTotalSize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:textColor="#ff000000" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:contentDescription="@string/page10_imgDesc_SplitLine" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3.0dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="fill_vertical"
+                        android:text="@string/page10_txtStorageFreeSize"
+                        android:textColor="#ff333333" />
+
+                    <TextView
+                        android:id="@id/txtStorageFreeSize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:textColor="#ff000000" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60.0dip"
+        android:background="@drawable/background_silver"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@id/btnOK"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="3.0dip"
+            android:layout_marginLeft="3.0dip"
+            android:layout_marginTop="5.0dip"
+            android:layout_weight="1.0"
+            android:text="@string/u_close"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@id/btnCancel"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="3.0dip"
+            android:layout_marginRight="3.0dip"
+            android:layout_marginTop="5.0dip"
+            android:layout_weight="1.0"
+            android:text="@string/cancel"
+            android:textSize="15dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

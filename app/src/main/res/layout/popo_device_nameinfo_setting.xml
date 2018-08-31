@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/device_set_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bkground_none_color"
+    android:orientation="vertical" >
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x77"
+        layout="@layout/detail_title" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x140"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="23dp"
+            android:id="@+id/tx3"
+            android:text="@string/page10_editName"
+            android:textColor="@color/color_setting_txt"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/setting_devicename_et"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tx3"
+            android:layout_toRightOf="@id/tx3"
+            android:layout_marginLeft="@dimen/x40"
+            android:background="@null"
+            android:singleLine="true"
+            android:hint="@string/page12_p11_name_new_hit"
+            android:textColor="@color/color_setting_title"
+            android:textColorHint="#909090"
+            android:textSize="@dimen/x40" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.5px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_bkground_none_color" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.5px"
+            android:layout_alignParentTop="true"
+            android:background="@color/color_bkground_none_color" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="13dp"
+            android:src="@drawable/setting_jinru"
+            android:visibility="invisible"
+            android:id="@+id/imageView4" />
+    </RelativeLayout>
+
+    <Button
+        android:textAllCaps="false"
+        android:id="@+id/btnokName"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/x120"
+        android:layout_marginLeft="@dimen/x66"
+        android:layout_marginRight="@dimen/x66"
+        android:layout_marginTop="@dimen/x66"
+        android:background="@drawable/selector_round_btn"
+        android:text="@string/page10_use"
+        android:textColor="@color/white" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x140"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:id="@+id/pw1_rl"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/tx1"
+            android:layout_marginLeft="23dp"
+            android:text="@string/page10_dialog_ModifySecurityCode"
+            android:textColor="@color/color_setting_txt"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/setting_newpwd_et"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tx1"
+               android:background="@null"
+               android:capitalize="characters"  
+            android:maxLength="12"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_marginRight="@dimen/x86"
+            android:hint="@string/page10_txtNewPassword"
+            android:textColorHint="#909090"
+            android:textColor="@color/color_setting_title"
+            android:textSize="@dimen/x40" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.5px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_bkground_none_color" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.5px"
+            android:layout_alignParentTop="true"
+            android:background="@color/color_bkground_none_color" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="13dp"
+            android:src="@drawable/setting_jinru"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x140"
+        android:background="@color/white"
+        android:id="@+id/pw2_rl"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="23dp"
+            android:id="@+id/tx2"
+            android:text="@string/page12_p11_confirmpassword_label"
+            android:textColor="@color/color_setting_txt"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/setting_confimpwd_et"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tx2"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:layout_marginRight="@dimen/x86"
+            android:hint="@string/page10_page19_txtConfirmPassword"
+            android:textColorHint="#909090"
+            android:textColor="@color/color_setting_title"
+            android:textSize="@dimen/x40"
+            android:capitalize="characters"
+            android:maxLength="12" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.5px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_bkground_none_color" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.5px"
+            android:layout_alignParentTop="true"
+            android:background="@color/color_bkground_none_color" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="13dp"
+            android:src="@drawable/setting_jinru"
+            android:visibility="invisible" />
+    </RelativeLayout>
+ 
+
+    <Button
+        android:id="@+id/btnok"
+        android:textAllCaps="false"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/x120"
+        android:layout_marginLeft="@dimen/x66"
+        android:layout_marginRight="@dimen/x66"
+        android:layout_marginTop="@dimen/x66"
+        android:background="@drawable/selector_round_btn"
+        android:text="@string/page10_use"
+        android:textColor="@color/white" />
+
+</LinearLayout>

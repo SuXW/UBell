@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">i-Cam</string>
+    <string name="fragment_playbackactivity_menu_title">i-Cam</string>
+    <string name="page14_p3_connect_camera_he">テクニカルサポートとファームウェアアップデートについては、southerntelecom.com/i-Camにアクセスしてください.  </string>
+    <string name="PhotoGridActivity_local_local">i-Camアルバム</string>
+    <string name="automanagercontent">i-Camがデバイスからプッシュ通知を受け取るための自動起動許可を許可してください</string>
+    <string name="commitautomanagercontent">あなたがi-Camの自動起動を許可していることを確認してください</string>
+    <string name="commitopennotifycontent">i-Camがデバイスからプッシュ通知を受け取るための通知許可を許可してください</string>
+    <string name="commitopennotify">i-Camがデバイスからプッシュ通知を受け取るための通知許可を許可してください</string>
+    <string name="location_right">ロケーションサーバーが有効になっており、i-Camに権限が与えられていることを確認してください</string>
+</resources>

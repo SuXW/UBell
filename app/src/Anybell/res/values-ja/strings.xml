@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AnyHome</string>
+    <string name="fragment_playbackactivity_menu_title">AnyHome</string>
+    <string name="page14_p3_connect_camera_he">テクニカルサポートとファームウェアアップデートについては、southerntelecom.com/AnyHomeにアクセスしてください.  </string>
+    <string name="PhotoGridActivity_local_local">AnyHomeアルバム</string>
+    <string name="page13_p5_foot_note">AnyHomeは現在5GHzのWiFiバンドをサポートしていません。 お使いの携帯電話が2.4GHzのWiFiバンドに接続されていることを確認してから、携帯電話の音量を上げて、接続中にデバイスから数インチ離してください.</string>
+    <string name="automanagercontent">AnyHomeがデバイスからプッシュ通知を受け取るための自動起動許可を許可してください</string>
+    <string name="commitautomanagercontent">あなたがAnyHomeの自動起動を許可していることを確認してください</string>
+    <string name="commitopennotifycontent">AnyHomeがデバイスからプッシュ通知を受け取るための通知許可を許可してください</string>
+    <string name="commitopennotify">AnyHomeがデバイスからプッシュ通知を受け取るための通知許可を許可してください</string>
+    <string name="location_right">ロケーションサーバーが有効になっており、AnyHomeに権限が与えられていることを確認してください</string>
+</resources>

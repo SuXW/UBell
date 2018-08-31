@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">XBell</string>
+    <string name="fragment_playbackactivity_menu_title">XBell</string>
+    <string name="page14_p3_connect_camera_he">テクニカルサポートとファームウェアアップデートについては、southerntelecom.com/XBellにアクセスしてください.  </string>
+    <string name="PhotoGridActivity_local_local">XBellアルバム</string>
+    <string name="automanagercontent">XBellがデバイスからプッシュ通知を受け取るための自動起動許可を許可してください</string>
+    <string name="commitautomanagercontent">あなたがXBellの自動起動を許可していることを確認してください</string>
+    <string name="commitopennotifycontent">XBellがデバイスからプッシュ通知を受け取るための通知許可を許可してください</string>
+    <string name="commitopennotify">XBellがデバイスからプッシュ通知を受け取るための通知許可を許可してください</string>
+    <string name="location_right">ロケーションサーバーが有効になっており、XBellに権限が与えられていることを確認してください</string>
+</resources>

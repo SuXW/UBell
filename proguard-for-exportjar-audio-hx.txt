@@ -1,0 +1,48 @@
+-injars  /Users/dftx/Desktop/audioecho.jar
+-outjars  /Users/dftx/Desktop/audioechohx.jar
+ 
+-libraryjars  /Users/dftx/Downloads/adt-bundle-mac-x86_64-20140702-2/sdk/platforms/android-20/android.jar
+-dontshrink
+-dontoptimize
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+ 
+-keepattributes Signature
+-dontwarn  HeavenTao.Audio.**
+
+
+-keep public class HeavenTao.Audio.AudioProcessThread {
+    <fields>;
+    <methods>;
+}
+-keep public class HeavenTao.Audio.Ajb {
+    <fields>;
+    <methods>;
+} 
+-keep public class HeavenTao.Audio.WebRtcAecm {
+    <fields>;
+    <methods>;
+} 
+-keep public class HeavenTao.Audio.WebRtcNsx {
+    <fields>;
+    <methods>;
+} 
+-keep public class HeavenTao.Audio.SpeexAec {
+    <fields>;
+    <methods>;
+} 
+-keep public class HeavenTao.Audio.SpeexDecoder {
+    <fields>;
+    <methods>;
+} 
+-keep public class HeavenTao.Audio.SpeexEncoder {
+    <fields>;
+    <methods>;
+} 
+-keep public class HeavenTao.Audio.WebRtcAec {
+    <fields>;
+    <methods>;
+} 
+-keep public class HeavenTao.Audio.SpeexPreprocessor {
+    <fields>;
+    <methods>;
+} 

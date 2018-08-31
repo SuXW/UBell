@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="85.0dip"
+    android:descendantFocusability="blocksDescendants"
+    android:gravity="center_vertical|right|clip_horizontal"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/camera_item_bg"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" 
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/cameraListItemPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="50dp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:textColor="#333333"
+                android:textIsSelectable="false"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/ivCameraState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:padding="5dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvCameraStateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="5dp"
+                    android:text=""
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/ivCameraSetting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/common_item_bg"
+                    android:padding="5dp"
+                    android:src="@drawable/camera_setting"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/thumbnaillayout"
+            android:layout_width="fill_parent"
+            android:layout_height="72.0dip" >
+
+            <RelativeLayout
+                android:id="@+id/Settingbtlayout"
+                android:layout_width="wrap_content"
+                android:layout_height="72.0dip"
+                android:focusable="false" >
+
+                <ImageButton
+                    android:id="@+id/Settingbt"
+                    android:layout_width="42.0dip"
+                    android:layout_height="38.0dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/camera_setting_live"
+                    android:focusable="false"
+                    />
+
+                <ImageView
+                    android:id="@+id/AlarmButton"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone" 
+                    android:src="@drawable/start_alarm" >
+
+                </ImageView>
+                <ImageButton
+                    android:id="@+id/UIDEditingbt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/Settingbt"
+                    android:background="@drawable/ic_edit_camera"
+                    android:layout_marginRight="5dp"
+                    android:visibility="gone"
+                    android:focusable="false"
+              	/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="72.0dip" >
+
+                <ImageView
+                    android:id="@+id/cameraListItemThumbnail"
+                    android:layout_width="128.0dip"
+                    android:layout_height="72.0dip"
+                    android:layout_centerInParent="true"
+                    android:paddingLeft="10.0dip"
+                    android:paddingRight="10.0dip"
+                    android:src="@drawable/camera_thumbnail" />
+
+                <ImageView
+                    android:id="@+id/myplayButton"
+                    android:layout_width="34dip"
+                    android:layout_height="34dip"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/play_grey"
+                    android:visibility="gone" />
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="72.0dip"
+                android:layout_toRightOf="@+id/relativeLayout1"
+                android:gravity="center_vertical|center_horizontal" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/myplayTextViewname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:gravity="center"
+                            android:text="@string/page26_camer_statusname" />
+
+                        <TextView
+                            android:id="@+id/myplayTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/myplayTextViewname"
+                            android:gravity="center"
+                             android:textColor="@color/color_skin_color" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/myplayTextUIDname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="@string/page2_txtUID"
+                            android:textSize="6pt"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/myplayTextUID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/myplayTextUIDname"
+                            android:gravity="center_vertical"
+                            android:textSize="5.5pt" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

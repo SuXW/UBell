@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/detail_title" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0"
+        android:background="#ff3b3b3b"
+        android:padding="10.0dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page25_txtDeviceSetting"
+                    android:textColor="#ff000000"
+                    android:textSize="20.0sp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.100000024dip"
+                    android:layout_marginTop="10.0dip"
+                    android:background="#ffdddddd" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="3.5"
+                        android:gravity="center_vertical"
+                        android:text="@string/page2_txtUID"
+                        android:textColor="#ff333333" />
+
+                    <EditText
+                        android:id="@id/edtUID"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.5"
+                        android:capitalize="characters"
+                        android:maxLength="20"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:singleLine="true"
+                        android:textSize="15dp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.100000024dip"
+                    android:background="#ffdddddd" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="3.5"
+                        android:gravity="center_vertical"
+                        android:text="@string/page3_txtName"
+                        android:textColor="#ff333333" />
+
+                    <EditText
+                        android:id="@id/edtNickName"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.5"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:capitalize="characters"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.100000024dip"
+                    android:layout_marginTop="10.0dip"
+                    android:background="#ffdddddd"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.0"
+                        android:gravity="center_vertical"
+                        android:text="@string/page25_username1"
+                        android:textColor="#ff333333" />
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:capitalize="characters"
+                        android:editable="false"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:enabled="false"
+                        android:singleLine="true"
+                        android:text="admin" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.100000024dip"
+                    android:layout_marginTop="10.0dip"
+                    android:background="#ffdddddd" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.5"
+                        android:gravity="center_vertical"
+                        android:text="@string/page25_txtSecurityCode"
+                        android:textColor="#ff333333" />
+
+                    <EditText
+                        android:id="@id/edtSecurityCode"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:capitalize="characters"
+                        android:inputType="textPassword"
+                        android:paddingLeft="15dp"
+                         android:maxLength="12"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" >
+
+                    <Button
+                        android:id="@id/btnAdvanced"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/page25_page10_txtAdvancedSetting" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/background_white_corner"
+                android:orientation="vertical"
+                android:padding="10.0dip"
+                android:visibility="gone" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:text="@string/page25_page10_txtAdvancedSetting"
+                    android:textColor="#ff000000"
+                    android:textSize="20.0sp" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.100000024dip"
+                    android:background="#ffdddddd" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.70000005dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="#ffeeeeee" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60.0dip"
+        android:background="@drawable/background_silver"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@id/btnOK"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="3.0dip"
+            android:layout_marginLeft="3.0dip"
+            android:layout_marginTop="5.0dip"
+            android:layout_weight="1.0"
+            android:text="@string/ok" />
+
+        <Button
+            android:id="@id/btnCancel"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="3.0dip"
+            android:layout_marginRight="3.0dip"
+            android:layout_marginTop="5.0dip"
+            android:layout_weight="1.0"
+            android:text="@string/btnCancel" />
+    </LinearLayout>
+
+</LinearLayout>

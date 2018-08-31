@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="app_name">iCloudSee</string>
+    <string name="fragment_playbackactivity_menu_title">iCloudSee</string>
+    <string name="page14_p3_connect_camera_he">Visitez southerntelecom.com/iCloudSee pour obtenir du soutien technique et des mises à jour de firmware. </string>
+    <string name="PhotoGridActivity_local_local">iCloudSee Album</string>
+    <string name="commitautomanagercontent">Assurez-vous d\'avoir autorisé le lancement automatique d\'iCloudSee.</string>
+    <string name="commitopennotifycontent">Veuillez autoriser la Notification pour qu\'iCloudSee reçoive une notification de poussée de l\'appareil.</string>
+    <string name="commitopennotify">Veuillez autoriser la Notification pour qu\'iCloudSee reçoive une notification de poussée de l\'appareil.</string>
+
+    <string name="location_right">Veuillez vous assurer que le serveur de localisation est activé et autorisé à iCloudSee.</string>
+
+</resources>			

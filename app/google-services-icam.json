@@ -1,0 +1,116 @@
+{
+  "project_info": {
+    "project_number": "819187053781",
+    "firebase_url": "https://ubell-96db8.firebaseio.com",
+    "project_id": "ubell-96db8",
+    "storage_bucket": "ubell-96db8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819187053781:android:240cf4ec86c91cd2",
+        "android_client_info": {
+          "package_name": "cn.ubia.UBell"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "819187053781-in7gfgm5527cpvqp266v2qrg1smdgd8p.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "819187053781-in7gfgm5527cpvqp266v2qrg1smdgd8p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvqFUKDNAq1uTc6dfTXsWeVuyjNMvwumc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819187053781:android:bdb2bd371d255a8b",
+        "android_client_info": {
+          "package_name": "cn.ubia.icloudsee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "819187053781-in7gfgm5527cpvqp266v2qrg1smdgd8p.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "819187053781-in7gfgm5527cpvqp266v2qrg1smdgd8p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvqFUKDNAq1uTc6dfTXsWeVuyjNMvwumc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819187053781:android:65164c1e586185f6",
+        "android_client_info": {
+          "package_name": "com.ubia.xiaochang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "819187053781-in7gfgm5527cpvqp266v2qrg1smdgd8p.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "819187053781-in7gfgm5527cpvqp266v2qrg1smdgd8p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvqFUKDNAq1uTc6dfTXsWeVuyjNMvwumc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

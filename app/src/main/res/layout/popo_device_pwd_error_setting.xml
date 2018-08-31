@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/device_set_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bkground_none_color"
+    android:orientation="vertical" >
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/detail_title" />
+
+    <TextView
+        android:id="@+id/pwd_tip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:layout_marginLeft="25dp"
+        android:gravity="center_vertical"
+        android:text="@string/page13_tips_key_error"
+        android:textColor="@color/color_text_color" />
+
+    <RelativeLayout
+        android:id="@+id/pw1_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x140"
+        android:layout_marginLeft="@dimen/x66"
+        android:layout_marginRight="@dimen/x66"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/connection_edit"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/tx1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="23dp"
+            android:text="@string/page10_dialog_ModifySecurityCode"
+            android:textColor="@color/color_setting_txt"
+            android:textSize="14dp"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/setting_newpwd_et2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_marginRight="@dimen/x86"
+            android:layout_toRightOf="@id/tx1"
+            android:background="@null"
+            android:hint="@string/page10_txtNewPassword"
+            android:textColor="@color/color_setting_title"
+            android:textSize="@dimen/x40"
+            android:visibility="gone" />
+
+        <cn.ubia.widget.EditTextDrawable
+            android:id="@+id/setting_newpwd_et"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1.0"
+            android:background="@null"
+            android:capitalize="characters"
+            android:drawableRight="@drawable/add_icon_seen"
+            android:hint="@string/page10_txtNewPassword"
+            android:inputType="textPassword"
+            android:maxLength="12"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:textColor="@color/color_setting_title"
+            android:textColorHint="#666666"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="@dimen/x40" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.5px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_bkground_none_color" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.5px"
+            android:layout_alignParentTop="true"
+            android:background="@color/color_bkground_none_color" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="13dp"
+            android:src="@drawable/setting_jinru"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnok"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/x120"
+        android:layout_marginLeft="@dimen/x66"
+        android:layout_marginRight="@dimen/x66"
+        android:layout_marginTop="@dimen/x66"
+        android:background="@drawable/selector_round_btn"
+        android:text="@string/page10_use"
+        android:textColor="@color/white" />
+
+</LinearLayout>

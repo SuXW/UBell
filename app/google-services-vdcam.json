@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "609848160516",
+    "firebase_url": "https://vdcam-8361c.firebaseio.com",
+    "project_id": "vdcam-8361c",
+    "storage_bucket": "vdcam-8361c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609848160516:android:55a838fe6007c47f",
+        "android_client_info": {
+          "package_name": "cn.ubia.vdcam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "609848160516-gd56jj8raci2uddflkfjchfqj9qccud9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXXnjuDD8ARbniP8sKb9zEqpMz-WGA49Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

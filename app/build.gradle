@@ -1,0 +1,345 @@
+apply plugin: 'com.android.application'
+android {
+    signingConfigs {
+        config {
+            keyAlias 'ubia_upload.keystore'
+            keyPassword 'UbiaDist2016'
+            storeFile file('E:/MyWork/workspace/key/ubia_upload.keystore')
+            storePassword 'UbiaDist2016'
+        }
+    }
+    compileSdkVersion 26
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 26
+        multiDexEnabled true
+        versionCode 95// 版本
+        versionName "1.0.95"
+        flavorDimensions "versionCode"
+        signingConfig signingConfigs.config
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi'//, 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+    }
+    dexOptions {
+        dexInProcess true
+        preDexLibraries true
+        javaMaxHeapSize "8g"
+        incremental true
+    }
+    buildTypes {
+        debug {
+            //混淆
+            minifyEnabled true
+            //Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            multiDexEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+        release {
+            //混淆
+            minifyEnabled true
+            //Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            multiDexEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+    }
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+        // 防止在发布的时候出现因MissingTranslation导致Build Failed!
+        disable 'MissingTranslation'
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    productFlavors {
+        UBell {
+            applicationId "cn.ubia.UBell"
+            manifestPlaceholders = [APP_NAME: "@string/app_name",
+                                    APP_ICON: "@drawable/icon_96",
+                                    APP_ID  : applicationId,
+                                    JPUSH_APPKEY : "b2743f78772d46703a23e3a6", //JPush上注册的包名对应的appkey.
+                                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                                    JPUSH_PKGNAME: applicationId
+
+            ]
+            buildConfigField("String", "MIPUSHID", "\"2882303761517627132\"");
+            buildConfigField("String", "MIPUSHKEY", "\"5881762729132\"");
+            buildConfigField("boolean","bAnumber","false");//密码配置规则，包含数字
+            buildConfigField("boolean","b8characters","true");//大于8个字符
+            buildConfigField("boolean","bAnuppercaseletter","false");//含大写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            buildConfigField("String", "OSSAK","\"LTAINVagkNN5QhxV\"");
+            buildConfigField("String", "OSSSK","\"UWa4RX3Zuoz9ngDXlK2UT4XOwJojZ8\"");
+            buildConfigField("String", "OSSBUCKET","\"ubell\"");
+	    	signingConfig signingConfigs.config
+        }
+        doorview {
+            applicationId "com.rv.doorview"
+            manifestPlaceholders = [APP_NAME: "@string/app_name",
+                                    APP_ICON: "@drawable/icon_96",
+                                    APP_ID  : applicationId,
+									JPUSH_APPKEY : "9e6171ce052f5eb478a5bec4", //JPush上注册的包名对应的appkey.
+                                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                                    JPUSH_PKGNAME: applicationId
+            ]
+            buildConfigField("String", "MIPUSHID", "\"2882303761517702361\"");
+            buildConfigField("String", "MIPUSHKEY", "\"5731770240361\"");
+            buildConfigField("boolean","bAnumber","false");//密码配置规则，包含数字
+            buildConfigField("boolean","b8characters","true");//大于8个字符
+            buildConfigField("boolean","bAnuppercaseletter","false");//含大写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            signingConfig signingConfigs.config
+        }
+        vdcam {
+            applicationId "cn.ubia.vdcam"
+            manifestPlaceholders = [APP_NAME: "@string/app_name",
+                                    APP_ICON: "@drawable/icon_96",
+                                    APP_ID  : applicationId,
+									JPUSH_APPKEY : "418e15c66b91a6cf3031bdd9", //JPush上注册的包名对应的appkey.
+                                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                                    JPUSH_PKGNAME: applicationId
+            ]
+            buildConfigField("String", "MIPUSHID", "\"2882303761517708750\"");
+            buildConfigField("String", "MIPUSHKEY", "\"5381770817750\"");
+            buildConfigField("boolean","bAnumber","false");//密码配置规则，包含数字
+            buildConfigField("boolean","b8characters","true");//大于8个字符
+            buildConfigField("boolean","bAnuppercaseletter","false");//含大写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            buildConfigField("String", "OSSAK","\"LTAIzHYT6XD6GPxJ\"");//含小写
+            buildConfigField("String", "OSSSK","\"nliBYLMMtymwiBXudvK5n9vu7qiDBC\"");//含小写
+            buildConfigField("String", "OSSBUCKET","\"zccam\"");
+            signingConfig signingConfigs.config
+        }
+        Anybell {
+            applicationId "cn.ubia.Anybell"
+            manifestPlaceholders = [APP_NAME: "@string/app_name",
+                                    APP_ICON: "@drawable/icon_96",
+                                    APP_ID  : applicationId,
+									JPUSH_APPKEY : "cb3f5ce47e1a6da40703151a", //JPush上注册的包名对应的appkey.
+                                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                                    JPUSH_PKGNAME: applicationId
+
+            ]
+            buildConfigField("String", "MIPUSHID", "\"2882303761517708748\"");
+            buildConfigField("String", "MIPUSHKEY", "\"5351770827748\"");
+            buildConfigField("boolean","bAnumber","false");//密码配置规则，包含数字
+            buildConfigField("boolean","b8characters","true");//大于8个字符
+            buildConfigField("boolean","bAnuppercaseletter","false");//含大写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            buildConfigField("String", "OSSAK","\"LTAIizQ8aKS1MOyg\"");//含小写
+            buildConfigField("String", "OSSSK","\"KsYu80dtsk8q6c5EK68hkoKw8SOwIj\"");//含小写
+            buildConfigField("String", "OSSBUCKET","\"anybell\"");
+            signingConfig signingConfigs.config
+        }
+        XBell {
+            applicationId "cn.ubia.XBell"
+            manifestPlaceholders = [APP_NAME: "@string/app_name",
+                                    APP_ICON: "@drawable/icon_96",
+                                    APP_ID  : applicationId,
+								    JPUSH_APPKEY : "911d98a0c77ef26473b89c3f", //JPush上注册的包名对应的appkey.
+                                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                                    JPUSH_PKGNAME: applicationId
+
+            ]
+            buildConfigField("String", "MIPUSHID", "\"2882303761517676233\"");
+            buildConfigField("String", "MIPUSHKEY", "\"5951767652233\"");
+            buildConfigField("boolean","bAnumber","false");//密码配置规则，包含数字
+            buildConfigField("boolean","b8characters","true");//大于8个字符
+            buildConfigField("boolean","bAnuppercaseletter","false");//含大写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            buildConfigField("String", "OSSAK","\"LTAIIybweW5shgxn\"");//含小写
+            buildConfigField("String", "OSSSK","\"oHuQq8yCH3O9Kp4iyxsDcalOvaXDeP\"");//含小写
+            buildConfigField("String", "OSSBUCKET","\"xbell\"");
+            signingConfig signingConfigs.config
+        }
+        yfcxsh {
+            applicationId "cn.ubia.yfcxsh"
+            manifestPlaceholders = [APP_NAME: "@string/app_name",
+                                    APP_ICON: "@drawable/icon_96",
+                                    APP_ID  : applicationId,
+									JPUSH_APPKEY : "8d5ecff7068f47039781eea8", //JPush上注册的包名对应的appkey.
+                                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                                    JPUSH_PKGNAME: applicationId
+
+            ]
+            buildConfigField("String", "MIPUSHID", "\"2882303761517686964\"");
+            buildConfigField("String", "MIPUSHKEY", "\"5621768683964\"");
+            buildConfigField("boolean","bAnumber","false");//密码配置规则，包含数字
+            buildConfigField("boolean","b8characters","true");//大于8个字符
+            buildConfigField("boolean","bAnuppercaseletter","false");//含大写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            signingConfig signingConfigs.config
+        }
+        xshcam {
+            applicationId "cn.ubia.xshcam"
+            manifestPlaceholders = [APP_NAME: "@string/app_name",
+                                    APP_ICON: "@drawable/icon_96",
+                                    APP_ID  : applicationId,
+									JPUSH_APPKEY : "eec7744d5583b9c0254ba260", //JPush上注册的包名对应的appkey.
+                                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                                    JPUSH_PKGNAME: applicationId
+
+            ]
+            buildConfigField("String", "MIPUSHID", "\"2882303761517711460\"");
+            buildConfigField("String", "MIPUSHKEY", "\"5721771198460\"");
+            buildConfigField("boolean","bAnumber","false");//密码配置规则，包含数字
+            buildConfigField("boolean","b8characters","true");//大于8个字符
+            buildConfigField("boolean","bAnuppercaseletter","false");//含大写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            buildConfigField("String", "OSSAK","\"LTAIJll9eT087F2w\"");
+            buildConfigField("String", "OSSSK","\"uN3zAgF4tClqd98BnGEZ1pqMDqv5PT\"");
+            buildConfigField("String", "OSSBUCKET","\"xshcam\"");
+            signingConfig signingConfigs.config
+        }
+        iCam {
+            applicationId "com.ubia.xiaochang"
+            manifestPlaceholders = [APP_NAME: "@string/app_name",
+                                    APP_ICON: "@drawable/icon_96",
+                                    APP_ID  : applicationId,
+                                    JPUSH_APPKEY : "f47e275636520fb44aea7edc", //JPush上注册的包名对应的appkey.
+                                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                                    JPUSH_PKGNAME: applicationId
+            ]
+            buildConfigField("String", "MIPUSHID", "\"2882303761517763288\"");
+            buildConfigField("String", "MIPUSHKEY", "\"5801776362288\"");
+            buildConfigField("boolean","bAnumber","false");//密码配置规则，包含数字
+            buildConfigField("boolean","b8characters","true");//大于8个字符
+            buildConfigField("boolean","bAnuppercaseletter","false");//含大写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            buildConfigField("String", "OSSAK","\"LTAIZdhW1ep8AaYJ\"");
+            buildConfigField("String", "OSSSK","\"3asyVaVNPdEAcEiAvqT75iKFIW0tWx\"");
+            buildConfigField("String", "OSSBUCKET","\"xchang\"");
+            signingConfig signingConfigs.config
+        }
+        iCloudSee {
+            applicationId "cn.ubia.icloudsee"
+            manifestPlaceholders = [APP_NAME: "@string/app_name",
+                                    APP_ICON: "@drawable/icon_96",
+                                    APP_ID  : applicationId,
+                                    JPUSH_APPKEY : "f6f6a8c161eb4bcbb2e0a87d", //JPush上注册的包名对应的appkey.
+                                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                                    JPUSH_PKGNAME: applicationId
+            ]
+            buildConfigField("String", "MIPUSHID", "\"2882303761517786310\"");
+            buildConfigField("String", "MIPUSHKEY", "\"5341778698310\"");
+            buildConfigField("boolean","bAnumber","false");//密码配置规则，包含数字
+            buildConfigField("boolean","b8characters","true");//大于8个字符
+            buildConfigField("boolean","bAnuppercaseletter","false");//含大写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            buildConfigField("String", "OSSAK","\"LTAIR5YaHJCdct5S\"");
+            buildConfigField("String", "OSSSK","\"ntpSD49v8VeyIdnIbA7t7ZA9R8VIkr\"");
+            buildConfigField("String", "OSSBUCKET","\"icloudsee\"");
+            signingConfig signingConfigs.config
+        }
+        MPTool {
+            applicationId "cn.abc.MPTool"
+            manifestPlaceholders = [APP_NAME: "@string/app_name",
+                                    APP_ICON: "@drawable/icon_96",
+                                    APP_ID  : applicationId,
+									JPUSH_APPKEY : "eca1021e0676c072e6178a86", //JPush上注册的包名对应的appkey.
+                                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                                    JPUSH_PKGNAME: applicationId
+
+            ]
+            buildConfigField("String", "MIPUSHID", "\"2882303761517683889\"");
+            buildConfigField("String", "MIPUSHKEY", "\"5821768373889\"");
+            buildConfigField("boolean","bAnumber","false");//密码配置规则，包含数字
+            buildConfigField("boolean","b8characters","true");//大于8个字符
+            buildConfigField("boolean","bAnuppercaseletter","false");//含大写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            signingConfig signingConfigs.config
+        }
+        AnShiCloud {
+            applicationId "com.echosoft.anshicloud"
+            manifestPlaceholders = [APP_NAME: "@string/app_name",
+                                    APP_ICON: "@drawable/icon_96",
+                                    APP_ID  : applicationId,
+                                    JPUSH_APPKEY : "0778c191b51a8ae78e4e531e", //JPush上注册的包名对应的appkey.
+                                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                                    JPUSH_PKGNAME: applicationId
+
+            ]
+            buildConfigField("String", "MIPUSHID", "\"2882303761517729817\"");
+            buildConfigField("String", "MIPUSHKEY", "\"5681772945817\"");
+            buildConfigField("boolean","bAnumber","false");//密码配置规则，包含数字
+            buildConfigField("boolean","b8characters","true");//大于8个字符
+            buildConfigField("boolean","bAnuppercaseletter","false");//含大写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            buildConfigField("String", "OSSAK","\"LTAIrX4gmOpQ4YVf\"");
+            buildConfigField("String", "OSSSK","\"J1mT5WydmXvtTa9uKTvG7SpP0utnym\"");
+            buildConfigField("String", "OSSBUCKET","\"anshicloud\"");
+            signingConfig signingConfigs.config
+        }
+        BTG {
+            applicationId "cn.ubia.btg"
+            manifestPlaceholders = [APP_NAME: "@string/app_name",
+                                    APP_ICON: "@drawable/icon_96",
+                                    APP_ID  : applicationId,
+                                    JPUSH_APPKEY : "458bf5a3f683615911e80045", //JPush上注册的包名对应的appkey.
+                                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                                    JPUSH_PKGNAME: applicationId
+
+            ]
+            buildConfigField("String", "MIPUSHID", "\"2882303761517838206\"");
+            buildConfigField("String", "MIPUSHKEY", "\"5741783825206\"");
+            buildConfigField("boolean","bAnumber","false");//密码配置规则，包含数字
+            buildConfigField("boolean","b8characters","true");//大于8个字符
+            buildConfigField("boolean","bAnuppercaseletter","false");//含大写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            buildConfigField("String", "OSSAK","\"LTAIFJPDK6Z3YHz4\"");
+            buildConfigField("String", "OSSSK","\"8rNRQKW81YBQYd07mjrJ7Tg67E0ncY\"");
+            buildConfigField("String", "OSSBUCKET","\"btg\"");
+            signingConfig signingConfigs.config
+        }
+
+        Soliom {
+            applicationId "cn.ubia.soliom"
+            manifestPlaceholders = [APP_NAME: "@string/app_name",
+                                    APP_ICON: "@drawable/icon_96",
+                                    APP_ID  : applicationId,
+                                    JPUSH_APPKEY : "1eea27f462f6f95e512e3a57", //JPush上注册的包名对应的appkey.
+                                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                                    JPUSH_PKGNAME: applicationId
+
+            ]
+            buildConfigField("String", "MIPUSHID", "\"2882303761517843967\"");
+            buildConfigField("String", "MIPUSHKEY", "\"5771784324967\"");
+            buildConfigField("boolean","bAnumber","false");//密码配置规则，包含数字
+            buildConfigField("boolean","b8characters","true");//大于8个字符
+            buildConfigField("boolean","bAnuppercaseletter","false");//含大写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            buildConfigField("String", "OSSAK","\"LTAI0cwBPooz7EAG\"");
+            buildConfigField("String", "OSSSK","\"RA1RJmQP1XcHi2SSHlOsIjaSeZ1u3u\"");
+            buildConfigField("String", "OSSBUCKET","\"soliom\"");
+            signingConfig signingConfigs.config
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.google.firebase:firebase-core:11.0.4'
+    compile 'com.google.firebase:firebase-messaging:11.0.4'
+    compile 'com.android.support:multidex:1.0.0'
+    compile 'com.android.support:support-v4:26.1.0'
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile project(':oss-android-sdk')
+    compile 'cn.jiguang.sdk:jpush:3.1.3'
+    compile 'cn.jiguang.sdk:jcore:1.1.9'
+}
+apply plugin: 'com.google.gms.google-services'

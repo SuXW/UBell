@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg_color_left_pane"
+    android:focusableInTouchMode="true" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_left_pane_item"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:layout_width="0.0px"
+                android:layout_height="0.0px"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+
+            <!--
+                 <com.voyzee.util.ui.AutoCompleteEdit
+                android:id="@id/search"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edit"
+                android:hint="@string/search_by_title_username_tags"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingBottom="6.0dip"
+                android:paddingLeft="15.0dip"
+                android:paddingRight="15.0dip"
+                android:paddingTop="6.0dip"
+                android:popupBackground="@color/gray_color"
+                android:textColor="@color/dark_text_color"
+                android:textColorHint="@color/gray_color"
+                android:textSize="16.0sp"
+                android:textStyle="bold" />
+            -->
+
+            <ImageButton
+                android:id="@+id/btn_search"
+                android:layout_width="30.0dip"
+                android:layout_height="30.0dip"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="5.0dip"
+                android:background="@color/transparent" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_left_pane_item" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2.0dip" >
+
+                    <ImageView
+                        android:id="@+id/avatar"
+                        android:layout_width="64.0dip"
+                        android:layout_height="64.0dip"
+                        android:layout_gravity="center"
+                        android:background="@drawable/icon_72"
+                        android:padding="@dimen/story_frame_padding"
+                        android:scaleType="fitXY"
+                         />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/user_name"
+                    style="@style/Title"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="4.0dip"
+                    android:layout_weight="1.0"
+                    android:clickable="false"
+                    android:enabled="false"
+                    android:gravity="left|center"
+                    android:linksClickable="true"
+                    android:selectAllOnFocus="false"
+                    android:text="@string/app_name" />
+
+                <Button
+                    android:id="@+id/add_story"
+                    style="@style/DarkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:drawableLeft="@drawable/plus_light"
+                    android:gravity="center_vertical"
+                    android:padding="10.0dip"
+                    android:text="@string/page27_create_story"
+                    android:textSize="13.0sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/my_stories_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_left_pane_item"
+            android:paddingBottom="@dimen/padding_left_pane"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="@dimen/padding_left_pane" >
+
+            <TextView
+                style="@style/LeftPaneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:text="@string/page27_menu_my_camera" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/featured_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_left_pane_item"
+            android:paddingBottom="@dimen/padding_left_pane"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="@dimen/padding_left_pane"
+            android:visibility="gone" >
+
+            <TextView
+                style="@style/LeftPaneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:text="@string/page27_PublicCameraFragment_PublicCameraActivity_menu_public_camera" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/notifications_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_left_pane_item"
+            android:paddingBottom="@dimen/padding_left_pane"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="@dimen/padding_left_pane" >
+
+            <TextView
+                style="@style/LeftPaneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:text="@string/page27_menu_event" />
+
+            <TextView
+                android:id="@+id/notifications"
+                style="@style/LeftPaneLabel"
+                android:layout_width="50.0dip"
+                android:layout_height="25.0dip"
+                android:layout_gravity="right|center"
+                android:layout_marginLeft="5.0dip"
+                android:background="@drawable/bg_notifications_count"
+                android:gravity="center"
+                android:padding="0.0dip"
+                android:text="2"
+                android:textSize="14.0sp"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/timeline_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_left_pane_item"
+            android:paddingBottom="@dimen/padding_left_pane"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="@dimen/padding_left_pane" >
+
+            <TextView
+                style="@style/LeftPaneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:text="@string/page27_menu_photo" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/followers_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_left_pane_item"
+            android:paddingBottom="@dimen/padding_left_pane"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="@dimen/padding_left_pane"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/LeftPaneLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/page27_followers" />
+
+                <TextView
+                    android:id="@+id/followers_total"
+                    style="@style/LeftPaneLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5.0dip"
+                    android:padding="0.0dip"
+                    android:text="2"
+                    android:textColor="@color/gray_color" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/followers"
+                style="@style/LeftPaneLabel"
+                android:layout_width="50.0dip"
+                android:layout_height="25.0dip"
+                android:layout_gravity="right|center"
+                android:layout_marginLeft="5.0dip"
+                android:background="@drawable/bg_notifications_count"
+                android:gravity="center"
+                android:padding="0.0dip"
+                android:textSize="14.0sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/following_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_left_pane_item"
+            android:paddingBottom="@dimen/padding_left_pane"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="@dimen/padding_left_pane"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/LeftPaneLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:text="@string/page27_following" />
+
+                <TextView
+                    android:id="@+id/following_total"
+                    style="@style/LeftPaneLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5.0dip"
+                    android:gravity="center"
+                    android:padding="0.0dip"
+                    android:textColor="@color/gray_color" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/cloud_photo_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_left_pane_item"
+            android:paddingBottom="@dimen/padding_left_pane"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="@dimen/padding_left_pane"
+            android:visibility="gone" >
+
+            <TextView
+                style="@style/LeftPaneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:text="@string/page27_menu_cloud_photo" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/cloud_video_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_left_pane_item"
+            android:paddingBottom="@dimen/padding_left_pane"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="@dimen/padding_left_pane"
+            android:visibility="gone" >
+
+            <TextView
+                style="@style/LeftPaneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:text="@string/page27_menu_cloud_video" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/camera_settings_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_left_pane_item"
+            android:paddingBottom="@dimen/padding_left_pane"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="@dimen/padding_left_pane" >
+
+            <TextView
+                style="@style/LeftPaneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:text="@string/page27_change_ipc" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/settings_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_left_pane_item"
+            android:paddingBottom="@dimen/padding_left_pane"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="@dimen/padding_left_pane" >
+
+            <TextView
+                style="@style/LeftPaneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:text="@string/page27_menu_user" />
+        </FrameLayout>
+
+       <FrameLayout
+            android:id="@+id/add_device_frame"
+            android:visibility="gone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_left_pane_item"
+            android:paddingBottom="@dimen/padding_left_pane"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="@dimen/padding_left_pane" >
+
+            <TextView
+                style="@style/LeftPaneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:text="@string/page27_page19_PublicCameraFragment_camera_list_add_device" />
+        </FrameLayout>
+        
+        <FrameLayout
+            android:id="@+id/preferences_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_left_pane_item"
+            android:paddingBottom="@dimen/padding_left_pane"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="@dimen/padding_left_pane"
+            android:visibility="gone" >
+
+            <TextView
+                style="@style/LeftPaneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:text="@string/page27_preferences" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/uploading"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_left_pane_item"
+            android:paddingBottom="@dimen/padding_left_pane"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="@dimen/padding_left_pane"
+            android:visibility="gone" >
+
+            <TextView
+                style="@style/LeftPaneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:text="@string/page27_uploading_menu" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/signout_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_left_pane_item"
+            android:paddingBottom="@dimen/padding_left_pane"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="@dimen/padding_left_pane"
+            android:visibility="gone" >
+
+            <TextView
+                style="@style/LeftPaneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:text="@string/page27_menu_quit" />
+        </FrameLayout>
+    </LinearLayout>
+
+</ScrollView>

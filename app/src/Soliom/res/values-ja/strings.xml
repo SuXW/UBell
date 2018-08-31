@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Soliom</string>
+    <string name="fragment_playbackactivity_menu_title">Soliom</string>
+    <string name="page14_p3_connect_camera_he">テクニカルサポートとファームウェアアップデートについては、southerntelecom.com/Soliomにアクセスしてください.  </string>
+    <string name="PhotoGridActivity_local_local">Soliomアルバム</string>
+    <string name="automanagercontent">Soliomがデバイスからプッシュ通知を受け取るための自動起動許可を許可してください</string>
+    <string name="commitautomanagercontent">あなたがSoliomの自動起動を許可していることを確認してください</string>
+    <string name="commitopennotifycontent">Soliomがデバイスからプッシュ通知を受け取るための通知許可を許可してください</string>
+    <string name="commitopennotify">Soliomがデバイスからプッシュ通知を受け取るための通知許可を許可してください</string>
+    <string name="location_right">ロケーションサーバーが有効になっており、Soliomに権限が与えられていることを確認してください</string>
+</resources>

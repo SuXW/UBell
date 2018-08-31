@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="environment_mode">
+        <item>@string/scene_none</item>
+        <item>@string/scene_blc</item>
+        <item>@string/scene_ir</item>
+        <item>@string/scene_hlc</item>
+        <item>@string/scene_dyn</item>
+    </string-array>
+    <string-array name="controy_array">
+        <item>@string/other</item>
+        <item>@string/China</item>
+        <!--  <item>@string/usa</item>
+          <item>@string/Germany</item>
+          <item>@string/Ireland</item>
+          <item>@string/Japan</item>
+          <item>@string/Singapore</item>
+          <item>@string/Russian</item>
+          <item>@string/China</item>
+          <item>@string/HongKong</item>
+          <item>@string/TaiWan</item>
+          <item>@string/other</item>-->
+
+    </string-array>
+    <string-array name="controycode_array">
+
+        <item>"US"</item>
+        <item>"CN"</item>
+        <!-- <item>"US"</item>
+         <item>"DE"</item>
+         <item>"IE"</item>
+         <item>"JP"</item>
+         <item>"SG"</item>
+         <item>"RU"</item>
+         <item>"CN"</item>
+         <item>"HK"</item>
+         <item>"TW"</item>
+         <item>"OTHER"</item>-->
+
+    </string-array>
+    <string-array name="event_notification">
+        <item>@string/page10_quiet_model</item>
+        <item>@string/page10_sound_model</item>
+        <item>@string/page10_vibrate_model</item>
+        <item>@string/page10_vibrate_sound_model</item>
+    </string-array>
+
+    <!--
+    <string-array name="volume_setting">
+        <item>@string/highest</item>
+        <item>@string/higher</item>
+        <item>@string/high</item>
+        <item>@string/lower</item>
+        <item>@string/lowest</item>
+    </string-array>
+
+
+    -->
+    <string-array name="event_type">
+        <item>@string/page20_motion_all</item>
+        <item>@string/page20_evttype_motion_detection</item>
+        <item>@string/page20_evttype_fulltime_recording</item>
+    </string-array>
+    <string-array name="motion_detection">
+        <item>@string/page10_u_off</item>
+        <item>@string/page10_u_on</item>
+    </string-array>
+    <string-array name="recording_mode">
+        <item>@string/page10_u_off</item>
+      <!--  <item>@string/page10_u_on</item>-->
+        <item>@string/page10_all_day_record</item>
+        <item>@string/page10_alarm_record</item>
+    </string-array>
+    <string-array name="pir_mode">
+        <item>@string/page10_close_pir</item>
+        <item>@string/page10_open_pir</item>
+    </string-array>
+    <string-array name="osd_mode">
+        <item>@string/page10_u_off</item>
+        <item>@string/page10_u_on</item>
+    </string-array>
+    <string-array name="video_flip">
+        <item>@string/page10_normal</item>
+        <item>@string/page10_rotate</item>
+        <item>@string/page10_mirror</item>
+        <item>@string/page10_mirror_rotate</item>
+    </string-array>
+    <string-array name="video_quality">
+        <item>@string/page10_highest</item>
+        <item>@string/page10_higher</item>
+        <item>@string/page10_high</item>
+        <item>@string/page10_lower</item>
+        <item>@string/page10_lowest</item>
+    </string-array>
+    <string-array name="notify_mode">
+        <item>@string/page10_u_off</item>
+        <item>@string/page10_u_on</item>
+    </string-array>
+    <string-array name="time_zone_name">
+        <item>@string/page10_tz_name_n12</item>
+        <item>@string/page10_tz_name_n11</item>
+        <item>@string/page10_tz_name_n10</item>
+        <item>@string/page10_tz_name_n09</item>
+        <item>@string/page10_tz_name_n08</item>
+        <item>@string/page10_tz_name_n07</item>
+        <item>@string/page10_tz_name_n06</item>
+        <item>@string/page10_tz_name_n05</item>
+        <item>@string/page10_tz_name_n04</item>
+        <item>@string/page10_tz_name_n03</item>
+        <item>@string/page10_tz_name_n02</item>
+        <item>@string/page10_tz_name_n01</item>
+        <item>@string/page10_tz_name_000</item>
+        <item>@string/page10_tz_name_p01</item>
+        <item>@string/page10_tz_name_p02</item>
+        <item>@string/page10_tz_name_p03</item>
+        <item>@string/page10_tz_name_p04</item>
+        <item>@string/page10_tz_name_p05</item>
+        <item>@string/page10_tz_name_p06</item>
+        <item>@string/page10_tz_name_p07</item>
+        <item>@string/page10_tz_name_p08</item>
+        <item>@string/page10_tz_name_p09</item>
+        <item>@string/page10_tz_name_p10</item>
+        <item>@string/page10_tz_name_p11</item>
+        <item>@string/page10_tz_name_p12</item>
+    </string-array>
+    <string-array name="cameraputmodel">
+        <item>@string/page10_FaceDown</item>
+        <item>@string/page10_FaceUp</item>
+        <item>@string/page10_FaceFront</item>
+    </string-array>
+    <string-array name="powerfreq">
+        <item>@string/page10_power50</item>
+        >
+        <item>@string/page10_power60</item>
+    </string-array>
+    <string-array name="pirmode_quality">
+
+        <item>@string/page10_u_off</item>
+        <item>@string/page10_lower</item>
+        <item>@string/page10_medium</item>
+        <item>@string/page10_high</item>
+
+    </string-array>
+    <string-array name="messagetype">
+
+        <item>@string/page10_noreceivetype</item>
+        <item>@string/page10_messagetypte</item>
+        <item>@string/page10_calltype</item>
+
+    </string-array>
+
+    <string-array name="dormancytime">
+
+        <item>@string/setting_dormancytime_15s</item>
+        <item>@string/setting_dormancytime_30s</item>
+        <item>@string/setting_dormancytime_60s</item>
+        <item>@string/setting_dormancytime_never</item>
+
+    </string-array>
+
+</resources>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#60000000" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_centerVertical="true"
+        android:background="@drawable/biz_popup_bg"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/biz_popup_bg" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/delete_movie" >
+
+                <ImageView
+                    android:id="@+id/movie_headimage"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="11dp"
+                    android:src="@drawable/ssdk_oks_ptr_ptr" />
+
+                <TextView
+                    android:id="@+id/movie_name_item"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/movie_headimage"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_toRightOf="@+id/movie_headimage"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="名称"
+                    android:textColor="@color/black"
+                    android:textSize="14dp" />
+
+                <ProgressBar
+                    android:id="@+id/download_progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="155dp"
+                    android:layout_height="4dp"
+                    android:layout_alignBottom="@+id/movie_headimage"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="11dp"
+                    android:layout_toRightOf="@+id/movie_headimage"
+                    android:progressDrawable="@drawable/progress_bg" />
+
+                <TextView
+                    android:id="@+id/movie_file_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/movie_name_item"
+                    android:layout_below="@+id/movie_name_item"
+                    android:layout_marginTop="2dp"
+                    android:text="435M"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#23b5bc"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/current_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="52dp"
+                    android:layout_toRightOf="@+id/download_progressBar"
+                    android:text="100%"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#23b5bc"
+                    android:textSize="9dp" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/delete_movie"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/delete_movie_bg" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/delete_movie"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/popup_download_d"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/btn_light"
+                    android:text="取   消"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

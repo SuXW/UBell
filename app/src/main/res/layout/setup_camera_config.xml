@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bkground_none_color" >
+
+    <include layout="@layout/detail_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="95dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/btnSetup_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/selector_round_btn"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="@dimen/x80"
+                android:layout_height="@dimen/x80"
+                android:background="@drawable/first_camera" />
+
+            <Button
+                android:id="@+id/btnSetup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x26"
+                android:layout_marginRight="30dp"
+                android:background="@null"
+                android:text="@string/page14_p3_setup_camera_btn"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_group2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:paddingBottom="10dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="@string/page14_p3_setup_camera_note"
+                android:textColor="@color/color_text_color_tip"
+                android:textSize="@dimen/text_size_group3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnQRCodeAdd_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/selector_round_btn"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="@dimen/x80"
+                android:layout_height="@dimen/x80"
+                android:background="@drawable/qrcode" />
+
+            <Button
+                android:id="@+id/btnQRCodeAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x26"
+                android:layout_marginRight="30dp"
+                android:background="@null"
+                android:text="@string/page14_two_search"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_group2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:paddingBottom="10dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="@string/page14_p3_qrcode_addcamera_note"
+                android:textColor="@color/color_text_color_tip"
+                android:textSize="@dimen/text_size_group3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnLanSearch_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/selector_round_btn"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="@dimen/x80"
+                android:layout_height="@dimen/x80"
+                android:background="@drawable/lan" />
+
+            <Button
+                android:id="@+id/btnLanSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x26"
+                android:layout_marginRight="30dp"
+                android:background="@null"
+                android:text="@string/page14_lan_serach"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_group2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:paddingBottom="10dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="@string/page14_p3_lansearch_addcamera_note"
+                android:textColor="@color/color_text_color_tip"
+                android:textSize="@dimen/text_size_group3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:paddingBottom="20dp"
+            android:visibility="gone"
+            >
+
+            <Button
+                android:id="@+id/btnHelpMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/setup_camera"
+                android:text="@string/page14_p3_connect_camera_help"
+                android:textColor="@color/color_text_color_tip"
+                android:textSize="@dimen/text_size_group2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:paddingBottom="10dp"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="@string/page14_p3_connect_camera_he"
+                android:textColor="@color/color_text_color_tip"
+                android:textSize="@dimen/text_size_group3" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

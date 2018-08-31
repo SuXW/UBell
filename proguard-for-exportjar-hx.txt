@@ -1,0 +1,44 @@
+-injars /Users/maxwell/Downloads/ubiaVRConfig.jar
+-outjars /Users/maxwell/Downloads/m2fmw
+
+-libraryjars /Users/maxwell/Downloads/adt-bundle-mac-x86_64-20140702/sdk/platforms/android-20/android.jar
+
+-dontshrink
+-dontoptimize
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+-printmapping /Users/maxwell/Downloads/mapping.txt
+-keepattributes Signature
+-dontwarn com.ubia.vr.**
+
+
+-keep public class com.ubia.vr.GLView {
+    <fields>;
+    <methods>;
+}
+
+-keep public class com.ubia.vr.VRConfig {
+    <fields>;
+    <methods>;
+}
+
+-keep public class com.ubia.vr.SurfaceDecoder {
+    <fields>;
+    <methods>;
+}
+
+-keep,allowshrinking class *
+
+-keep,allowshrinking class com.ubia.vr.GLView {
+    <fields>;
+    <methods>;
+}
+
+-keep,allowshrinking class com.ubia.vr.VRConfig {
+    <fields>;
+    <methods>;
+}
+
+-keep,allowshrinking class com.ubia.vr.SurfaceDecoder {
+    <fields>;
+    <methods>;
+}

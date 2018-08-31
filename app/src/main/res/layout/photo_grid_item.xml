@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/cuepointListItemThumbnail"
+            android:layout_width="192.0dip"
+            android:layout_height="108.0dip"
+            android:src="@drawable/usnap_bg" />
+     	<ImageView
+            android:id="@+id/PhotoPlayButton"
+            android:layout_width="102.0dip"
+            android:layout_height="48.0dip"
+            android:layout_gravity="center"
+            android:src="@drawable/play_button" />
+        <ImageView
+            android:id="@+id/del_hook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/auth_follow_cb_chd"
+            android:visibility="gone"
+            android:scaleType="center" />
+    </FrameLayout>
+
+</LinearLayout>

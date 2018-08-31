@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BTG IOT</string>
+    <string name="fragment_playbackactivity_menu_title">BTG IOT</string>
+    <string name="page14_p3_connect_camera_he">テクニカルサポートとファームウェアアップデートについては、southerntelecom.com/BTG IOTにアクセスしてください.  </string>
+    <string name="PhotoGridActivity_local_local">アルバム</string>
+    <string name="automanagercontent">BTG IOTがデバイスからプッシュ通知を受け取るための自動起動許可を許可してください</string>
+    <string name="commitautomanagercontent">あなたがBTG IOTの自動起動を許可していることを確認してください</string>
+    <string name="commitopennotifycontent">BTG IOTがデバイスからプッシュ通知を受け取るための通知許可を許可してください</string>
+    <string name="commitopennotify">BTG IOTがデバイスからプッシュ通知を受け取るための通知許可を許可してください</string>
+    <string name="location_right">ロケーションサーバーが有効になっており、BTG IOTに権限が与えられていることを確認してください</string>
+</resources>

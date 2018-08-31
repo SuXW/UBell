@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="10.0dip"
+    android:background="#ff333333"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10.0dip"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/page19_txtSearchSoftMyap"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@id/txtSearchTimeDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="红蓝灯交替闪烁"
+            android:textColor="#ffdddddd"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">XSH</string>
+    <string name="fragment_playbackactivity_menu_title">XSH</string>
+    <string name="page14_p3_connect_camera_he">Visita southerntelecom.com/XSH per assistenza tecnica e aggiornamenti del firmware  </string>
+    <string name="PhotoGridActivity_local_local">XSH Album</string>
+    <string name="commitautomanagercontent">Assicurati di aver abilitato il lancio automatico per XSH</string>
+    <string name="commitopennotifycontent">Assicurati di aver abilitato XSH a ricevere notifiche push dal dispositivo</string>
+    <string name="commitopennotify">Assicurati di aver abilitato XSH a ricevere notifiche push dal dispositivo</string>
+    <string name="location_right">Assicurati che il server di localizzazione sia abilitato e autorizzato per XSH</string>
+    <string name="location_right_chose">Selezione la localizzazione del dispositivo </string>
+
+
+</resources>

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "519515928054",
+    "firebase_url": "https://anshicloud-35727.firebaseio.com",
+    "project_id": "anshicloud-35727",
+    "storage_bucket": "anshicloud-35727.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:519515928054:android:46b3e65fb85c228b",
+        "android_client_info": {
+          "package_name": "com.echosoft.anshicloud"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "519515928054-ti3vcpif9b0aod5erp5gkr6mphj23q5j.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "519515928054-ti3vcpif9b0aod5erp5gkr6mphj23q5j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDr0QZ3chnWSQJ0EMYEOxiD3jo0LsQ-_5o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

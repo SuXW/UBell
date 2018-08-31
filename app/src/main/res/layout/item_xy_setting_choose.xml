@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="262dp"
+    android:layout_height="wrap_content" 
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/setting_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center" 
+        android:text="XY轴设置"
+        android:textColor="#4e4e4e"
+        android:textSize="17dp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="#adadad" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5.0dip"
+            android:text="x:"
+            android:id="@+id/xvalue"
+            android:textColor="#ff666666" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <SeekBar
+                android:id="@+id/seekBarx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxHeight="3dp"
+                android:paddingLeft="10dip" />
+
+        </LinearLayout>
+
+        <ImageView 
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#adadad" />
+
+        <TextView
+             android:id="@+id/yvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5.0dip"
+            android:layout_marginTop="5dp"
+            android:text="y:"
+            android:textColor="#ff666666" />
+
+        <LinearLayout
+            android:id="@+id/mic_ll"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <SeekBar
+                android:id="@+id/seekBary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:maxHeight="3dp"  >
+            </SeekBar>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="#adadad" />
+
+        <TextView
+            android:id="@+id/voice_change_ok"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" 
+            android:gravity="center"
+            android:text="@string/ok" 
+            android:textSize="16dp" />
+    </LinearLayout>
+
+</LinearLayout>

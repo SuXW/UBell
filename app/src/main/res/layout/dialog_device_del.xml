@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+      android:background="@drawable/item_camera_setting"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:gravity="center_horizontal" 
+        android:textColor="@color/red"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/comfirm_del_device_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal" 
+        android:textColor="#4e4e4e"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/comfirm_del_device_content2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" 
+        android:textColor="#4e4e4e"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/comfirm_del_device_content3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center_horizontal" 
+        android:textColor="#4e4e4e"
+        android:textSize="14dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp" >
+
+        <ImageView
+            android:id="@+id/separator"
+            android:layout_width="0.3dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/comfirm_del_device_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/separator"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="#848484"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/comfirm_del_device_comfirm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/separator"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/ok"
+            android:textColor="@color/red"
+            android:textSize="16dp" />
+    </RelativeLayout>
+
+</LinearLayout>

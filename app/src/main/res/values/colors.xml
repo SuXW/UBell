@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="gray_color">#ff888888</color>
+    <color name="white">#ffffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="line_color">#FFABABAB</color>
+    <color name="red">#FF0000</color>
+    <color name="left_menu_bg">#FBFAF0</color>
+    <color name="menu_item_selectd_color">#f9edd1</color>
+    <color name="title_bg">#f08300</color>
+    <color name="background_bg">#ffffff</color>
+    <color name="event_color">#FE7B02</color>
+    <color name="event_selected_color">#8048CA02</color>
+    <color name="tab_nav_nor">#cccccc</color>
+    <color name="tab_text_color_sel">#f46a07</color>
+    <color name="tab_text_color_nor">#999999</color>
+    <color name="upload_failed_text_color">#ffe34b</color>
+    <color name="about_bg">#fb7b29</color>
+    <color name="white1">#ffffffff</color>
+
+    <item name="settings_bg_color" type="color">@color/white1</item>
+
+    <color name="text_color_light">#ff101010</color>
+    <color name="dark_gray_text_color">#ff818285</color>
+    <!-- ZXing -->
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="result_image_border">#ffffffff</color>
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c0CC6600</color>
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="share_text">#ff000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="viewfinder_frame">#ff000000</color>
+    <color name="viewfinder_laser">#ffff0000</color>
+    <color name="viewfinder_mask">#ff555555</color>
+    <color name="dark_bg_color">#ff2a2a2a</color>
+
+    <item name="bg_color_left_pane" type="color">@color/dark_bg_color</item>
+
+    <color name="light_gray">#ffdfdfdf</color>
+    <color name="solid_black">#ff000000</color>
+    <color name="black">#ff000000</color>
+    <color name="bg_color_light">#ffe8e8e8</color>
+    <color name="bg_toolbar_light">#ffd0d0d0</color>
+    <color name="holo_blue_light">#ff41bae7</color>
+    
+    <color name="subtitle_color">#ff494949</color>
+    <color name="color_white">#ffffffff</color>
+    <color name="color_shadow">#ff333333</color>
+    <color name="cache_color_hint">#00000000</color>
+    <color name="color_divider">#90000000</color>
+    <color name="color_black">#ff000000</color>
+    <color name="color_less_black">#ee000000</color>
+    <color name="color_info">#ff7F7F7F</color>
+    <color name="more_subtitle">#ff0044ff</color>
+    <color name="color_blue">#ff0000ff</color>
+    <color name="color_bg_less_shadow">#ff888888</color>
+    <color name="color_green">#ff00dd11</color>
+    <color name="color_grey">#88888888</color>
+    <color name="color_line">#ff444444</color>
+    <color name="color_top_bg">#ff333333</color>
+    <color name="color_grid_pressed">#FF0EAAE4</color>
+    <color name="color_grid_bg">#ff0caae4</color>
+    <color name="color_setting_title_bg">#ff888888</color>
+    <color name="color_less_blue">#ff32aff6</color>
+    <color name="color_ptz_blue">#ff0044aa</color>
+    <color name="color_bg">#ff666666</color>
+    <color name="button_bg_no">#60ffffff</color>
+    <!-- 下面都是用在二维码 -->
+    <color name="bg_color">#EDEDED</color>
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="help_button_view">#ffcccccc</color>
+    <color name="help_view">#ff404040</color>
+    
+    <color name="sbc_header_text">#ff808080</color>
+    <color name="sbc_header_view">#ffffffff</color>
+    <color name="sbc_list_item">#fffff0e0</color>
+    <color name="sbc_layout_view">#ffffffff</color>
+    <color name="sbc_page_number_text">#ff000000</color>
+    <color name="sbc_snippet_text">#ff4b4b4b</color>
+  
+    <color name="share_view">#ffffffff</color>
+    <color name="status_view">#50000000</color> 
+    <color name="header">#58567D</color>
+    <color name="grgray">#686868</color>
+    <color name="color_less_blue_timeline">#a0FF6100</color>
+    <color name="color_skin_color">#00c1f3</color>
+    <color name="color_text_color">#99999999</color> 
+        <color name="color_text_color_tip">#99999999</color>
+    <color name="color_text_reverse">#00c1f3</color>
+    <color name="color_bkground_color">#FFFFFF</color>
+        <color name="color_bkground_none_color">#f3f3f3</color>
+        <color name="color_setting_txt">#ff333333</color>
+          <color name="color_setting_title">#ff666666</color>
+    <!--   <color name="color_skin_color">#E95a00</color>  orange -->
+</resources>

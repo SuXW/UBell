@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="app_name">Soliom</string>
+
+    <string name="fragment_playbackactivity_menu_title">Soliom</string>
+    <string name="page14_p3_connect_camera_he">Visite southerntelecom.com/Soliom para obtener soporte técnico y actualizaciones de firmware.  </string>
+    <string name="PhotoGridActivity_local_local">Álbum Soliom</string>
+    <string name="automanagercontent">Otorga permiso de Inicio Automático para que Soliom reciba notificaciones push del dispositivo</string>
+    <string name="commitautomanagercontent">Verifica que has permitido el inicio automático de Soliom</string>
+    <string name="commitopennotifycontent">Otorga permiso de Notificación para que Soliom reciba notificaciones push del dispositivo</string>
+    <string name="commitopennotify">Otorga permiso de Notificación para que Soliom reciba notificaciones push del dispositivo</string>
+    <string name="location_right">Verifica que el servidor de ubicación está activado y autorizado para Soliom</string>
+
+
+</resources>

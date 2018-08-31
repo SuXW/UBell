@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="app_name">iCloudSee</string>
+
+    <string name="fragment_playbackactivity_menu_title">iCloudSee</string>
+    <string name="page14_p3_connect_camera_he">Visit southerntelecom.com/iCloudSee for technical support and firmware updates.  </string>
+    <string name="PhotoGridActivity_local_local">iCloudSee Album</string>
+    <string name="automanagercontent">Please allow Auto-launch permission for iCloudSee to get push notification from device</string>
+    <string name="commitautomanagercontent">Make sure you allowed iCloudSee auto-launch</string>
+    <string name="commitopennotifycontent">Please allow Notification permission for iCloudSee to get push notification from device</string>
+    <string name="commitopennotify">Please allow Notification permission for iCloudSee to get push notification from device</string>
+    <string name="location_right">Please make sure location server is enabled and authorized to iCloudSee</string>
+
+</resources>

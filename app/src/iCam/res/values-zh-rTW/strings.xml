@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="app_name">i-Cam</string>
+
+    <string name="fragment_playbackactivity_menu_title">i-Cam</string>
+    <string name="page14_p3_connect_camera_he">請訪問Visit southerntelecom.com/i-Cam 獲取技術支持和固件升級  </string>
+    <string name="PhotoGridActivity_local_local">應用相冊</string>
+    <string name="automanagercontent">"請開啟當前應用對應權限以確保應用程序及時收到設備推送消息"</string>
+    <string name="commitautomanagercontent">"確定i-Cam 已經開啟了自啟動權限"</string>
+    <string name="commitnotifymanagercontent">"確定i-Cam 已經開啟了通知欄顯示權限"</string>
+    <string name="commitopennotifycontent">請開啟當前應用i-Cam 對應通知欄權限以確保應用程序及時收到設備推送消息</string>
+    <string name="commitopennotify">請開啟當前應用i-Cam 對應通知欄權限以確保應用程序及時收到設備推送消息</string>
+
+</resources>

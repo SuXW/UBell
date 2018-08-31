@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/backgroundnull" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerCrop"
+            android:src="@drawable/loadingpageicon" />
+
+        <TextView
+            android:layout_width="150.0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="#000000"
+            android:textSize="9pt"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="200.0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:indeterminate="true"
+            android:indeterminateOnly="true"
+            android:maxHeight="24.0dip"
+            android:minHeight="24.0dip"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="10dp"
+        android:layout_gravity="bottom"
+        android:singleLine="true"
+        android:text="@string/SplashActivity_apploadingstring"
+        android:textColor="#0000ff"
+        android:gravity="center"
+        android:layout_marginBottom="50dp"
+        android:visibility="gone"
+        android:textSize="@dimen/text_size_group3"  />
+
+</FrameLayout>

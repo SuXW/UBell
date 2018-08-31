@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "563095988394",
+    "firebase_url": "https://acam-adebb.firebaseio.com",
+    "project_id": "acam-adebb",
+    "storage_bucket": "acam-adebb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563095988394:android:20a3666fe5da0b85",
+        "android_client_info": {
+          "package_name": "cn.ubia.acam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563095988394-ok05d9lsr2o3mm3hn1b0r0vrp1g7pck7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVdyVmN-XNdaQPTcRi1nhaAiyVsOPWmJs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

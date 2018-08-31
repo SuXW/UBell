@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1056629006688",
+    "firebase_url": "https://xshc-81cd6.firebaseio.com",
+    "project_id": "xshc-81cd6",
+    "storage_bucket": "xshc-81cd6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1056629006688:android:3fc57d5aa4be594f",
+        "android_client_info": {
+          "package_name": "cn.ubia.xshcam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1056629006688-qvmlpoln8ss1k06bgmm8qlhdo7v380e2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTAU8HKZZyivCCu8URVohH4z59YPgnQ_E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/color_bkground_none_color"
+    android:orientation="vertical" >
+
+    <include layout="@layout/detail_title" />
+
+   
+    <ListView
+        android:id="@+id/list"
+        android:visibility="gone"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="49dp"
+        android:divider="@null"
+        android:dividerHeight="0.0dip"
+        android:gravity="center"
+        android:paddingBottom="6.0dip"
+        android:paddingTop="6.0dip" />
+
+    <LinearLayout
+        android:id="@+id/empty_layout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <Button
+            android:id="@+id/btnAddDevice"
+            android:layout_width="150dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/register_bg"
+            android:text="@string/page27_page19_PublicCameraFragment_camera_list_add_device"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+ <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/empty_layout"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x210"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="@dimen/x220"
+                android:layout_height="@dimen/x220"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/x210"
+                android:src="@drawable/device_icon" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/color_text_color"
+                android:text="@string/tip_nodevice1" 
+             android:layout_marginTop="@dimen/x46"
+           />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+             android:layout_marginTop="@dimen/x12"
+            android:gravity="center"
+              android:textColor="@color/color_text_color"
+            android:text="@string/tip_nodevice2" />
+
+        <include
+            android:id="@+id/nodevicetip"
+            layout="@layout/add_device_row" />
+    </LinearLayout>
+    
+</FrameLayout>

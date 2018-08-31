@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_bkground_none_color" >
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/detail_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/color_bkground_none_color"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/x160"
+                android:layout_marginLeft="30dp"
+                android:gravity="center_vertical"
+                android:text="@string/page35_p8_sellandevice"
+                android:textColor="@color/color_text_color" />
+
+            <cn.ubia.widget.ScrollViewOfListView
+                android:id="@+id/list"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:divider="#99999999"
+                android:dividerHeight="1px"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/x160"
+                android:layout_below="@id/ll"
+                android:layout_marginLeft="30dp"
+                android:gravity="center_vertical"
+                android:text="@string/page35_psamlan"
+                android:textColor="@color/color_skin_color" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/device_set_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bkground_none_color"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/detail_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x77" />
+
+    <RelativeLayout
+        android:id="@+id/cloud_save_rlayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x140"
+        android:background="@color/white"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="23dp"
+            android:text="@string/cloud_save_tip"
+            android:textColor="@color/color_setting_txt"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:id="@+id/cloud_save_switch_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="23dp"
+            android:src="@drawable/live_btn_switch_off" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/sdcard_save_llayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="visible"
+        android:orientation="vertical">
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x140"
+            android:background="@color/white"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="23dp"
+                android:text="@string/page10_txtStorageTotalSize"
+                android:textColor="@color/color_setting_txt"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/setting_devicetotal_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/x86"
+                android:text=""
+                android:textColor="@color/color_setting_title"
+                android:textSize="@dimen/x40" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0.5px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color_bkground_none_color" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0.5px"
+                android:layout_alignParentTop="true"
+                android:background="@color/color_bkground_none_color" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="13dp"
+                android:src="@drawable/setting_jinru"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x140"
+            android:background="@color/white"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="23dp"
+                android:text="@string/page10_txtStorageFreeSize"
+                android:textColor="@color/color_setting_txt"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/setting_devicefree_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/x86"
+                android:text=""
+                android:textColor="@color/color_setting_title"
+                android:textSize="@dimen/x40" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0.5px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color_bkground_none_color" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0.5px"
+                android:layout_alignParentTop="true"
+                android:background="@color/color_bkground_none_color" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="13dp"
+                android:src="@drawable/setting_jinru"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x86"
+            android:layout_marginTop="@dimen/x36"
+            android:text="@string/page10_txtFormatSDCard"
+            android:textColor="@color/color_text_color_tip"
+            android:textSize="@dimen/x40" />
+
+        <Button
+            android:id="@+id/btnok"
+            android:textAllCaps="false"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/x120"
+            android:layout_marginLeft="@dimen/x66"
+            android:layout_marginRight="@dimen/x66"
+            android:layout_marginTop="@dimen/x66"
+            android:background="@drawable/selector_round_btn"
+            android:text="@string/page26_btnFormat"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+
+</LinearLayout>
