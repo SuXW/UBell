@@ -90,7 +90,7 @@
         android:text="@string/live_lowpower"
         android:background="#50000000"
         android:gravity="center"
-        android:textColor="@color/red"
+        android:textColor="@color/white"
         android:textSize="8pt" />
     <TextView
         android:id="@+id/mytime"
