@@ -599,6 +599,6 @@
     <string name="calling">正在呼叫..</string>
 
 
-    <string name="live_lowpower">电量低，请充电</string>
+    <string name="live_lowpower">低电量，请充电</string>
 
 </resources>
