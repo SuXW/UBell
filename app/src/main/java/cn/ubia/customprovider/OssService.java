@@ -93,7 +93,7 @@ public class OssService {
         ListObjectsRequest listObjects = new ListObjectsRequest(mBucket);
         listObjects.setDelimiter("");
         listObjects.setPrefix(uid + "/" + type + "/" + date);
-      //  listObjects.setMaxKeys(20);
+        listObjects.setMaxKeys(maxKeysLimit);
         cloudFileList.clear();
 
         OSSAsyncTask task = mOss.asyncListObjects(listObjects, new OSSCompletedCallback<ListObjectsRequest, ListObjectsResult>() {
@@ -119,7 +119,7 @@ public class OssService {
                     fi.setFileType(type);
                     fi.setFileSize(result.getObjectSummaries().get(i).getSize());
                     fi.setFileTriggerType(("" + fi.getFileName().charAt(fi.getFileName().lastIndexOf(".") - 1)).toUpperCase());
-
+                    Log.d("guo..oss", fi.getFileName());
                     cloudFileList.add(fi);
                 }
 
