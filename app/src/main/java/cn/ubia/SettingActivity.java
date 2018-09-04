@@ -1247,6 +1247,7 @@ public class SettingActivity extends BaseActivity implements
 				String asB64 = uid64.substring(0, uid64.length()-1);
 
 				int pidnum = (versionloacl & 0xFF000000) >> 24;
+				if(pidnum < 0) pidnum +=256;
 				String strpid =  String.valueOf(pidnum);
 
 				byte[] pid = strpid.getBytes();
