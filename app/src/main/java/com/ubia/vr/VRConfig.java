@@ -189,19 +189,32 @@ public class VRConfig {
 			break;
 		}
 		case HARDWAEW_PKG.CM_BELL_VR_9732_5112: // 普通16:9设备 720卡片机
-			   device.angle = 120;
-			   setRolution(720, device);
-			   device.maxFinger = 210f;  //
-			   device.minFinger = 150.0f;
-			   break;
-			 case HARDWAEW_PKG.CM_BELL_VR_5230_2466: // SC2135 1080P 配2466全景镜头 160度
-				{
+		{
+			device.angle = 120;
+			setRolution(720, device);
+			device.maxFinger = 210f;  //
+			device.minFinger = 150.0f;
+			break;
+		}
+
+		case HARDWAEW_PKG.CM_BELL_VR_5230_2466: // SC2135 1080P 配2466全景镜头 160度
+		{
 					device.angle = 160;
 					device.maxFinger = 218f;  //
 					device.minFinger = 142.0f;
 					setRolution(1080, device);
 					break;
-				}
+
+		}
+		case HARDWAEW_PKG.SREE_VR_LINUX_PIR_LED: // 三锐庭院灯 1080P全景
+		{
+				device.angle = 186;
+				setRolution(1080, device);
+				device.maxFinger = 218f;
+				device.minFinger = 142.0f;
+				break;
+		}
+
 		}
 		
 		return device;
