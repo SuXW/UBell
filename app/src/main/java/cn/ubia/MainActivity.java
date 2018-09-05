@@ -364,7 +364,7 @@ public class MainActivity extends BaseActivity {
 
 	private void quit() {
 		Log.i("IOTCamera", "main>>>>>>>>>>>>>quit");
-		CameraManagerment.getInstance().Free();
+	//	CameraManagerment.getInstance().Free();
 		if (MainCameraFragment.mainCameraFragment != null) {
 			MainCameraFragment.mainCameraFragment.stopOnGoingNotification();
 			NotificationManager notificationManager = (NotificationManager) this
@@ -414,7 +414,7 @@ public class MainActivity extends BaseActivity {
 								public void run() {
 									quit();
 									//merge by maxwell
-									MyCamera.uninit();
+									//MyCamera.uninit();
 								}
 
 							}.start();
@@ -458,7 +458,7 @@ public class MainActivity extends BaseActivity {
 		unregisterReceiver(mHomeKeyEventReceiver );
 		unregisterReceiver(myBroadcast );
 		quit();
-		MyCamera.uninit();
+		//MyCamera.uninit();
 		super.onDestroy();
 		finish();
 
