@@ -14,8 +14,8 @@ android {
         minSdkVersion 16
         targetSdkVersion 26
         multiDexEnabled true
-        versionCode 95// 版本
-        versionName "1.0.95"
+        versionCode 96// 版本
+        versionName "1.0.96"
         flavorDimensions "versionCode"
         signingConfig signingConfigs.config
         ndk {
@@ -326,6 +326,29 @@ android {
             buildConfigField("String", "OSSAK","\"LTAI0cwBPooz7EAG\"");
             buildConfigField("String", "OSSSK","\"RA1RJmQP1XcHi2SSHlOsIjaSeZ1u3u\"");
             buildConfigField("String", "OSSBUCKET","\"soliom\"");
+            signingConfig signingConfigs.config
+        }
+
+        DKM {
+            applicationId "com.dkm.bell"
+            manifestPlaceholders = [APP_NAME: "@string/app_name",
+                                    APP_ICON: "@drawable/icon_96",
+                                    APP_ID  : applicationId,
+                                    JPUSH_APPKEY : "a50c8ac8c30a02b7fc7de7ad", //JPush上注册的包名对应的appkey.
+                                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                                    JPUSH_PKGNAME: applicationId
+
+            ]
+            buildConfigField("String", "MIPUSHID", "\"2882303761517859765\"");
+            buildConfigField("String", "MIPUSHKEY", "\"5831785958765\"");
+            buildConfigField("boolean","bAnumber","false");//密码配置规则，包含数字
+            buildConfigField("boolean","b8characters","true");//大于8个字符
+            buildConfigField("boolean","bAnuppercaseletter","false");//含大写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            buildConfigField("boolean","bAlowercaseletter","false");//含小写
+            buildConfigField("String", "OSSAK","\"LTAICEPb9q0VJQcp\"");
+            buildConfigField("String", "OSSSK","\"duTkcUgjo5kyBHXUhTA3rU2ByhZv9d\"");
+            buildConfigField("String", "OSSBUCKET","\"dikeman\"");
             signingConfig signingConfigs.config
         }
     }
