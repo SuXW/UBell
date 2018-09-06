@@ -37,6 +37,7 @@ import com.daemon.Receiver1;
 import com.daemon.Receiver2;
 import com.daemon.Service1;
 import com.daemon.Service2;
+import com.llew.huawei.verifier.LoadedApkHuaWei;
 import com.marswin89.marsdaemon.DaemonApplication;
 import com.marswin89.marsdaemon.DaemonConfigurations;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
@@ -99,6 +100,9 @@ public class UbiaApplication extends DaemonApplication {
 		initImageLoader(getApplicationContext());
 		LoadLibConfig ldlib =  LoadLibConfig.getInstance();
 	    instance = this;
+
+		LoadedApkHuaWei.hookHuaWeiVerifier(this);//修复华为手机Register too many Broadcast Receivers问题
+
 		if (UbiaUtil.shouldInitPush(context) ) {
 			Log.e("UbiaApplication","Do RegisterPush APP_ID:"+APP_ID+" APP_KEY:"+APP_KEY);
 

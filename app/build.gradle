@@ -364,5 +364,7 @@ dependencies {
     compile project(':oss-android-sdk')
     compile 'cn.jiguang.sdk:jpush:3.1.3'
     compile 'cn.jiguang.sdk:jcore:1.1.9'
+
+    compile 'com.llew.huawei:verifier:1.0.6' //修复华为手机Register too many Broadcast Receivers问题
 }
 apply plugin: 'com.google.gms.google-services'
