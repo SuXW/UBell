@@ -1974,17 +1974,15 @@ public class SettingActivity extends BaseActivity implements
 
 	public void sethttpoperate_iv(){
 
-		final String[] items = getResources().getStringArray(R.array.messagetype);
-		int currentmessageType =   PreferenceUtil.getInstance().getInt(Constants.MESSAGETYPE_CHECK+SettingActivity.this.mCamera.getmUID(),  UbiaApplication.DefaultReceiverType);
+		if(mCamera!=null){
+			final String[] items = getResources().getStringArray(R.array.messagetype);
+			int currentmessageType =   PreferenceUtil.getInstance().getInt(Constants.MESSAGETYPE_CHECK+SettingActivity.this.mCamera.getmUID(),  UbiaApplication.DefaultReceiverType);
 
-		if(currentmessageType<items.length &&currentmessageType>=0)
-			setting_call_tv.setText(""+items[currentmessageType]);
-//		if(httpoperate){
-//		
-//			httpoperate_iv.setImageResource(R.drawable.open);
-//		}else{
-//			httpoperate_iv.setImageResource(R.drawable.kuan);
-//		}
+			if(currentmessageType<items.length &&currentmessageType>=0)
+				setting_call_tv.setText(""+items[currentmessageType]);
+		}
+
+
 	}
 }
  
