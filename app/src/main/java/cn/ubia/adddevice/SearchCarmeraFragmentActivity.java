@@ -87,7 +87,7 @@ public class SearchCarmeraFragmentActivity extends BaseActivity
 	private MessageSend mMessageSend = null;
 	private void doHisiCon(){
 
-		HisiLibApi.setNetworkInfo(wifiAdmin.getSecurity(), WiFiDirectConfig.GetSocketSrcPort(), ONLINE_MSG_BY_TCP,
+		HisiLibApi.setNetworkInfo("".equals(key) ? 0 : wifiAdmin.getSecurity(), WiFiDirectConfig.GetSocketSrcPort(), ONLINE_MSG_BY_TCP,
 				wifiAdmin.getIPAddress(),ssidStr, key,
 				"hi1131s随身拍5388"); //名称暂时这样
 
