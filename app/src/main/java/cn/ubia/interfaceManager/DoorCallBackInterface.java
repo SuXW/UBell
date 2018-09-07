@@ -9,5 +9,5 @@ package cn.ubia.interfaceManager;
 public interface DoorCallBackInterface {
  
  
-	void DoorStatecallback(int DoorState  );  
+	void DoorStatecallback(int DoorState);
 }

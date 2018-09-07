@@ -3623,7 +3623,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 				@Override
 				public void run() {
 					// TODO Auto-generated method stub
-					if(rockbacktoLive_photo!=null    )
+					if(rockbacktoLive_photo!=null)
 					{
 						if(!isLandorientation){
 							if(isshow )
@@ -3988,7 +3988,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 				Log.e("","应用 LLLLL开屏");
 			} else if (Intent.ACTION_SCREEN_OFF.equals(action)) { // 锁屏
 				Log.e("","应用LLLLL 锁屏");
-				StopAllSpeak();
+		 		StopAllSpeak();
 				mCameraManagerment.userIPCStopAlStream(mDevUID);
 				UbiaApplication.currentDeviceLive= "";
 				mCameraManagerment. StopPPPP(mDevUID);

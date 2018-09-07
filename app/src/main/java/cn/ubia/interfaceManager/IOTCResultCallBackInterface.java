@@ -9,5 +9,5 @@ package cn.ubia.interfaceManager;
 public interface IOTCResultCallBackInterface {
  
  
-	void IOTCCMDStatecallback(int IOTCCMD,int result  );  
+	void IOTCCMDStatecallback(int IOTCCMD, int result);
 }

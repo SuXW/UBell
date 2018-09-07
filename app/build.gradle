@@ -14,8 +14,8 @@ android {
         minSdkVersion 16
         targetSdkVersion 26
         multiDexEnabled true
-        versionCode 96// 版本
-        versionName "1.0.96"
+        versionCode 97// 版本
+        versionName "1.0.97"
         flavorDimensions "versionCode"
         signingConfig signingConfigs.config
         ndk {

@@ -57,163 +57,163 @@ public class VRConfig {
 		}
 		
 		switch(checkType){
-		case HARDWAEW_PKG.MF_VR_1135_1446: // default SC1135 960x960 配1146全景镜头
-											// 190度
-		{
-			device.angle = 190;
-			device.maxFinger = 218f;  //
-			device.minFinger = 142.0f;
-			setRolution(960, device);
-			break;
-		}
-		case HARDWAEW_PKG.MF_VR_1145_1866: // SC1145 720P 配1866全景镜头 150度
-		{
-			device.angle = 150;
-			setRolution(720, device);
-			device.maxFinger = 210f;  //
-			device.minFinger = 150.0f;
-			break;
-		}
-		case HARDWAEW_PKG.MF_VR_2135_1720: // SC2135 1080P 配1720全景镜头 186度
-		{
-			device.angle = 186;
-			device.maxFinger = 218f;  //
-			device.minFinger = 142.0f;
-			setRolution(1080, device);
-			break;
-		}
-		case HARDWAEW_PKG.MF_VR_2135_2466: // SC2135 1080P 配2466全景镜头 160度
-		{
-			device.angle = 160;
-			device.maxFinger = 218f;  //
-			device.minFinger = 142.0f;
-			setRolution(1080, device);
-			break;
-		}
-		case HARDWAEW_PKG.MF_STD_1145: // G2.0 普通16:9设备
-		{
-			device.angle = HARDWAEW_PKG.DEFAULTANGLE;
-			setRolution(720, device);
-			break;
-		}
-		case HARDWAEW_PKG.MF_STD_1135: // G2.0 普通 4:3设备
-		{
-			device.angle =HARDWAEW_PKG.DEFAULTANGLE;
-			setRolution(1280, device);
-			break;
-		}
-		case HARDWAEW_PKG.MF_STD_2135: // G2.0 普通16:9设备
-		{
-			device.angle = HARDWAEW_PKG.DEFAULTANGLE;
-			setRolution(1080, device);
-			break;
-		}
-		case HARDWAEW_PKG.MF_STD_SWING_1145: // G2.0 无太网口摇头16:9设备
-		{
-			device.angle = HARDWAEW_PKG.DEFAULTANGLE;
-			setRolution(720, device);
-			break;
-		}
-		case HARDWAEW_PKG.MF_STD_SWING_1135: // G2.0 无太网口摇头 4:3设备
-		{
-			device.angle = HARDWAEW_PKG.DEFAULTANGLE;
-			setRolution(1280, device);
-			break;
-		}
-		case HARDWAEW_PKG.MF_STD_SWING_2135: // G2.0 无太网口摇头16:9设备
-		{
-			device.angle =HARDWAEW_PKG.DEFAULTANGLE;
-			setRolution(1080, device);
-			break;
-		}
-		case HARDWAEW_PKG.SY_VR_9732_1866: // OV9732 720P 16:9
-		{
-			device.angle =HARDWAEW_PKG.DEFAULTANGLE;
-			setRolution(720, device);
-			break;
-		}
-		case HARDWAEW_PKG.SY_STD_9732: // 普通16:9设备 720卡片机
-		{
-			device.angle = HARDWAEW_PKG.DEFAULTANGLE;
-			setRolution(720, device);
-			break;
-		}
-		case HARDWAEW_PKG.MF_SWING_1145: // G2.0 以太网口摇头16:9设备
-		{
-			device.angle = HARDWAEW_PKG.DEFAULTANGLE;
-			setRolution(720, device);
-			break;
-		}
-		case HARDWAEW_PKG.MF_SWING_1135: // G2.0 以太网口摇头 4:3设备
-		{
-			device.angle =HARDWAEW_PKG.DEFAULTANGLE;
-			setRolution(1280, device);
-			break;
-		}
-		case HARDWAEW_PKG.MF_SWING_2135: // G2.0 以太网口摇头16:9设备
-		{
-			device.angle = HARDWAEW_PKG.DEFAULTANGLE;
-			setRolution(1080, device);
-			break;
-		}
-		case HARDWAEW_PKG.LM_VR_2135_1720: // LM 1080P 配1720全景镜头 186度
-		{
-			device.angle = 186;
-			setRolution(1080, device);
-			device.maxFinger = 218f;  //
-			device.minFinger = 142.0f;
-			break;
-		}
-		case HARDWAEW_PKG.DH_VR_5230_1720: // LM 1080P 配1720全景镜头 186度
-		{
-			device.angle = 186;
-			setRolution(1080, device);
-			device.maxFinger = 218f;  //
-			device.minFinger = 142.0f;
-			break;
-		}
-		case HARDWAEW_PKG.SY_STD_5230: // LM 1080P 配1720全景镜头 186度
-		{
-			device.angle = 186;
-			setRolution(1080, device);
-			device.maxFinger = 218f;  //
-			device.minFinger = 142.0f;
-			break;
-		}
-		case HARDWAEW_PKG.SY_SWING_5230: // LM 1080P 配1720全景镜头 186度
-		{
-			device.angle = 186;
-			setRolution(1080, device);
-			device.maxFinger = 218f;  //
-			device.minFinger = 142.0f;
-			break;
-		}
-		case HARDWAEW_PKG.CM_BELL_VR_9732_5112: // 普通16:9设备 720卡片机
-		{
-			device.angle = 120;
-			setRolution(720, device);
-			device.maxFinger = 210f;  //
-			device.minFinger = 150.0f;
-			break;
-		}
-
-		case HARDWAEW_PKG.CM_BELL_VR_5230_2466: // SC2135 1080P 配2466全景镜头 160度
-		{
-					device.angle = 160;
-					device.maxFinger = 218f;  //
-					device.minFinger = 142.0f;
-					setRolution(1080, device);
-					break;
-
-		}
-		case HARDWAEW_PKG.SREE_VR_LINUX_PIR_LED: // 三锐庭院灯 1080P全景
-		{
+			case HARDWAEW_PKG.MF_VR_1135_1446: // default SC1135 960x960 配1146全景镜头
+												// 190度
+			{
+				device.angle = 190;
+				device.maxFinger = 218f;  //
+				device.minFinger = 142.0f;
+				setRolution(960, device);
+				break;
+			}
+			case HARDWAEW_PKG.MF_VR_1145_1866: // SC1145 720P 配1866全景镜头 150度
+			{
+				device.angle = 150;
+				setRolution(720, device);
+				device.maxFinger = 210f;  //
+				device.minFinger = 150.0f;
+				break;
+			}
+			case HARDWAEW_PKG.MF_VR_2135_1720: // SC2135 1080P 配1720全景镜头 186度
+			{
+				device.angle = 186;
+				device.maxFinger = 218f;  //
+				device.minFinger = 142.0f;
+				setRolution(1080, device);
+				break;
+			}
+			case HARDWAEW_PKG.MF_VR_2135_2466: // SC2135 1080P 配2466全景镜头 160度
+			{
+				device.angle = 160;
+				device.maxFinger = 218f;  //
+				device.minFinger = 142.0f;
+				setRolution(1080, device);
+				break;
+			}
+			case HARDWAEW_PKG.MF_STD_1145: // G2.0 普通16:9设备
+			{
+				device.angle = HARDWAEW_PKG.DEFAULTANGLE;
+				setRolution(720, device);
+				break;
+			}
+			case HARDWAEW_PKG.MF_STD_1135: // G2.0 普通 4:3设备
+			{
+				device.angle =HARDWAEW_PKG.DEFAULTANGLE;
+				setRolution(1280, device);
+				break;
+			}
+			case HARDWAEW_PKG.MF_STD_2135: // G2.0 普通16:9设备
+			{
+				device.angle = HARDWAEW_PKG.DEFAULTANGLE;
+				setRolution(1080, device);
+				break;
+			}
+			case HARDWAEW_PKG.MF_STD_SWING_1145: // G2.0 无太网口摇头16:9设备
+			{
+				device.angle = HARDWAEW_PKG.DEFAULTANGLE;
+				setRolution(720, device);
+				break;
+			}
+			case HARDWAEW_PKG.MF_STD_SWING_1135: // G2.0 无太网口摇头 4:3设备
+			{
+				device.angle = HARDWAEW_PKG.DEFAULTANGLE;
+				setRolution(1280, device);
+				break;
+			}
+			case HARDWAEW_PKG.MF_STD_SWING_2135: // G2.0 无太网口摇头16:9设备
+			{
+				device.angle =HARDWAEW_PKG.DEFAULTANGLE;
+				setRolution(1080, device);
+				break;
+			}
+			case HARDWAEW_PKG.SY_VR_9732_1866: // OV9732 720P 16:9
+			{
+				device.angle =HARDWAEW_PKG.DEFAULTANGLE;
+				setRolution(720, device);
+				break;
+			}
+			case HARDWAEW_PKG.SY_STD_9732: // 普通16:9设备 720卡片机
+			{
+				device.angle = HARDWAEW_PKG.DEFAULTANGLE;
+				setRolution(720, device);
+				break;
+			}
+			case HARDWAEW_PKG.MF_SWING_1145: // G2.0 以太网口摇头16:9设备
+			{
+				device.angle = HARDWAEW_PKG.DEFAULTANGLE;
+				setRolution(720, device);
+				break;
+			}
+			case HARDWAEW_PKG.MF_SWING_1135: // G2.0 以太网口摇头 4:3设备
+			{
+				device.angle =HARDWAEW_PKG.DEFAULTANGLE;
+				setRolution(1280, device);
+				break;
+			}
+			case HARDWAEW_PKG.MF_SWING_2135: // G2.0 以太网口摇头16:9设备
+			{
+				device.angle = HARDWAEW_PKG.DEFAULTANGLE;
+				setRolution(1080, device);
+				break;
+			}
+			case HARDWAEW_PKG.LM_VR_2135_1720: // LM 1080P 配1720全景镜头 186度
+			{
 				device.angle = 186;
 				setRolution(1080, device);
-				device.maxFinger = 218f;
+				device.maxFinger = 218f;  //
 				device.minFinger = 142.0f;
 				break;
-		}
+			}
+			case HARDWAEW_PKG.DH_VR_5230_1720: // LM 1080P 配1720全景镜头 186度
+			{
+				device.angle = 186;
+				setRolution(1080, device);
+				device.maxFinger = 218f;  //
+				device.minFinger = 142.0f;
+				break;
+			}
+			case HARDWAEW_PKG.SY_STD_5230: // LM 1080P 配1720全景镜头 186度
+			{
+				device.angle = 186;
+				setRolution(1080, device);
+				device.maxFinger = 218f;  //
+				device.minFinger = 142.0f;
+				break;
+			}
+			case HARDWAEW_PKG.SY_SWING_5230: // LM 1080P 配1720全景镜头 186度
+			{
+				device.angle = 186;
+				setRolution(1080, device);
+				device.maxFinger = 218f;  //
+				device.minFinger = 142.0f;
+				break;
+			}
+			case HARDWAEW_PKG.CM_BELL_VR_9732_5112: // 普通16:9设备 720卡片机
+			{
+				device.angle = 120;
+				setRolution(720, device);
+				device.maxFinger = 210f;  //
+				device.minFinger = 150.0f;
+				break;
+			}
+
+			case HARDWAEW_PKG.CM_BELL_VR_5230_2466: // SC2135 1080P 配2466全景镜头 160度
+			{
+						device.angle = 160;
+						device.maxFinger = 218f;  //
+						device.minFinger = 142.0f;
+						setRolution(1080, device);
+						break;
+
+			}
+			case HARDWAEW_PKG.SREE_VR_LINUX_PIR_LED: // 三锐庭院灯 1080P全景
+			{
+					device.angle = 186;
+					setRolution(1080, device);
+					device.maxFinger = 218f;
+					device.minFinger = 142.0f;
+					break;
+			}
 
 		}
 		
