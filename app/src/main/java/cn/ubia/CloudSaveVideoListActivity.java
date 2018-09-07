@@ -485,6 +485,15 @@ public class CloudSaveVideoListActivity extends BaseActivity implements View.OnC
         }
 
     }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        if (this.mCamera != null) {
+            this.mCamera.unregisterIOTCListener(this);
+        }
+    }
+
+
 }
 
 
