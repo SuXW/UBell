@@ -451,6 +451,14 @@ public class DialogUtil {
             sdcard_save_llayout.setVisibility(View.VISIBLE);
         }
 
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                 mDialogcallback_.cancel();
+            }
+        });
+
+
         cloud_save_switch_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -499,7 +507,7 @@ public class DialogUtil {
             @Override
             public void onClick(View v) {
                 popupWindow.dismiss();
-                mDialogcallback_.cancel();
+
             }
         });
 
