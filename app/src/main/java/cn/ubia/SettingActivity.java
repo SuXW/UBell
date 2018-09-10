@@ -1042,7 +1042,10 @@ public class SettingActivity extends BaseActivity implements
 		super.onResume();
 		initDeviceInfo() ;
 
-		HttpClient.operateDeviceVoip(this.mCamera.getmUID(), 3, mJsonHttpResponseHandler);
+		if(mCamera!=null){
+			HttpClient.operateDeviceVoip(this.mCamera.getmUID(), 3, mJsonHttpResponseHandler);
+		}
+
 	}
 	private void initDeviceInfo() {
 

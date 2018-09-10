@@ -418,14 +418,22 @@ public class LoginAddDeviceActivity extends BaseActivity {
 		String devpwd =  bundle.getString("devpwd");
 		String installmode =  bundle.getString("installmode");
 
-		if(pkgString==null||pkgString.equals("")){
+		try {
+			if (pkgString == null || pkgString.equals("")) {
+				this.pkg = 19;
+			} else {
+				this.pkg = Integer.parseInt(pkgString);
+			}
+		}catch (Exception e){
 			this.pkg = 19;
-		}else{
-			this.pkg = Integer.parseInt(pkgString);
 		}
 
-		if(installmode!=null&& !installmode.equals("") ){
-			faceDirection = Integer.parseInt(installmode);
+		try {
+			if(installmode!=null&& !installmode.equals("") ){
+				faceDirection = Integer.parseInt(installmode);
+			}
+		}catch (Exception e){
+			faceDirection = -1;
 		}
 
 		this.selectUidStr = selectUidStr.toUpperCase();
@@ -515,8 +523,7 @@ public class LoginAddDeviceActivity extends BaseActivity {
  			this.findViewById(R.id.putmode_title_tv).setVisibility(View.GONE);
  			faceDirection = VRConfig.CameraPutModelFaceFront;
 		}
- 		if(pkg==HARDWAEW_PKG.CM_BELL_VR_5230_2466 || pkg ==  HARDWAEW_PKG.CM_BELL_VR_9732_5112
-){
+ 		if(pkg==HARDWAEW_PKG.CM_BELL_VR_5230_2466 || pkg ==  HARDWAEW_PKG.CM_BELL_VR_9732_5112){
 			//默认不显示安装方式 ,门铃设备固定不显安装方式
  			LinearLayout putmode_ll  = (LinearLayout) this.findViewById(R.id.putmode_ll);
  			putmode_ll.setVisibility(View.GONE);
