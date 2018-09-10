@@ -19,6 +19,7 @@ import android.os.Bundle;
 
 import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
@@ -91,7 +92,7 @@ public class MessageDealReceiver extends BroadcastReceiver{
         Intent intent = new Intent("action.newDeviceCallBroadcastReceiver");
 //			uid = "LFLDI6LJ2G3VXXU3FU5Q";
         intent.putExtra("alarmMessageuid", uid);
-        context.sendBroadcast(intent);
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
         //Log.d(TAG, "alarmInfoCallBack ,newDeviceCallBroadcastReceiver ,time =" + time);
         // this.time = time;
 
