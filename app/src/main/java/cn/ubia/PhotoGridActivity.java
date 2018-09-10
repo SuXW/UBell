@@ -25,6 +25,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -858,11 +859,11 @@ public class PhotoGridActivity extends BaseActivity implements
             final Intent scanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
             final Uri contentUri = Uri.fromFile(path);
             scanIntent.setData(contentUri);
-            sendBroadcast(scanIntent);
+			LocalBroadcastManager.getInstance(this).sendBroadcast(scanIntent);
         } else {
             //4.4开始不允许发送"Intent.ACTION_MEDIA_MOUNTED"广播, 否则会出现: Permission Denial: not allowed to send broadcast android.intent.action.MEDIA_MOUNTED from pid=15410, uid=10135
             final Intent intent = new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + Environment.getExternalStorageDirectory()));
-            sendBroadcast(intent);
+			LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
         }
     } 
 }

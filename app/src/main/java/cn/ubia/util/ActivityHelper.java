@@ -17,6 +17,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.View;
@@ -312,11 +313,11 @@ public class ActivityHelper {
 			final Intent scanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
 			final Uri contentUri = Uri.parse("file://" +filePath);
 			scanIntent.setData(contentUri);
-			context.sendBroadcast(scanIntent);
+			LocalBroadcastManager.getInstance(context).sendBroadcast(scanIntent);
 		} else {
 			//4.4开始不允许发送"Intent.ACTION_MEDIA_MOUNTED"广播, 否则会出现: Permission Denial: not allowed to send broadcast android.intent.action.MEDIA_MOUNTED from pid=15410, uid=10135
 			final Intent intent = new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + filePath));
-			context.sendBroadcast(intent);
+			LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
 		}
 
 

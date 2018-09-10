@@ -12,6 +12,7 @@ import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnErrorListener;
 import android.net.Uri;
 import android.os.PowerManager;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -217,7 +218,7 @@ public class VideoView extends SurfaceView implements MediaPlayerControl
 		// framework.
 		Intent i = new Intent("com.android.music.musicservicecommand");
 		i.putExtra("command", "pause");
-		mContext.sendBroadcast(i);
+		LocalBroadcastManager.getInstance(mContext).sendBroadcast(i);
 
 		if (mMediaPlayer != null)
 		{

@@ -19,6 +19,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -197,7 +198,7 @@ public class PhoneMessageActivity extends BaseActivity {
 				isruning = false;
 				Intent intent = new Intent();  
 				intent.setAction("android.intent.phone.cancel");  
-				PhoneMessageActivity.this.sendBroadcast(intent);
+				LocalBroadcastManager.getInstance(PhoneMessageActivity.this).sendBroadcast(intent);
 				PhoneMessageActivity.this.finish();
 			}
 		});
@@ -223,7 +224,7 @@ public class PhoneMessageActivity extends BaseActivity {
 						isruning = false;
 						Intent intent = new Intent();
 						intent.setAction("android.intent.phone.cancel");
-						PhoneMessageActivity.this.sendBroadcast(intent);
+						LocalBroadcastManager.getInstance(PhoneMessageActivity.this).sendBroadcast(intent);
 						PhoneMessageActivity.this.finish();
 						return;
 					}

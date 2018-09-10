@@ -26,6 +26,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
@@ -412,7 +413,8 @@ public class AddDeviceActivity extends BaseActivity {
 		this.filter.addAction(AddDeviceActivity.class.getName());
 		this.resultStateReceiver = new ResultStateReceiver(
 				(ResultStateReceiver) null);
-		this.registerReceiver(this.resultStateReceiver, this.filter);
+		LocalBroadcastManager.getInstance(this).registerReceiver(resultStateReceiver,
+				filter);
 		this.edtUID = (EditText) this.findViewById(R.id.edtUID);
 		// this.edtSecurityCode = (EditText) this
 		// .findViewById(R.id.edtSecurityCode);

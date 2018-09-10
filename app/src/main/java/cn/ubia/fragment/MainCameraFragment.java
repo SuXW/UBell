@@ -60,6 +60,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -2136,6 +2137,7 @@ public class MainCameraFragment extends  Fragment implements
 		// (MainCameraFragment.ResultStateReceiver) null);
 		// this.getActivity().registerReceiver(this.resultStateReceiver,
 		// this.filter);
+		LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(bReceiver);
 		DatabaseManager.n_mainActivity_Status = 1;
 		WiFiDirectConfig.registerUBICListener(this);
 	}
@@ -3063,8 +3065,8 @@ public class MainCameraFragment extends  Fragment implements
 		bReceiver = new ButtonBroadcastReceiver();
 		IntentFilter intentFilter = new IntentFilter();
 		intentFilter.addAction(ACTION_BUTTON);
-		getActivity().registerReceiver(bReceiver, intentFilter);
-
+		LocalBroadcastManager.getInstance(getActivity()).registerReceiver(bReceiver,
+				new IntentFilter(intentFilter));
 	}
 	
 	

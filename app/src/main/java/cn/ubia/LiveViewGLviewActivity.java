@@ -50,6 +50,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Media;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -1047,11 +1048,11 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			final Intent scanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
 			final Uri contentUri = Uri.fromFile(path);
 			scanIntent.setData(contentUri);
-			sendBroadcast(scanIntent);
+			LocalBroadcastManager.getInstance(this).sendBroadcast(scanIntent);
 		} else {
 			//4.4开始不允许发送"Intent.ACTION_MEDIA_MOUNTED"广播, 否则会出现: Permission Denial: not allowed to send broadcast android.intent.action.MEDIA_MOUNTED from pid=15410, uid=10135
 			final Intent intent = new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + Environment.getExternalStorageDirectory()));
-			sendBroadcast(intent);
+			LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
 		}
 	}
 
@@ -2183,8 +2184,9 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 		filter.addAction(Intent.ACTION_USER_PRESENT);
 		filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
 		registerReceiver(mHomeKeyEventReceiver,filter);
-//	  registerReceiver(mHomeKeyEventReceiver, new IntentFilter(
-//	                Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
+		LocalBroadcastManager.getInstance(this).registerReceiver(mHomeKeyEventReceiver,
+				filter);
+
 		mCameraManagerment.userIPCstartShow(mDevUID);
 
 		mCameraManagerment.userIPCGetAdvanceSetting(mDevUID);//获取云存储状态
@@ -3519,7 +3521,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			Log.d("","MainActivity not exist");
 		}
 		mCameraManagerment.ClearBuf(mDevUID);
-		unregisterReceiver(mHomeKeyEventReceiver);
+		LocalBroadcastManager.getInstance(this).unregisterReceiver(mHomeKeyEventReceiver);
 		//unregisterReceiver(newDeviceCallBroadcastReceiver);
 		onActivityRuning= false;
 		isruningRefresh= false;

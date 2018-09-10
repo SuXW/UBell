@@ -42,6 +42,7 @@ import android.os.Process;
 import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -120,11 +121,14 @@ public class MainActivity extends BaseActivity {
  
 		IntentFilter intentFilter = new IntentFilter();  
 		intentFilter.addAction("action.refreshFriend");
-	    registerReceiver(mRefreshBroadcastReceiver, intentFilter); 
-	    
-		 IntentFilter intentFilter2 = new IntentFilter();  
-		 intentFilter2.addAction("action.doLogout");  
-	     registerReceiver(doLogoutReceiver, intentFilter2);  
+		LocalBroadcastManager.getInstance(this).registerReceiver(mRefreshBroadcastReceiver,
+				intentFilter);
+
+
+		IntentFilter intentFilter2 = new IntentFilter();
+		intentFilter2.addAction("action.doLogout");
+	 	LocalBroadcastManager.getInstance(this).registerReceiver(doLogoutReceiver,
+				intentFilter);
 	    
 	    IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_SCREEN_ON);
@@ -138,9 +142,10 @@ public class MainActivity extends BaseActivity {
         filter.addAction("android.intent.action.TIME_TICK");
         filter.addAction("android.intent.phone.cancel");
         filter.addAction(Intent.ACTION_TIME_TICK);//系统时间，每分钟发送一次
-		registerReceiver(mHomeKeyEventReceiver,filter);
 
-	     registerReceiver(myBroadcast, filter);
+		LocalBroadcastManager.getInstance(this).registerReceiver(mHomeKeyEventReceiver,	filter);
+		LocalBroadcastManager.getInstance(this).registerReceiver(myBroadcast,filter);
+
 	     openTwoService();
 	     final Window win = getWindow();
 		    win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
@@ -481,10 +486,10 @@ public class MainActivity extends BaseActivity {
  
 	protected void onDestroy() {
 		Log.i("IOTCamera", "MAinacitivty>>>>>>>>>>>>>onDestroy");
-		unregisterReceiver(mRefreshBroadcastReceiver);
-		unregisterReceiver(doLogoutReceiver);
-		unregisterReceiver(mHomeKeyEventReceiver );
-		unregisterReceiver(myBroadcast );
+		LocalBroadcastManager.getInstance(this).unregisterReceiver(mRefreshBroadcastReceiver);
+		LocalBroadcastManager.getInstance(this).unregisterReceiver(doLogoutReceiver);
+		LocalBroadcastManager.getInstance(this).unregisterReceiver(mHomeKeyEventReceiver);
+		LocalBroadcastManager.getInstance(this).unregisterReceiver(myBroadcast);
 		quit();
 		MyCamera.uninit();
 		super.onDestroy();

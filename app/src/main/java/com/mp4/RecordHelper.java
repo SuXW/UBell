@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import cn.ubia.interfaceManager.LiveViewTimeStateCallbackInterface_Manager;
@@ -169,7 +170,7 @@ public class RecordHelper {
 			Log.i("video", "Scan video = " + filePath);
 			Intent scanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
 			scanIntent.setData(Uri.fromFile(new File(filePath)));
-			mContext.sendBroadcast(scanIntent);
+			LocalBroadcastManager.getInstance(mContext).sendBroadcast(scanIntent);
 		}
 	}
 	 
