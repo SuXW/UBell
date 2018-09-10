@@ -40,10 +40,10 @@ public class JobWakeUpService extends JobService {
            }
 
                 //创建一个新的JobScheduler任务
-                scheduleRefresh();
-                jobFinished(params, false);
+            scheduleRefresh();
+           // jobFinished(params, false);
                 //   Log.d("JobSchedulerService","7.0 handleMessage task end~~"+ System.currentTimeMillis());
-                return true;
+            return false;
 
         } catch (Exception e) {
             e.printStackTrace();
