@@ -291,7 +291,7 @@ public class ActivityHelper {
 	// 打开WIFI设置
 	public Intent getWifiSettingIntent() {
 		Intent intent = null;
-		if (Build.VERSION.SDK_INT > 10) {
+		if (android.os.Build.VERSION.SDK_INT > 10) {
 			// 3.0以上打开设置界面
 			intent = new Intent(android.provider.Settings.ACTION_SETTINGS);
 		} else {

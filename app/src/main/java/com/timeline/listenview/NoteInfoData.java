@@ -17,14 +17,12 @@ public class NoteInfoData {
 		for(int i =0;i<bytes;i++){
 			dataBitMapValue = (byte) (dataBitMap[i]|dataBitMapValue);
 		}
-
-
-
-		Log.d("NoteInfoData","NoteInfoData ToString:     this.starttime :"+this.starttime
-				+"   this.endtime= "+this.endtime
-				+"   this.validbits= "+this.validbits
-				+"   this.bytes= "+this.bytes
-				+"     dataBitMapValue:"+dataBitMapValue);
+	 
+		//Log.d("NoteInfoData","NoteInfoData ToString:     this.starttime :"+this.starttime
+		//		+"   this.endtime= "+this.endtime
+		//		+"   this.validbits= "+this.validbits
+		//		+"   this.bytes= "+this.bytes
+		//		+"     dataBitMapValue:"+dataBitMapValue);
 		
 	}
 	public int channel; // Camera Index

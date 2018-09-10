@@ -1344,7 +1344,7 @@ public class VideoSeekBar<T extends Number> extends ImageView {
 	 */
 	public interface OnRangeSeekBarChangeListener<T> {
 		public void onRangeSeekBarValuesChanged(VideoSeekBar<?> bar,
-                                                long startTime, long endTime, boolean isStartChanged);
+				long startTime, long endTime, boolean isStartChanged);
 	}
 
 	// 进度条监听

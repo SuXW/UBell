@@ -106,14 +106,14 @@ public class NotificationTagManager {
 
 		Log.v("FirebaseMessaging", "FirebaseMessaging.unsubscribeFromTopic  UID="+tag);
 		FirebaseMessaging.getInstance().unsubscribeFromTopic(tag);
-
 		Log.v("xiaomi", "UID="+tag);
 		MiPushClient.unsetUserAccount (mContext, tag , null);
 
-		Log.v("jpush", "UID="+tag);
 		Set<String> tags = new LinkedHashSet<>();
 		tags.add(tag);
 		JPushInterface.deleteTags(mContext,0x6,tags);
 
 	  }
+
+
 }

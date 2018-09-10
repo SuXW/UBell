@@ -2,15 +2,15 @@
 <resources>
 
 
-    <string name="app_name">AnyHome</string>
+    <string name="app_name">Anybell</string>
 
-    <string name="fragment_playbackactivity_menu_title">AnyHome</string>
-    <string name="page14_p3_connect_camera_he">Visit southerntelecom.com/AnyHome for technical support and firmware updates.  </string>
-    <string name="PhotoGridActivity_local_local">AnyHome Album</string>
-    <string name="automanagercontent">Please allow Auto-launch permission for AnyHome to get push notification from device</string>
-    <string name="commitautomanagercontent">Make sure you allowed AnyHome auto-launch</string>
-    <string name="commitopennotifycontent">Please allow Notification permission for AnyHome to get push notification from device</string>
-    <string name="commitopennotify">Please allow Notification permission for AnyHome to get push notification from device</string>
-    <string name="location_right">Please make sure location server is enabled and authorized to AnyHome</string>
+    <string name="fragment_playbackactivity_menu_title">Anybell</string>
+    <string name="page14_p3_connect_camera_he">Visit southerntelecom.com/Anybell for technical support and firmware updates.  </string>
+    <string name="PhotoGridActivity_local_local">Anybell Album</string>
+    <string name="automanagercontent">Please allow Auto-launch permission for Anybell to get push notification from device</string>
+    <string name="commitautomanagercontent">Make sure you allowed Anybell auto-launch</string>
+    <string name="commitopennotifycontent">Please allow Notification permission for Anybell to get push notification from device</string>
+    <string name="commitopennotify">Please allow Notification permission for Anybell to get push notification from device</string>
+    <string name="location_right">Please make sure location server is enabled and authorized to Anybell</string>
 
 </resources>

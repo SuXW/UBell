@@ -129,7 +129,7 @@ public class DemoMessageReceiver extends PushMessageReceiver {
    static long   timeLastnotify = 0;*/
     @Override
     public void onReceivePassThroughMessage(Context context, MiPushMessage message) {
-    	  Log.e(TAG,"onReceivePassThroughMessage is called. >>>>>" + message.toString());
+    //	  Log.e(TAG,"onReceivePassThroughMessage is called. >>>>>" + message.toString()+" lasttime="+lastTime);
 
 		//if(  System.currentTimeMillis()- timeLastnotify >delaycalltime) {
 				Log.v(TAG,"onReceivePassThroughMessage is called. deal");

@@ -9,5 +9,5 @@ package com.timeline.listenview;
 public interface TimeLinePlayCallBackInterface {
  
  
-	void TimeLinePlayStatecallback(int playBackTimeUTC);
+	void TimeLinePlayStatecallback(int playBackTimeUTC );  
 }

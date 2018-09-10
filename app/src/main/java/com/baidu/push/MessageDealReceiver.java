@@ -50,7 +50,7 @@ import cn.ubia.manager.NotificationTagManager;
 import cn.ubia.util.PreferenceUtil;
 
 
-public class MessageDealReceiver extends BroadcastReceiver {
+public class MessageDealReceiver extends BroadcastReceiver{
 
     String TAG = "MessageDealReceiver";
 
@@ -110,7 +110,6 @@ public class MessageDealReceiver extends BroadcastReceiver {
 
     public void onReceivePassThroughMessage(Context context, String messuid, String event, String timestamp,String state) {
 
-        Log.e("guo..onReceivePassThroughMessage","messuid="+messuid+",currentDeviceLive="+UbiaApplication.currentDeviceLive);
 
         if (pushDeviceMap.get(messuid) != null) {
             lastEvent = pushDeviceMap.get(messuid).split("-")[0];
@@ -129,14 +128,9 @@ public class MessageDealReceiver extends BroadcastReceiver {
             return;
         }
 
-
         startPush(context, messuid, event, timestamp,state);
 
-
-
     }
-
-
 
 
     private DeviceInfo getDeviceInfo(String uid,Context context) {
@@ -175,7 +169,7 @@ public class MessageDealReceiver extends BroadcastReceiver {
                 if(dev_uid.equals(uid)){
                     _id = cursor.getLong(0);
                     dev_nickName = cursor.getString(1);
-                    Log.i("guo..","dev_nickName:"+dev_nickName);
+
 
                     view_pwd = cursor.getString(6);
                     event_notification = cursor.getInt(7);
@@ -191,7 +185,6 @@ public class MessageDealReceiver extends BroadcastReceiver {
                     deviceInfo.connect_count = 0;
                     deviceInfo.hardware_pkg = hardware_pkg;
 
-
                 }
 
         }
@@ -206,7 +199,6 @@ public class MessageDealReceiver extends BroadcastReceiver {
 
         return deviceInfo;
     }
-
     private void startPush(Context context, String messuid, String event, String timestamp,String state) {
 
         DeviceInfo deviceInfo = getDeviceInfo(messuid,context);
@@ -224,9 +216,6 @@ public class MessageDealReceiver extends BroadcastReceiver {
         if (pushType == 0) {
             return;
         } else if (pushType > 1) {// 来电呼叫
-
-            Log.e("guo..startPush","messuid="+messuid);
-
 
             if (!TextUtils.isEmpty(messuid)) {
                 callphoneInfoCallBack(UbiaApplication.getInstance()
@@ -297,7 +286,7 @@ public class MessageDealReceiver extends BroadcastReceiver {
                         .setLargeIcon(nty_alert)
                         .setDefaults(Notification.DEFAULT_ALL)
                         .setPriority(Notification.PRIORITY_HIGH)
-//.setFullScreenIntent(Pintent, true)
+//     	 .setFullScreenIntent(Pintent, true)
                         .setContentIntent(Pintent)
                         .setTicker(" " + title)
                         .setContentText("" + title)

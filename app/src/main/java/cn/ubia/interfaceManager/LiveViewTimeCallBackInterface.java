@@ -9,7 +9,7 @@ package cn.ubia.interfaceManager;
 public interface LiveViewTimeCallBackInterface {
  
  
-	public void TimeUTCStatecallback(long UTCtime);
+	public void TimeUTCStatecallback(long UTCtime  );  
 	public void saveTimeMsSeccallback(long saveTime);
 	
 }

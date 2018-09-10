@@ -353,9 +353,9 @@ public void Seek( long time )
 }
 public boolean  GetNextVideoSample( byte[]  buf, int  length[], long timestamp[] , long[] duration )
 {
-
-
- 	if (fVideoBufferSize[0] <= 0){
+	// »Áπ˚ª∫¥Ê«¯Œ™ø’, ‘Ú∂¡»°œ¬“ª∏ˆ sample µƒƒ⁄»›
+ 	if (fVideoBufferSize[0] <= 0)
+	{
 		Mp4Track track = GetTrack(fVideoTrackIndex);
 		if (track == null) {
 			return false;
@@ -372,10 +372,8 @@ public boolean  GetNextVideoSample( byte[]  buf, int  length[], long timestamp[]
 //		long duration[]	= new long[1];
 
 		track.ReadSample(fMp4File, fVideoSampleId, fVideoBuffer,  fVideoBufferSize,  fTimestamp, fTimesDuration,  fIsSyncSample);
-
 //		lTimesDurationAll +=fTimesDuration[0] ;
 		//Log.e("", "read frame  file size iRet fVideoSampleId: "+fVideoSampleId+"  fVideoOffset:"+fVideoOffset+"  fTimestamp:"+fTimestamp[0]+"   fTimesDuration:"+fTimesDuration[0] +"   lTimesDurationAll:"+lTimesDurationAll);
-
 		if (fVideoSampleId == 1) {
 			fIsSyncSample [0]	= true;
 		}
@@ -387,7 +385,7 @@ public boolean  GetNextVideoSample( byte[]  buf, int  length[], long timestamp[]
 		} else {
 			fPosition = fTimestamp[0];
 		}
-
+	
 		fVideoSampleId++;
 	}
 
@@ -399,15 +397,15 @@ public boolean  GetNextVideoSample( byte[]  buf, int  length[], long timestamp[]
 	boolean  flags = true;
 	int  size = 0;
 
-
-	if (fIsSyncSample[0]) {
-		//Log.e("guo..", "read frame  file   fIsSyncSample: "+fIsSyncSample );
+	// ∑µªÿ–Ú¡–ªÚÕºœÒ≤Œ ˝ºØµƒƒ⁄»›
+	if (fIsSyncSample[0]	) {
+//		Log.e("", "read frame  file   fIsSyncSample: "+fIsSyncSample ); 
 		Mp4Track track = GetTrack(fVideoTrackIndex);
 		if (track == null) {
 			return false;
 		}
 
-
+		 
 	    Mp4AvcCAtom avcc = new Mp4AvcCAtom(track.GetAvcCAtom());
 //		Mp4AvcCAtom avcc(track.GetAvcCAtom());
 		int picSets = avcc.GetPictureSetCount();
@@ -424,8 +422,7 @@ public boolean  GetNextVideoSample( byte[]  buf, int  length[], long timestamp[]
 					flags = false;
 				}
 			}
-		} else if (fNaluIndex < picSets + 1) {
-
+		} else if ((int)fNaluIndex < picSets + 1) {
 			  byte[] set = avcc.GetPictureParameters(fNaluIndex - 1 );
 			  length[0] = (short)set.length;
 			if (set!=null && length[0] > 0) {
@@ -435,9 +432,6 @@ public boolean  GetNextVideoSample( byte[]  buf, int  length[], long timestamp[]
 				flags = false;
 			}
 		}
-
-
-
 	}
 
 	// ∏¥÷∆ sample ƒ⁄»› ˝æ›
@@ -457,14 +451,12 @@ public boolean  GetNextVideoSample( byte[]  buf, int  length[], long timestamp[]
 		fVideoOffset += size;
 //		memcpy(buf, fVideoBuffer, size);
 	}
-
-
 //	System.arraycopy(fVideoBuffer,0, buf,0, fVideoBufferSize[0] );
 	// H.264 Õ¨≤ΩÕ∑
-		buf[0] = 0x00;
-		buf[1] = 0x00;
-		buf[2] = 0x00;
-		buf[3] = 0x01;
+	buf[0] = 0x00;
+	buf[1] = 0x00;
+	buf[2] = 0x00;
+	buf[3] = 0x01;
 //	fVideoOffset += fVideoBufferSize[0];
 	fNaluIndex++;
 
@@ -479,9 +471,6 @@ public boolean  GetNextVideoSample( byte[]  buf, int  length[], long timestamp[]
 		duration[0]=fTimesDuration[0];
 	}
 	// »Áπ˚ª∫¥Ê«¯µƒ ˝æ›∂º∂¡ÕÍ¡À, ‘Ú÷ÿ÷√œ‡πÿµƒ±‰¡ø
-
-	Log.e("guo..Mp4Reader","fVideoOffset:"+fVideoOffset+".fVideoBufferSize:"+fVideoBufferSize[0]);
-
 	if (fVideoOffset >= fVideoBufferSize[0]) {
 		fVideoBufferSize[0] = 0;
 		fVideoOffset = 0;

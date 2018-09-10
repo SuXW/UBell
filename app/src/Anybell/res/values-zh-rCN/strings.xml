@@ -2,15 +2,15 @@
 <resources>
 
 
-    <string name="app_name">AnyHome</string>
+    <string name="app_name">Anybell</string>
 
-    <string name="fragment_playbackactivity_menu_title">AnyHome</string>
-    <string name="page14_p3_connect_camera_he">请访问Visit southerntelecom.com/AnyHome 获取技术支持和固件升级  </string>
+    <string name="fragment_playbackactivity_menu_title">Anybell</string>
+    <string name="page14_p3_connect_camera_he">请访问Visit southerntelecom.com/Anybell 获取技术支持和固件升级  </string>
     <string name="PhotoGridActivity_local_local">应用相册</string>
     <string name="automanagercontent">"请开启当前应用对应权限以确保应用程序及时收到设备推送消息"</string>
-    <string name="commitautomanagercontent">"确定AnyHome 已经开启了自启动权限"</string>
-    <string name="commitnotifymanagercontent">"确定AnyHome 已经开启了通知栏显示权限"</string>
-    <string name="commitopennotifycontent">请开启当前应用AnyHome 对应通知栏权限以确保应用程序及时收到设备推送消息</string>
-    <string name="commitopennotify">请开启当前应用AnyHome 对应通知栏权限以确保应用程序及时收到设备推送消息</string>
+    <string name="commitautomanagercontent">"确定Anybell 已经开启了自启动权限"</string>
+    <string name="commitnotifymanagercontent">"确定Anybell 已经开启了通知栏显示权限"</string>
+    <string name="commitopennotifycontent">请开启当前应用Anybell 对应通知栏权限以确保应用程序及时收到设备推送消息</string>
+    <string name="commitopennotify">请开启当前应用Anybell 对应通知栏权限以确保应用程序及时收到设备推送消息</string>
 
 </resources>

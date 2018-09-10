@@ -382,7 +382,7 @@ public class Camera
             this();
         }
     }
-    IOTCAPIs iotcubia = new IOTCAPIs();
+    com.ubia.IOTC .IOTCAPIs iotcubia = new com.ubia.IOTC.IOTCAPIs();
     private class ThreadConnectDev extends Thread
     {
 
@@ -426,7 +426,7 @@ public class Camera
                 }
                 if(mSID >= 0)
                 {
-                    UBICAPIs.UBIC_Session_Check_ByCallBackFn(mSID,
+                    com.my.IOTC.UBICAPIs.UBIC_Session_Check_ByCallBackFn(mSID,
                             iotcubia);
                     isConected = true;
 //                    for(int i = 0; i < mIOTCListeners.size(); i++)
@@ -785,10 +785,10 @@ public class Camera
 
 
     private class ThreadWriteFile extends Thread {
-        private AVChannel mAVChannel;
+        private Camera.AVChannel mAVChannel;
         private boolean m_bIsRunning = false;
         int mDownLoadfileblock;
-        public ThreadWriteFile(AVChannel var2) {
+        public ThreadWriteFile(Camera.AVChannel var2) {
             this.mAVChannel = var2;
         }
 
@@ -1042,6 +1042,7 @@ public class Camera
                         }
 
                         frameno = avFrame.getCam_index();
+
                         if(resolution!= avFrame.getResolution()&& -1 != avFrame.getResolution() ){
                             StartisIFrame = false;
                             switch (avFrame.getResolution()) {
@@ -1105,8 +1106,9 @@ public class Camera
                             }
 
 
+
                             if (StartisIFrame && SDecoder != null ){
-									//  Utils.LOGD("解码更新    开始取出数据队列>>>>>>>>开始解码了   i帧："+frameInfo[2] );
+//									  Utils.LOGD("解码更新    开始取出数据队列>>>>>>>>开始解码了   i帧："+frameInfo[2] );
                                 bitmap=	SDecoder.doExtract(avFrame.frmData,
                                         avFrameSize, 1920, 1080,
                                         avFrame.isIFrame() ? 1 : 0,
@@ -1148,7 +1150,6 @@ public class Camera
                             if(!isPlayback||sleeptime>5) break;
                             continue;
                         }
-
                         while(avFrame!=null && times > currentDisplayTimeStamp+3 && isPlayback){//视频比音频快3秒以上
                             //视频时间戳大于音频
                             try {
@@ -1184,7 +1185,6 @@ public class Camera
 //    						}
 
                     }
-
                     detaCameraTime  = avFrame.getTimeStamp()-firstCameraTime;//current frame gap of the first frame
                     detalocalTime = System.currentTimeMillis()-firstlocalTime;//current location  gap of the first frame
                     int ratio = (int) ((detalocalTime-detaCameraTime) /1000);
@@ -1195,15 +1195,15 @@ public class Camera
                         ratio = 0;
                     }
                  //   Log.v("","avFrame.getTimeStamp():"+avFrame.getTimeStamp()+"   detaCameraTime:"+detaCameraTime   + "     detalocalTime"+detalocalTime+ "     gap"+ 	(detalocalTime-detaCameraTime)+"  ratio:"+ratio+"    mAVChannel.VideoFrameQueue.size:"+mAVChannel.VideoFrameQueue.getCount());
-                      Log.e("guo..Camera","1.....TimeStamp="+avFrame.getTimeStamp()+",Framerate="+avFrame.getFramerate());
-                    try{
-                     //   int rate = avFrame.getFramerate() < 0 ? 15 : avFrame.getFramerate();
 
+
+
+                    try{//13603
                         int needSleepTime = 1000/avFrame.getFramerate();
                         sleepEndTime = System.currentTimeMillis();
                         long hasUsedTime = sleepEndTime-sleepStartTime;
                         long acturalSleep = needSleepTime - hasUsedTime;
-                        Log.e("guo..Camera","2.....acturalSleep="+acturalSleep+",needSleepTime="+needSleepTime);
+
                         if (width[0] == 1280) {
                             try {
                                 Thread.sleep(5L * sleepshort);
@@ -1221,7 +1221,6 @@ public class Camera
                             if(sleeptime<=0){
                                 sleeptime = 5;
                             }
-                            Log.e("guo..Camera","sleeptime="+sleeptime);
                             Thread.sleep(sleeptime);//per sec sleep less 10%
                         }
                         if(avFrame != null){
@@ -1232,9 +1231,7 @@ public class Camera
 
                         e.printStackTrace();
                     }
-
                 }
-
             }
             if (SDecoder!=null) {
                 SDecoder.release();
@@ -1765,7 +1762,7 @@ public class Camera
             int outBufSize[] = new int[1];
             int nReadSize ;
             if(mSID >= 0 && mAVChannel.getAVIndex() >= 0 && avNoClearBuf)
-                AVAPIs.UBIC_avClientCleanVideoBuf(mAVChannel.getAVIndex());
+                com.ubia.IOTC.AVAPIs.UBIC_avClientCleanVideoBuf(mAVChannel.getAVIndex());
             mAVChannel.VideoFrameQueue.removeAll();
 //            if(bIsRunning && mSID >= 0 && mAVChannel.getAVIndex() >= 0)
 //                mAVChannel.IOCtrlQueue.Enqueue(mAVChannel.getAVIndex(), AVIOCTRLDEFs.IOTYPE_USER_IPCAM_START, UBIA_IO_AVStream.startLiveView(MainCameraFragment.getexistDevice(mDevUID).channelIndex) );
@@ -1777,7 +1774,6 @@ public class Camera
                             videoBuffer.length, outFrmSize, pFrmInfoBuf,
                             frameInfo, FRAME_INFO_SIZE, outFrmInfoBufSize,
                             frameNumber);
-
 
                     if(nReadSize >= 0)
                     {
@@ -1834,7 +1830,7 @@ public class Camera
                             }else{
                                 try {
                                     Thread.sleep(32L);
-                                    AVAPIs.UBIC_avClientCleanAudioBuf(0);
+                                    com.ubia.IOTC.AVAPIs.UBIC_avClientCleanAudioBuf(0);
                                     mAVChannel.AudioFrameQueue.removeAll();
 //		    						Log.i("Thread",
 //											"avFrame.getCurrentplaySeq():"+avFrame.getCurrentplaySeq()+"=======不相等，等待相同操作号包========="+(currentplaySeq&0xff)+":currentplaySeq");
@@ -2533,8 +2529,8 @@ public class Camera
             return 0;
         }
 
-        IOTCAPIs.UBIC_Initialize2(0);
-        AVAPIs.UBIC_avInitialize(16 * mDefaultMaxCameraLimit);
+        com.ubia.IOTC.IOTCAPIs.UBIC_Initialize2(0);
+        com.ubia.IOTC.AVAPIs.UBIC_avInitialize(16 * mDefaultMaxCameraLimit);
         isInit = true;
 
         return 0;
@@ -2545,8 +2541,8 @@ public class Camera
     {
         if(!isInit){
 
-            AVAPIs.UBIC_avDeInitialize();
-            IOTCAPIs.UBIC_DeInitialize();
+            com.ubia.IOTC.AVAPIs.UBIC_avDeInitialize();
+            com.ubia.IOTC.IOTCAPIs.UBIC_DeInitialize();
             int m = UBICAVAPIs.avDeInitialize();
 
             int j = UBICAPIs.IOTC_DeInitialize();

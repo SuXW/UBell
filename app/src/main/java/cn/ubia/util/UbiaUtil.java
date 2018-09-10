@@ -20,43 +20,23 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.baidu.push.PhoneMessageActivity;
-
 import cn.ubia.UBell.BuildConfig;
-
 import static cn.ubia.UbiaApplication.APP_ID;
 import static cn.ubia.UbiaApplication.APP_KEY;
-
 public class UbiaUtil {
 	public static PhoneMessageActivity phoneMessageActivity;
-
-
 	public  static boolean shouldInitPush(Context context) {
-		//if(!OPENXIAOMI_PUSH) return false;
 		ActivityManager am = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE));
 		List<ActivityManager.RunningAppProcessInfo> processInfos = am.getRunningAppProcesses();
 		String mainProcessName = context.getPackageName();
 		int myPid = Process.myPid();
 		for (ActivityManager.RunningAppProcessInfo info : processInfos) {
-
 			if (info.pid == myPid && mainProcessName.equals(info.processName)) {
-
 				return false;
 			}
 		}
 		return true;
-
-		/*ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-
-		String serviceName= "com.xiaomi.push.service.XMPushService";
-
-		for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-			if (serviceName.equals(service.service.getClassName())) {
-				return false;
-			}
-		}
-		return true;*/
 	}
-
 	public static byte[] int2bytes(int num) {
 		byte[] b = new byte[4];
 		for (int i = 0; i < 4; i++) {
@@ -232,16 +212,13 @@ public class UbiaUtil {
 	    
 	    return ret;
 	}
-
-
 	private static void printResult(String type, byte[] bt, int len) {
-		System.out.println(type + "长度为：" + len);
-		String cont = type + "的内容为：";
+		System.out.println(type + "len:" + len);
+		String cont = type + "content:";
 		System.out.print(cont);
 		for (int ix = 0; ix < len; ++ix) {
 			System.out.printf("%02x ", bt[ix]);
 		}
 		System.out.println("\n----------");
 	}
-
 }

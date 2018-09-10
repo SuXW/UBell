@@ -247,7 +247,7 @@ public class CloudSaveVideoListActivity extends BaseActivity implements View.OnC
                     }
                 },
                 mYear, mMonth, mDay);
-        if (Build.VERSION.SDK_INT >= 11) {
+        if (android.os.Build.VERSION.SDK_INT >= 11) {
             DatePicker dpicker = dpDialog.getDatePicker();
             dpicker.setMaxDate(new Date().getTime());
         }

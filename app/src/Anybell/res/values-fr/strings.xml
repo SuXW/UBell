@@ -2,14 +2,14 @@
 <resources>
 
 
-    <string name="app_name">AnyHome</string>
-    <string name="fragment_playbackactivity_menu_title">AnyHome</string>
-    <string name="page14_p3_connect_camera_he">Visitez southerntelecom.com/AnyHome pour obtenir du soutien technique et des mises à jour de firmware. </string>
-    <string name="PhotoGridActivity_local_local">AnyHome Album</string>
-    <string name="commitautomanagercontent">Assurez-vous d\'avoir autorisé le lancement automatique d\'AnyHome.</string>
-    <string name="commitopennotifycontent">Veuillez autoriser la Notification pour qu\'AnyHome reçoive une notification de poussée de l\'appareil.</string>
-    <string name="commitopennotify">Veuillez autoriser la Notification pour qu\'AnyHome reçoive une notification de poussée de l\'appareil.</string>
+    <string name="app_name">Anybell</string>
+    <string name="fragment_playbackactivity_menu_title">Anybell</string>
+    <string name="page14_p3_connect_camera_he">Visitez southerntelecom.com/Anybell pour obtenir du soutien technique et des mises à jour de firmware. </string>
+    <string name="PhotoGridActivity_local_local">Anybell Album</string>
+    <string name="commitautomanagercontent">Assurez-vous d\'avoir autorisé le lancement automatique d\'Anybell.</string>
+    <string name="commitopennotifycontent">Veuillez autoriser la Notification pour qu\'Anybell reçoive une notification de poussée de l\'appareil.</string>
+    <string name="commitopennotify">Veuillez autoriser la Notification pour qu\'Anybell reçoive une notification de poussée de l\'appareil.</string>
 
-    <string name="location_right">Veuillez vous assurer que le serveur de localisation est activé et autorisé à AnyHome.</string>
+    <string name="location_right">Veuillez vous assurer que le serveur de localisation est activé et autorisé à Anybell.</string>
 
 </resources>			

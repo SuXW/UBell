@@ -11,5 +11,5 @@ import cn.ubia.bean.ZigbeeInfo;
 public interface ZigbeeInfoCallBackInterface {
  
  
-	void ZigbeeInfocallback(ZigbeeInfo mZigbeeInfo);
+	void ZigbeeInfocallback(ZigbeeInfo mZigbeeInfo  );  
 }

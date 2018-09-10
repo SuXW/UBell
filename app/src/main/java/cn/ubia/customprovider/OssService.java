@@ -66,7 +66,6 @@ public class OssService {
     private Handler aliHandler,downloadHandler;
     List<FileInfo> cloudFileList = new ArrayList<>();
 
-
     public OssService(OSS oss, String bucket) {
         this.mOss = oss;
         this.mBucket = bucket;
@@ -89,7 +88,6 @@ public class OssService {
     }
 
     public void asyncListObjectsWithBucketName(final String uid, final String type, final String date) {
-
         ListObjectsRequest listObjects = new ListObjectsRequest(mBucket);
         listObjects.setDelimiter("");
         listObjects.setPrefix(uid + "/" + type + "/" + date);
@@ -119,10 +117,9 @@ public class OssService {
                     fi.setFileType(type);
                     fi.setFileSize(result.getObjectSummaries().get(i).getSize());
                     fi.setFileTriggerType(("" + fi.getFileName().charAt(fi.getFileName().lastIndexOf(".") - 1)).toUpperCase());
-                    Log.d("guo..oss", fi.getFileName());
+
                     cloudFileList.add(fi);
                 }
-
                 Collections.sort(cloudFileList, new Comparator<FileInfo>() {
                     @Override
                     public int compare(FileInfo o1, FileInfo o2) {
@@ -134,15 +131,12 @@ public class OssService {
                         return 1;
                     }
                 });
-
-
                 List<FileInfo> fileList = new ArrayList<>();
                 int count = cloudFileList.size() >20 ? 19 : cloudFileList.size()-1; //取最新的20条显示
                  for(int i = 0;i<=count;i ++){
                     fileList.add(cloudFileList.get(i));
                     asyncGetImg(cloudFileList.get(i));
                 }
-
                 Message msg = new Message();
                 msg.what = GETVIDEOLISTSUCCESS;
                 msg.obj = fileList;
@@ -389,6 +383,8 @@ public class OssService {
                             + result.getObjectSummaries().get(i).getLastModified());
 
                     keyList.add(result.getObjectSummaries().get(i).getKey());
+
+
                 }
 
                 if(keyList.size()>0){
@@ -422,8 +418,6 @@ public class OssService {
         for(FileInfo fileInfo:cloudFileList){
             keyList.add(fileInfo.getFileImgCloudPath());
             keyList.add(fileInfo.getFileCloudPath());
-
-
         }
         multipleDeleteVideo(keyList,"");
     }
@@ -441,15 +435,13 @@ public class OssService {
                     for (String object : deletedObjects) {
                         Log.d("multipleDeleteVideo", "delete:"+object);
                     }
-
                     if(deletedObjects.size()<maxKeysLimit){
-                        Message msg = new Message();
-                        msg.what = DELETESUCCESS;
-                        aliHandler.sendMessage(msg);
+                    Message msg = new Message();
+                    msg.what = DELETESUCCESS;
+                    aliHandler.sendMessage(msg);
                     }else{
                         deleteAllVideo(uid);
                     }
-
                 }
                 @Override
                 public void onFailure(DeleteMultipleObjectRequest request, ClientException clientExcepion, ServiceException serviceException) {
