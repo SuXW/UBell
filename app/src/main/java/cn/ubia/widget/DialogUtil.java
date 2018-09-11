@@ -118,7 +118,7 @@ public class DialogUtil {
             public void onClick(View v) {
                 dialog.dismiss();
                 showDelDialog(mContext,mContext.getString( R.string.page26_ctxRemoveCamera)+"", mContext.getString( R.string.delete_file_tip)+"",
-                        new DialogUtil.Dialogcallback(){
+                        new Dialogcallback(){
 
                             @Override
                             public void cancel() {
@@ -143,7 +143,7 @@ public class DialogUtil {
             public void onClick(View v) {
                 dialog.dismiss();
                 showDelDialog(mContext,mContext.getString( R.string.page26_ctxRemoveCamera)+"", mContext.getString( R.string.delete_file_tip)+"",
-                        new DialogUtil.Dialogcallback(){
+                        new Dialogcallback(){
 
                             @Override
                             public void cancel() {
