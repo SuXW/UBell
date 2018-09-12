@@ -601,4 +601,5 @@
     <string name="calling">L\'appel..</string>
     <string name="setting_sdcord_noformat">Non formaté</string>
     <string name="live_lowpower">de faible puissance,S\'il vous plaît, de charge</string>
+    <string name="live_lowpower_ota"> L\'OTA a besoin de plus de 50% d\'énergie, veuillez charger d\'abord le périphérique </string>
 </resources>			

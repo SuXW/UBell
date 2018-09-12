@@ -600,4 +600,5 @@
     <string name="calling">呼んでいる..</string>
     <string name="setting_sdcord_noformat">非フォーマット</string>
     <string name="live_lowpower">電池が低い,充電してください</string>
+    <string name= "live_lowpower_ota">OTAは50％以上の電力を必要とします。デバイスを最初に充電してください。</string>
 </resources>

@@ -573,16 +573,16 @@
     <string name="firmware_update_success">Firmware actualizado correctamente</string>
 
     <string name = "password_sim_tip"> su contraseña es demasiado simple, modifique la contraseña más de 8 </string>
-        <string name = "password_short_tip"> La contraseña del dispositivo que ingresó está fuera de servicio: \ n menos de 8 caracteres </string>
-        <string name = "password_wifi_tip"> la contraseña de la red inalámbrica generalmente tiene al menos 8 caracteres, lo que permite hasta 42 caracteres, solo la longitud de la contraseña del modo WEP64 es de 5 caracteres </string>
+    <string name = "password_short_tip"> La contraseña del dispositivo que ingresó está fuera de servicio: \ n menos de 8 caracteres </string>
+    <string name = "password_wifi_tip"> la contraseña de la red inalámbrica generalmente tiene al menos 8 caracteres, lo que permite hasta 42 caracteres, solo la longitud de la contraseña del modo WEP64 es de 5 caracteres </string>
 
-        <string name = "descargar"> Descargar </string>
-        <string name = "download_ing"> descargando </string>
-        <string name = "download_success"> Descargado </string>
-        <string name = "download_fail"> Falló la descarga </string>
-        <string name = "delete"> eliminar </string>
-        <string name = "delete_file_tip"> ¿Eliminar archivo? </string>
-            <string name ="delete_file_wait">por favor espere..</string>
+    <string name = "descargar"> Descargar </string>
+    <string name = "download_ing"> descargando </string>
+    <string name = "download_success"> Descargado </string>
+    <string name = "download_fail"> Falló la descarga </string>
+    <string name = "delete"> eliminar </string>
+    <string name = "delete_file_tip"> ¿Eliminar archivo? </string>
+    <string name ="delete_file_wait">por favor espere..</string>
 
         <string name = "password_illegal"> la contraseña no puede usar el carácter ":" </string>
         <string name = "setting_dormancytime"> sleep time </string>
@@ -602,4 +602,6 @@
     <string name="calling">Llamada de</string>
     <string name="setting_sdcord_noformat">No formateado</string>
     <string name="live_lowpower">Baja potencia,Recarga, por favor.</string>
+
+    <string name = "live_lowpower_ota"> OTA necesita más del 50% de energía,cargue primero el dispositivo </string>
 </resources>

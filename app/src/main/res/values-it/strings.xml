@@ -601,4 +601,5 @@
     <string name="calling">Sta chiamando..</string>
     <string name="setting_sdcord_noformat">Non formattati</string>
     <string name="live_lowpower">Bassa potenza,per favore, carica</string>
+    <string name = "live_lowpower_ota">OTA richiede più del 50% di potenza,carica prima il dispositivo </string>
 </resources>

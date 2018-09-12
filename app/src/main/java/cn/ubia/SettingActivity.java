@@ -97,6 +97,7 @@ public class SettingActivity extends BaseActivity implements
 	public boolean pirvalue = false;
 	public boolean irvalue = false;
 	public int  led = 1;
+	public int battery = 0;
 
 
 	private boolean httpoperate = false;
@@ -1119,7 +1120,7 @@ public class SettingActivity extends BaseActivity implements
 		fromMain = var2.getInt("fromMain");
 		this.mCamera =  CameraManagerment.getInstance().getexistCamera(mDevUID);
 		if(mCamera!=null) this.mCamera.registerIOTCListener(this);
-
+		battery = var2.getInt("battery");
 		this.mDevice  = MainCameraFragment.getexistDevice(mDevUID);
 		if(mDevice != null) {
 			HttpClient.setBaseUrl(StringUtils.getCurrentLocaltionISOCountryCodeString( this.mDevice.country));
@@ -1874,10 +1875,16 @@ public class SettingActivity extends BaseActivity implements
 
 									@Override
 									public void callback(boolean sure) {
+
 										if (sure) {
-											mProgressBar.show();
-											mCamera.sendIOCtrl(0, AVIOCTRLDEFs.IOTYPE_USER_IPCAM_FIRMWARE_UPDATE_REQ,
-													UpdateReq.getData());
+											if(battery <= 50){
+												DialogUtil.getInstance().showTextTipDialog(SettingActivity.this, getString(R.string.live_lowpower_ota),getString(R.string.ok),null);
+											}else{
+												mProgressBar.show();
+												mCamera.sendIOCtrl(0, AVIOCTRLDEFs.IOTYPE_USER_IPCAM_FIRMWARE_UPDATE_REQ,
+														UpdateReq.getData());
+											}
+
 										} else {
 											mProgressBar.dismiss();
 										}

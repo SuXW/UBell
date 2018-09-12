@@ -598,7 +598,9 @@
     <string name="add_setect_tip">提示：位置选择要和安装设备时选择的一致，否则会看不到云存储录像</string>
     <string name="calling">正在呼叫..</string>
 
-
+    <string name="setting_sdcord_noformat">未格式化</string>
     <string name="live_lowpower">低电量，请充电</string>
+    <string name="live_lowpower_ota">OTA需要电量大于50%，请先给设备充电</string>
+
 
 </resources>

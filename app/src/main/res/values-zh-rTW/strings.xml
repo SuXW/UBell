@@ -599,4 +599,5 @@
     <string name="calling">正在呼叫..</string>
     <string name="setting_sdcord_noformat">未格式化</string>
     <string name="live_lowpower">電量低,請充電</string>
+    <string name="live_lowpower_ota">OTA需要電量大於50%，請先給設備充電</string>
 </resources>

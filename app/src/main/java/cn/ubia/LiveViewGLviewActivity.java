@@ -1178,6 +1178,8 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 						LiveViewGLviewActivity.this.mDevice.viewPassword);
 				bundle.putInt("camera_channel",
 						LiveViewGLviewActivity.this.mDevice.getChannelIndex());
+				bundle.putInt("battery",battery);
+
 				intent.putExtras(bundle);
 				intent.setClass(LiveViewGLviewActivity.this, SettingActivity.class);
 				startActivityForResult(intent, -11);//(intent);
