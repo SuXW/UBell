@@ -1877,7 +1877,7 @@ public class SettingActivity extends BaseActivity implements
 									public void callback(boolean sure) {
 
 										if (sure) {
-											if(battery <= 50){
+											if(battery <= 50 && mDevice.hardware_pkg != HARDWAEW_PKG.SREE_VR_LINUX_PIR_LED){
 												DialogUtil.getInstance().showTextTipDialog(SettingActivity.this, getString(R.string.live_lowpower_ota),getString(R.string.ok),null);
 											}else{
 												mProgressBar.show();
