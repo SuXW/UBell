@@ -50,6 +50,8 @@ public class Packet {
 
    public static final short byteArrayToShort_Little(byte[] var0, int var1) {
       return (short)(255 & var0[var1] | (255 & var0[var1 + 1]) << 8);
+
+
    }
 
    public static final byte[] intToByteArray_Big(int var0) {
@@ -75,5 +77,12 @@ public class Packet {
    public static final byte[] shortToByteArray_Little(short var0) {
       byte[] var1 = new byte[]{(byte)var0, (byte)(var0 >>> 8)};
       return var1;
+   }
+
+   public static final short byteArrayToShort(byte[] bytes,int offset ){
+
+      return (short)(((bytes[offset]<<8) + bytes[offset+1]));
+
+
    }
 }

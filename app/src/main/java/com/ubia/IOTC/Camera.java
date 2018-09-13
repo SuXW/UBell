@@ -1801,9 +1801,21 @@ public class Camera
                         {
 //							//Get SEI Frame
 //						    //int size = recvBuf[6];
-                            int wifi = Packet.byteArrayToInt_Little(videoBuffer,12);
+
+
+                            if(hardware_pkg == HARDWAEW_PKG.CM_BELL_1080P_5230_KY4G){
+                                int single4G= Packet.byteArrayToShort(videoBuffer,12);
+                                deviceWifiSignal   = current4G(single4G + 256);
+
+                            }else{
+                                int wifi = Packet.byteArrayToInt_Little(videoBuffer,12);
+                                deviceWifiSignal   = currentWifi(wifi);
+
+                            }
+
+
 //			                LiveViewTimeStateCallbackInterface_Manager.getInstance().TimeUTCStatecallback(deviceTime);
-                            deviceWifiSignal   = currentWifi(wifi);
+
                             //Log.i("Thread","==deviceTime=== deviceWifiSignal :"+deviceWifiSignal +"  wifi:"+wifi);
                         }
                         if (getFirstIFrame == true) {
@@ -3678,6 +3690,22 @@ public class Camera
             } else {
                 return 0;
             }
+        }
+        return 4;
+    }
+
+    private  int current4G(int deviceWifiSignal){
+        if(deviceWifiSignal< 0) {
+            if (deviceWifiSignal > -85) {
+                return 3;
+            } else if (deviceWifiSignal > -95) {
+                return 2;
+            } else if (deviceWifiSignal > -105) {
+                return 1;
+            } else if(deviceWifiSignal > -115){
+                return 0;
+            }
+            return 0;
         }
         return 4;
     }
