@@ -77,12 +77,12 @@ import com.xiaomi.mipush.sdk.MiPushClient;
 
 public class MainActivity extends BaseActivity {
 
-	 
-	public static boolean isBackgroundRunning;
+
+	public  boolean isBackgroundRunning;
 	private int registerPushCount = 0;
 	private Fragment mContent;
 	private ActivityHelper mHelper;
-	StartBroadcastReceiver myBroadcast = new StartBroadcastReceiver();
+
 	private MainCameraFragment mFrag;
 	private static String TAG = "MainActivity";
 	  private void openTwoService() {
@@ -107,44 +107,20 @@ public class MainActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.content_frame);
-		setTitle(R.string.app_name); 
+		setTitle(R.string.app_name);
 
 		android.app.FragmentTransaction t = this.getFragmentManager()
 				.beginTransaction();
 		mFrag = new MainCameraFragment();
 		t.replace(R.id.content_frame, mFrag);
 		t.commit();
-  
+
 		MainCameraFragment.mCameraLoaded = false;
 
 		mHelper = new ActivityHelper(this);
- 
-		IntentFilter intentFilter = new IntentFilter();  
-		intentFilter.addAction("action.refreshFriend");
-		LocalBroadcastManager.getInstance(this).registerReceiver(mRefreshBroadcastReceiver,
-				intentFilter);
 
 
-		IntentFilter intentFilter2 = new IntentFilter();
-		intentFilter2.addAction("action.doLogout");
-	 	LocalBroadcastManager.getInstance(this).registerReceiver(doLogoutReceiver,
-				intentFilter);
-	    
-	    IntentFilter filter = new IntentFilter();
-        filter.addAction(Intent.ACTION_SCREEN_ON);
-        filter.addAction(Intent.ACTION_SCREEN_OFF);
-        filter.addAction(Intent.ACTION_USER_PRESENT);
-        filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
-        filter.addAction(Intent.ACTION_BATTERY_CHANGED);
-        filter.addAction("android.net.wifi.STATE_CHANGE");
-        filter.addAction("android.net.wifi.p2p.CONNECTION_STATE_CHANGE");
-        filter.addAction("android.location.PROVIDERS_CHANGED"); 
-        filter.addAction("android.intent.action.TIME_TICK");
-        filter.addAction("android.intent.phone.cancel");
-        filter.addAction(Intent.ACTION_TIME_TICK);//系统时间，每分钟发送一次
 
-		LocalBroadcastManager.getInstance(this).registerReceiver(mHomeKeyEventReceiver,	filter);
-		LocalBroadcastManager.getInstance(this).registerReceiver(myBroadcast,filter);
 
 	     openTwoService();
 	     final Window win = getWindow();
@@ -152,7 +128,7 @@ public class MainActivity extends BaseActivity {
 		            | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
 		            | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
-	     
+
 	/*	new Thread(new  Runnable() {
 			@Override
 			public void run() {
@@ -185,75 +161,8 @@ public class MainActivity extends BaseActivity {
 		startService(new Intent( this, Service1.class));*/
 	}
 
-    private BroadcastReceiver mHomeKeyEventReceiver = new BroadcastReceiver() {  
-        String SYSTEM_REASON = "reason";  
-        String SYSTEM_HOME_KEY = "homekey";  
-        String SYSTEM_HOME_KEY_LONG = "recentapps";  
-        @Override  
-        public void onReceive(Context context, Intent intent) {  
-            String action = intent.getAction();
-        	MiPushClient.registerPush(MainActivity.this, UbiaApplication.APP_ID, UbiaApplication.APP_KEY);
 
-            Log.e("","应用 action："+action);
-            if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)&& !isBackgroundRunning) {  
-                String reason = intent.getStringExtra(SYSTEM_REASON);  
-                if (TextUtils.equals(reason, SYSTEM_HOME_KEY)) {  
-                	isBackgroundRunning = true;
-                	 
-                	UbiaApplication.currentDeviceLive= "";
-                	quit();
-                	Log.e("","应用退到后台");
-                
-                }else if(TextUtils.equals(reason, SYSTEM_HOME_KEY_LONG)){  
-                } else if(TextUtils.equals(reason, "lock")){  
-                	isBackgroundRunning = true;
-                	UbiaApplication.currentDeviceLive= ""; 
-                	quit();
-                }  
-            }  
-            if (Intent.ACTION_SCREEN_ON.equals(action)) { // 开屏
-            	Log.e("","应用 开屏");
-            } else if (Intent.ACTION_SCREEN_OFF.equals(action)) { // 锁屏
-            	Log.e("","应用 MMMMMMm锁屏");
-               	isBackgroundRunning = true;
-            	UbiaApplication.currentDeviceLive= ""; 
-            	quit();
-            } else if (Intent.ACTION_USER_PRESENT.equals(action)) { // 解锁
-            	Log.e("","应用 解锁");
-            }  else if ("android.intent.phone.cancel".equals(action)) { // 解锁
-            	Log.e("","应用 取消接听电话");
-            	MainActivity.this.moveTaskToBack(true);
-             	isBackgroundRunning = true;
-             	UbiaApplication.currentDeviceLive= ""; 
-            	quit();
-            }    
-        }  
-    };
-	   private BroadcastReceiver mRefreshBroadcastReceiver = new BroadcastReceiver() {
 
-	        @Override
-	        public void onReceive(Context context, Intent intent) {
-	            String action = intent.getAction();
-	            if (action.equals("action.refreshFriend"))
-	            {
-	                Log.i("MainActivity","BroadcastReceiver 重新加载");
-	                MainCameraFragment.mainCameraFragment.setAdapternotifyDataSetChanged();
-	            }
-	        }
-	    };
-	    
-	 private BroadcastReceiver doLogoutReceiver = new BroadcastReceiver() {
-
-		        @Override
-		        public void onReceive(Context context, Intent intent) {
-		            String action = intent.getAction();
-		            if (action.equals("action.doLogout"))
-		            {
-		                Log.i("MainActivity","BroadcastReceiver 退出登录");
-		                logoutback();
-		            }
-		        }
-		    };
 	private void renewToken() {
 		// String tokenTime = mHelper.getConfig(Constants.TOKEN_TIME);
 		// if (!TextUtils.isEmpty(tokenTime)) {
@@ -285,9 +194,9 @@ public class MainActivity extends BaseActivity {
 		});
 	}
 
-	public void switchContent(Fragment fragment, String tag) { 
-		mContent = fragment; 
-		 
+	public void switchContent(Fragment fragment, String tag) {
+		mContent = fragment;
+
 	}
 
 	// initCameraList
@@ -302,12 +211,12 @@ public class MainActivity extends BaseActivity {
 	protected void onNewIntent(Intent intent) {
 		super.onNewIntent(intent);
  		this.setIntent(intent);
- 
+
 	}
 
 	public void onResume() {
 		super.onResume();
-		isBackgroundRunning = false; 
+		isBackgroundRunning = false;
 		//OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_10, this, this);
 		Bundle var2 = this.getIntent().getExtras();
 		Boolean fromReceiverNotify = false;
@@ -315,17 +224,14 @@ public class MainActivity extends BaseActivity {
 			fromReceiverNotify = getIntent().getExtras().getBoolean("NotificationManager");
 		}
  		Log.i("IOTCamera", "MainActivity onResume  登陆成功！！！！fromReceiverNotify:"+ fromReceiverNotify);
-		 
-		MainCameraFragment.mCameraLoaded = false; 
+
+		MainCameraFragment.mCameraLoaded = false;
 		mHelper = new ActivityHelper(this);
 		MyCamera.init();
-	 
+
 	    Log.i("IOTCamera", "onResume    登陆成功！！！！UbiaApplication.fromReceiver:"+UbiaApplication.fromReceiver);
 	   if(UbiaApplication.fromReceiver){
-
-
-
-		   PhoneMessageActivity phoneMessageActivity = UbiaUtil.phoneMessageActivity;
+			 PhoneMessageActivity phoneMessageActivity = UbiaUtil.phoneMessageActivity;
 			//上次的要finish掉，否则上次的activity内的计时还在继续，重复收到推送时会出现画面没有了，铃声还在响的情况
 		   if (phoneMessageActivity != null) {
 		   		if(phoneMessageActivity.isFinishing()){
@@ -363,79 +269,27 @@ public class MainActivity extends BaseActivity {
 			var3.putExtras(var21);
 			this.setIntent(var3);
 		}
-	   UbiaApplication.fromReceiver = false; 
+	   UbiaApplication.fromReceiver = false;
 	}
 
 	public void onPause() {
 		super.onPause();
-		 Log.i("IOTCamera", "MainActivity onPause   ！！！！");
-	}
-
-	private void logoutback(){
-		
-	 
-		MainCameraFragment.DeviceList.clear(); 
-		MainCameraFragment.mCameraLoaded = false; 
-		new Thread() {
-			public void run() {
-				quit();
-				CameraManagerment.getInstance().CameraList.clear();
-				if (MainCameraFragment.mainCameraFragment != null) {
-					MainCameraFragment.mainCameraFragment = null;
-					Log.i("IOTCamera",
-							"MainCameraFragment.mainCameraFragment is finish");
-					// MainCameraFragment.mainCameraFragment.getActivity().finish();
-				}
-			  
-			}
-
-		}.start();
-		MainActivity.this.finish();
- 
-		
-	}
-	
-	private void quit() {
-		Log.i("IOTCamera", "main>>>>>>>>>>>>>quit");
-		 CameraManagerment.getInstance().Free();
-		if (MainCameraFragment.mainCameraFragment != null) {
-			  MainCameraFragment.mainCameraFragment.stopOnGoingNotification();
-			NotificationManager notificationManager = (NotificationManager) this
-					.getSystemService("notification");
-			notificationManager.cancel(0);
-			notificationManager.cancel(1);
-			Iterator var1 = CameraManagerment.getInstance().CameraList.iterator();
-			while (var1.hasNext()) {
-				MyCamera var2 = (MyCamera) var1.next();
-				Log.i("IOTCamera",var2.getmUID()+ "main>>>>>>>>>>>>>stop");
-				CameraManagerment.getInstance().StopPPPP(var2.getmUID());
-				var2.disconnect();
-				var2.unregisterIOTCListener(MainCameraFragment.mainCameraFragment);
-			}
-
-			// System.out.println("kill process");
-		  MyCamera.uninit();
+		Iterator var1 = CameraManagerment.getInstance().CameraList.iterator();
+		while (var1.hasNext()) {
+			MyCamera var2 = (MyCamera) var1.next();
+			var2.unregisterIOTCListener(MainCameraFragment.mainCameraFragment);
 		}
-		for (DeviceInfo mDeviceInfo : MainCameraFragment.mainCameraFragment.DeviceList) {
-			Resources res = getResources();
-			String text = res
-					.getString(R.string.fragment_liveviewactivity_mainactivity_state_disconnected);
-			mDeviceInfo.Status = text; 
-			mDeviceInfo.online = false;
-			mDeviceInfo.offline = true;
-			mDeviceInfo.lineing = false;
-			mDeviceInfo.connect_count =0;
-			mDeviceInfo.device_connect_state = 0;
 
-		}
-//		CameraManagerment.getInstance().CameraList.clear();
-
+		Log.i("IOTCamera", "MainActivity onPause   ！！！！");
 	}
+
+
+
 
 	public boolean onKeyDown(int var1, KeyEvent var2) {
 		Log.i("IOTCamera", "main>>>>>>>>>>>>>quit");
 		Log.i("first", "===================================onResume var1:"+var1);
-	 
+
 		if (var1 == 4) {
 			Builder var3 = new Builder(this);
 			var3.setMessage(this.getText(R.string.page18_dialog_Exit));
@@ -443,15 +297,6 @@ public class MainActivity extends BaseActivity {
 					new OnClickListener() {
 						public void onClick(DialogInterface var1, int var2) {
 							var1.dismiss();
-							new Thread() {
-								public void run() {
-									quit();
-  //merge by maxwell
-									MyCamera.uninit();
-								}
-
-							}.start();
-							// quit();
 							finish();
 						}
 					});
@@ -482,22 +327,10 @@ public class MainActivity extends BaseActivity {
 			return true;
 		}
 		}
-	 
- 
+
+
 	protected void onDestroy() {
-		Log.i("IOTCamera", "MAinacitivty>>>>>>>>>>>>>onDestroy");
-		LocalBroadcastManager.getInstance(this).unregisterReceiver(mRefreshBroadcastReceiver);
-		LocalBroadcastManager.getInstance(this).unregisterReceiver(doLogoutReceiver);
-		LocalBroadcastManager.getInstance(this).unregisterReceiver(mHomeKeyEventReceiver);
-		LocalBroadcastManager.getInstance(this).unregisterReceiver(myBroadcast);
-		quit();
-		MyCamera.uninit();
-		super.onDestroy();
-		finish();
-		
-		
-		Process.killProcess(Process.myPid());
-		System.exit(0);  
+
 	};
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {

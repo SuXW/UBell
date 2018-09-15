@@ -103,6 +103,8 @@ public class UbiaApplication extends DaemonApplication {
 
 		LoadedApkHuaWei.hookHuaWeiVerifier(this);//修复华为手机Register too many Broadcast Receivers问题
 
+		registerActivityLifecycleCallbacks(new com.ubia.IOTC.ActivityLifecycleListener());
+
 		if (UbiaUtil.shouldInitPush(context) ) {
 			Log.e("UbiaApplication","Do RegisterPush APP_ID:"+APP_ID+" APP_KEY:"+APP_KEY);
 

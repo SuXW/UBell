@@ -2,6 +2,7 @@ package com.baidu.push;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.Iterator;
 import java.util.List;
 
 import android.app.Activity;
@@ -43,6 +44,7 @@ import cn.ubia.bean.FileInfo;
 import cn.ubia.customprovider.OssService;
 import cn.ubia.db.DatabaseManager;
 import cn.ubia.fragment.MainCameraFragment;
+import cn.ubia.manager.CameraManagerment;
 import cn.ubia.util.PreferenceUtil;
 import cn.ubia.util.StringUtils;
 import cn.ubia.util.UbiaUtil;
@@ -196,14 +198,13 @@ public class PhoneMessageActivity extends BaseActivity {
 					mMediaPlayer = null;
 				}
 				isruning = false;
-				Intent intent = new Intent();  
-				intent.setAction("android.intent.phone.cancel");  
-				LocalBroadcastManager.getInstance(PhoneMessageActivity.this).sendBroadcast(intent);
+				diconnect();
 				PhoneMessageActivity.this.finish();
+				System.exit(0);
 			}
 		});
 //		
-//		
+//
 
 		new Thread() {
 			public void run() {
@@ -222,10 +223,9 @@ public class PhoneMessageActivity extends BaseActivity {
 							mMediaPlayer = null;
 						}
 						isruning = false;
-						Intent intent = new Intent();
-						intent.setAction("android.intent.phone.cancel");
-						LocalBroadcastManager.getInstance(PhoneMessageActivity.this).sendBroadcast(intent);
+						diconnect();
 						PhoneMessageActivity.this.finish();
+						System.exit(0);
 						return;
 					}
 				}
@@ -362,5 +362,18 @@ public class PhoneMessageActivity extends BaseActivity {
 			mMediaPlayer.release(); 
 			mMediaPlayer = null;
 		}
+	}
+
+	private void diconnect(){
+		Iterator var1 = CameraManagerment.getInstance().CameraList.iterator();
+		while (var1.hasNext()) {
+			cn.ubia.bean.MyCamera myCamera = (cn.ubia.bean.MyCamera) var1.next();
+			Log.i("PhoneMessage", myCamera.getmUID() + " stop");
+			CameraManagerment.getInstance().StopPPPP(myCamera.getmUID());
+
+		}
+		cn.ubia.bean.MyCamera.uninit();
+
+		UbiaApplication.currentDeviceLive= "";
 	}
 }

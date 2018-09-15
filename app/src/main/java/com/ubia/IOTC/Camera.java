@@ -1803,9 +1803,10 @@ public class Camera
 //						    //int size = recvBuf[6];
 
 
-                            if(hardware_pkg == HARDWAEW_PKG.CM_BELL_1080P_5230_KY4G){
-                                int single4G= Packet.byteArrayToShort(videoBuffer,12);
-                                deviceWifiSignal   = current4G(single4G + 256);
+                            if(hardware_pkg == HARDWAEW_PKG.CM_BELL_1080P_5230_KY4G||
+                                    hardware_pkg == HARDWAEW_PKG.CM_BELL_720P_9732_KY4G){
+                                int single4G = Packet.byteArrayToShort(videoBuffer,12)+256;
+                                deviceWifiSignal   = current4G(single4G);
 
                             }else{
                                 int wifi = Packet.byteArrayToInt_Little(videoBuffer,12);

@@ -75,7 +75,7 @@ public class MessageDealReceiver extends BroadcastReceiver{
     public boolean callphoneInfoCallBack(Context context, String uid,
                                          String time, String event,String state) {
 
-        if (UbiaApplication.currentDeviceLive.equals("") && (!MainCameraFragment.getRunningActivityName(LiveViewGLviewActivity.class.getSimpleName()) || LiveViewGLviewActivity.isBackgroundRunning)) {//&&  ( System.currentTimeMillis()- timeLast>delaycalltime)) {//no live view
+        if (UbiaApplication.currentDeviceLive.equals("") && (!MainCameraFragment.getRunningActivityName(LiveViewGLviewActivity.class.getSimpleName()))) {//&&  ( System.currentTimeMillis()- timeLast>delaycalltime)) {//no live view
 
             UbiaApplication.fromReceiver = true;
             UbiaApplication.messageUID = uid;

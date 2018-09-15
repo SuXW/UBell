@@ -216,7 +216,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 	private	long recordStartseccount = 0;
 	private int popwinoffset = 0;
 	private boolean isTenmin;
-	public  static boolean isBackgroundRunning = true;
+	public  boolean isBackgroundRunning = true;
 	private boolean showGridViewBitmap = false;
 
 	private RelativeLayout seek_bar_rl;//mp4播放进度父控件
@@ -743,9 +743,6 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 						totalTime_tv.setText(""+convertTime(duration));
 						nowTime_tv.setText(""+convertTime(mSampleTime));
 
-
-
-
 					}
 					break;
 
@@ -759,16 +756,6 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 							editor.commit();
 							Boolean isCloudSave = (isCloud==1);
 							Log.e("guo..live","hardware_pkg="+mDevice.hardware_pkg);
-
-							if (isCloudSave){
-								TextView	img_control_vrmode_tv =   (TextView) findViewById(R.id.img_control_vrmode_tv);
-								if(img_control_vrmode_tv!=null)
-									img_control_vrmode_tv.setText(getString(R.string.cloud_save_tip));
-							}else{
-								TextView img_control_vrmode_tv =   (TextView) findViewById(R.id.img_control_vrmode_tv);
-								if(img_control_vrmode_tv!=null)
-									img_control_vrmode_tv.setText(getString(R.string.switch_tip));
-							}
 
 							if(mDevice.hardware_pkg == HARDWAEW_PKG.SREE_VR_LINUX_PIR_LED) {
 								lockStatus =  light == 1;
@@ -802,8 +789,8 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 	private int temperature;
 	private int battery;
 	private int avFrameTimeStamp;
-	private boolean mIsListening = false;
-	private boolean mIsSpeaking = false;
+	public boolean mIsListening = false;
+	public boolean mIsSpeaking = false;
 	private int mOnlineNm;
 	//	private int mSelectedChannel=0;
 	private long mVideoBPS;
@@ -1179,7 +1166,6 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 				bundle.putInt("camera_channel",
 						LiveViewGLviewActivity.this.mDevice.getChannelIndex());
 				bundle.putInt("battery",battery);
-
 				intent.putExtras(bundle);
 				intent.setClass(LiveViewGLviewActivity.this, SettingActivity.class);
 				startActivityForResult(intent, -11);//(intent);
@@ -1380,6 +1366,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 						LiveViewGLviewActivity.this.mDevice.viewPassword);
 				bundle.putInt("camera_channel",
 						LiveViewGLviewActivity.this.mDevice.getChannelIndex());
+				bundle.putInt("battery",battery);
 				intent.putExtras(bundle);
 				intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 				intent.setClass(LiveViewGLviewActivity.this, SettingActivity.class);
@@ -2180,14 +2167,6 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 
 
 		checkDoorbellSound();//解决，横屏切到竖屏仍会开启声音
-		IntentFilter filter = new IntentFilter();
-		filter.addAction(Intent.ACTION_SCREEN_ON);
-		filter.addAction(Intent.ACTION_SCREEN_OFF);
-		filter.addAction(Intent.ACTION_USER_PRESENT);
-		filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
-		registerReceiver(mHomeKeyEventReceiver,filter);
-		LocalBroadcastManager.getInstance(this).registerReceiver(mHomeKeyEventReceiver,
-				filter);
 
 		mCameraManagerment.userIPCstartShow(mDevUID);
 
@@ -2750,6 +2729,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 						LiveViewGLviewActivity.this.mDevice.viewPassword);
 				bundle.putInt("camera_channel",
 						LiveViewGLviewActivity.this.mDevice.getChannelIndex());
+				bundle.putInt("battery",battery);
 				intent.putExtras(bundle);
 				intent.setClass(LiveViewGLviewActivity.this, SettingActivity.class);
 				startActivityForResult(intent, -11);//(intent);
@@ -2930,6 +2910,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 	protected void onPause() {
 		super.onPause();
 		mCameraManagerment.userIPCStopAlStream(mDevUID);
+		isBackgroundRunning = true;
 		onActivityRuning = false;
 		isruningRefresh = false;
 		timeRunning = false;
@@ -2951,6 +2932,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 		onActivityRuning = true;
 		mlastVideoWidth = 0;
 		UbiaApplication.currentDeviceLive = mDevUID;
+
 		if(  isBackgroundRunning)
 		{
 			mCameraManagerment.Init();
@@ -3502,6 +3484,16 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			}
 		}, 3000);
 
+		if (getSharedPreferences("isCloudSave",Context.MODE_PRIVATE).getBoolean(mDevice.UID, false)){
+			TextView	img_control_vrmode_tv =   (TextView) findViewById(R.id.img_control_vrmode_tv);
+			if(img_control_vrmode_tv!=null)
+				img_control_vrmode_tv.setText(getString(R.string.cloud_save_tip));
+		}else{
+			TextView img_control_vrmode_tv =   (TextView) findViewById(R.id.img_control_vrmode_tv);
+			if(img_control_vrmode_tv!=null)
+				img_control_vrmode_tv.setText(getString(R.string.switch_tip));
+		}
+
 	}
 
 	protected void onStart() {
@@ -3514,16 +3506,9 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 		super.onDestroy();
 		if(monitor!=null)
 			monitor.deattachCamera() ;
-		if(MainCameraFragment.getAllRunningActivityName(MainActivity.class.getName())){
-			Log.d("","MainActivity exist");
-		}else{
-			isBackgroundRunning = true;
-			mCameraManagerment.Free();
-			UbiaApplication.currentDeviceLive= "";
-			Log.d("","MainActivity not exist");
-		}
+
 		mCameraManagerment.ClearBuf(mDevUID);
-		LocalBroadcastManager.getInstance(this).unregisterReceiver(mHomeKeyEventReceiver);
+
 		//unregisterReceiver(newDeviceCallBroadcastReceiver);
 		onActivityRuning= false;
 		isruningRefresh= false;
@@ -3952,59 +3937,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 		});
 
 	}
-	private BroadcastReceiver mHomeKeyEventReceiver = new BroadcastReceiver() {
-		String SYSTEM_REASON = "reason";
-		String SYSTEM_HOME_KEY = "homekey";
-		String SYSTEM_HOME_KEY_LONG = "recentapps";
-		@Override
-		public void onReceive(Context context, Intent intent) {
-			String action = intent.getAction();
-			if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)) {
-				String reason = intent.getStringExtra(SYSTEM_REASON);
-				if (TextUtils.equals(reason, SYSTEM_HOME_KEY)&& !isBackgroundRunning) {
 
-					StopAllSpeak();
-					mCameraManagerment.userIPCStopAlStream(mDevUID);
-					mCameraManagerment. StopPPPP(mDevUID);
-					mCameraManagerment.Free();
-					isBackgroundRunning = true;
-					UbiaApplication.currentDeviceLive= "";
-					LiveViewGLviewActivity.this.moveTaskToBack(true);
-					UbiaApplication.currentDeviceLive= "";
-					Log.e("","应用退到LLLLL后台");
-
-					UbiaApplication.currentDeviceLive= "";
-					LiveViewGLviewActivity.this.moveTaskToBack(true);
-				} else if(TextUtils.equals(reason, SYSTEM_HOME_KEY_LONG)){
-				} else if(TextUtils.equals(reason, "lock")){
-					Log.e("","应用LLLLLlock 锁屏");
-					StopAllSpeak();
-					mCameraManagerment.userIPCStopAlStream(mDevUID);
-					mCameraManagerment. StopPPPP(mDevUID);
-					mCameraManagerment.Free();
-					isBackgroundRunning = true;
-					UbiaApplication.currentDeviceLive= "";
-					LiveViewGLviewActivity.this.moveTaskToBack(true);
-
-				}
-			}
-			if (Intent.ACTION_SCREEN_ON.equals(action)) { // 开屏
-				Log.e("","应用 LLLLL开屏");
-			} else if (Intent.ACTION_SCREEN_OFF.equals(action)) { // 锁屏
-				Log.e("","应用LLLLL 锁屏");
-		 		StopAllSpeak();
-				mCameraManagerment.userIPCStopAlStream(mDevUID);
-				UbiaApplication.currentDeviceLive= "";
-				mCameraManagerment. StopPPPP(mDevUID);
-				isBackgroundRunning = true;
-				mCameraManagerment.Free();
-				UbiaApplication.currentDeviceLive= "";
-			} else if (Intent.ACTION_USER_PRESENT.equals(action)) { // 解锁
-				Log.e("","应用 解锁");
-			}
-
-		}
-	};
 	private void goPhotoGridActivity(){
 		Log.i("liveview","popview height:"+mPopViewAdd.getHeight());
 		lastsnap();
