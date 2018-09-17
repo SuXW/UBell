@@ -75,7 +75,7 @@ public class MessageDealReceiver extends BroadcastReceiver{
     public boolean callphoneInfoCallBack(Context context, String uid,
                                          String time, String event,String state) {
 
-        if (UbiaApplication.currentDeviceLive.equals("") && (!MainCameraFragment.getRunningActivityName(LiveViewGLviewActivity.class.getSimpleName()))) {//&&  ( System.currentTimeMillis()- timeLast>delaycalltime)) {//no live view
+        if (UbiaApplication.currentDeviceLive.equals("")) {//no live view
 
             UbiaApplication.fromReceiver = true;
             UbiaApplication.messageUID = uid;
@@ -214,6 +214,7 @@ public class MessageDealReceiver extends BroadcastReceiver{
 
         boolean showActivityCall = true;
         int pushType = !UbiaApplication.currentDeviceLive.equals("")? 1:PreferenceUtil.getInstance().getInt(Constants.MESSAGETYPE_CHECK + messuid, UbiaApplication.DefaultReceiverType);
+        Log.d("guo,,push","pushType="+pushType+",currentDeviceLive="+UbiaApplication.currentDeviceLive);
         if (pushType == 0) {
             return;
         } else if (pushType > 1) {// 来电呼叫
