@@ -567,7 +567,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 												.getText(R.string.page8_tips_play_record_end),
 										0).show();
 								if(LiveViewGLviewActivity.this.onActivityRuning)
-									rockBackToLive();
+									rockBackToLive_();
 //								 myHorizontalScrollView.scorllToCurrentTime();
 								break;
 							case AVIOCTRLDEFs.AVIOCTRL_RECORD_PLAY_START:
@@ -684,7 +684,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 						if(isPlayMp4){
 							if(right2_tv!=null)
 								right2_tv.setVisibility(View.GONE);
-							if(mViewPager!=null)
+							if(mViewPager!=null) //回放时按钮消失
 								mViewPager.setVisibility(View.GONE);
 							LinearLayout points_ll = (LinearLayout)	findViewById(R.id.points_ll);
 							if(points_ll!=null){
@@ -745,11 +745,14 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 
 					}
 					break;
-
+					case AVIOCTRLDEFs.UBIA_IO_SET_ELOCK_RESP:
+						mCameraManagerment.userIPCGetAdvanceSetting(mDevUID);//获取锁状态
+						break;
 					case AVIOCTRLDEFs.IOTYPE_USER_IPCAM_GET_ADVANCESETTINGS_RESP:
 						char adv_valid = (char) databyte[48] ;
 						if(adv_valid==0x7E){
 							int isCloud = (int) (databyte[77]&0xff);
+							int lock = (int) databyte[78]&0xff;
 							int light = (int) databyte[81]&0xff;
 							SharedPreferences.Editor editor = LiveViewGLviewActivity.this.getSharedPreferences("isCloudSave", Context.MODE_PRIVATE).edit();
 							editor.putBoolean(mDevUID, isCloud==1);
@@ -757,9 +760,20 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 							Boolean isCloudSave = (isCloud==1);
 							Log.e("guo..live","hardware_pkg="+mDevice.hardware_pkg);
 
+							if(mDevice.hardware_pkg == HARDWAEW_PKG.BELL_LOCK) {
+								lockStatus =  lock == 1;
+								Log.e("guo..live","lockStatus="+lockStatus);
+
+								if (lockStatus) {
+									img_lock.setImageResource(R.drawable.kaisuo);
+								} else {
+									img_lock.setImageResource(R.drawable.guansuo);
+								}
+							}
+
 							if(mDevice.hardware_pkg == HARDWAEW_PKG.SREE_VR_LINUX_PIR_LED) {
 								lockStatus =  light == 1;
-								Log.e("guo..live","lockStatus="+lockStatus);
+								Log.e("guo..live","ledStatus="+lockStatus);
 
 								if (lockStatus) {
 									img_lock.setImageResource(R.drawable.kandeng);
@@ -1201,7 +1215,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 
 				@Override
 				public void onClick(View arg0) {
-					rockBackToLive();
+					rockBackToLive_();
 					return;
 
 				}
@@ -1241,13 +1255,25 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			viewList.add(ll_dot2);
 			LinearLayout points_ll = (LinearLayout)	findViewById(R.id.points_ll);
 			points_ll.setVisibility(View.VISIBLE);
-			img_lock.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View arg0) {
-					lockStatus = !lockStatus;
-					mCameraManagerment.userIPCsetLock(mDevUID,lockStatus?0:1);
-				}
-			});
+
+
+			if(mDevice.hardware_pkg == HARDWAEW_PKG.BELL_LOCK){
+
+				img_lock.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View arg0) {
+						lockStatus = !lockStatus;
+						/*if(lockStatus){
+							img_lock.setImageResource(R.drawable.kaisuo);
+						}else{
+							img_lock.setImageResource(R.drawable.guansuo);
+						}*/
+						mCameraManagerment.userIPCsetLock(mDevUID,lockStatus?1:0);
+
+					}
+				});
+			}
+
 
 			if(mDevice.hardware_pkg == HARDWAEW_PKG.SREE_VR_LINUX_PIR_LED){
 
@@ -1399,7 +1425,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 
 				@Override
 				public void onClick(View arg0) {
-					rockBackToLive();
+					rockBackToLive_();
 				}
 			});
 		//mCameraManagerment.userIPCGetAdvanceSetting(mDevUID);
@@ -1781,7 +1807,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 	private String playingmUriString = "";
 	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		super.onActivityResult(requestCode, resultCode, intent);
-		//Log.i("deviceinfo", "onActivityResult:var1 ="+var1 +"   resultCode ="+resultCode);
+		//Log.i("guo,,onActivityResult", "requestCode="+requestCode +"   resultCode ="+resultCode);
 		if (requestCode == 99) {
 //			this.monitor = (GLView) this.findViewById(R.id.monitorLayout);
 //			this.monitor.attachCamera(mCamera, 0);
@@ -1814,8 +1840,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			showGridViewBitmap = true;
 
 			Bundle bundle=intent.getExtras();
-//			ArrayList	list2 = bundle.getParcelableArrayList("list");
-//			int position = bundle.getInt("position") ;
+
 			final String mUriString = intent.getStringExtra("uri");
 			Log.i("images", "》》》》》》》》》》》》  uri:" + mUriString);
 			if (mUriString == null) {
@@ -1823,6 +1848,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 				return;
 			}
 			if(mUriString.toUpperCase().contains(".MP4")){
+
 				isPlayMp4 = true;
 				seek_bar_rl.setVisibility(View.VISIBLE);
 				if (LiveViewGLviewActivity.this.txt_time != null&& txt_time.getVisibility()==View.VISIBLE) {
@@ -1930,7 +1956,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 						monitor.attachCamera(mCameraManagerment.getexistCamera(mDevUID), 0,mDevice.installmode,mDevice,mDevice.snapshot,true);
 						monitor.setCameraPutModel(installmode);
 						monitor.setCameraHardware_pkg(hardware_pkg);
-						this.monitor.setHorizontal(false);
+					//	this.monitor.setHorizontal(false);
 						monitor.refreshBitmap(bitmap) ;
 					}else if( nameSplit.length<=6){
 						monitor.setCameraPutModel( VRConfig.CameraPutModelFaceFront);
@@ -1949,7 +1975,14 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 		}else{
 			handler.sendEmptyMessage(1112);
 		}
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+		//回放时固定，回到直播时解除
+		if(getResources().getConfiguration().orientation==1){
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+		}else{
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		}
+
 
 	}
 	private Bitmap createDefaultImage(Bitmap dpDrawable )
@@ -2938,6 +2971,9 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			mCameraManagerment.Init();
 			mCameraManagerment.StartPPPP(mDevUID, mDevice.viewAccount, mDevice.viewPassword);
 		}
+
+
+		Log.d("guo..onResume","showGridViewBitmap="+showGridViewBitmap);
 		if(!showGridViewBitmap ){//mP4前后台切换
 //    		直播前后
 			if( !UbiaApplication.BUILD_CHECK_PLAYVOICE)////check playVoice; detail default close
@@ -2972,6 +3008,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 
 		}else{
 //    		本地播放前后
+			Log.d("guo..onResume","isPlayMp4="+isPlayMp4);
 			StopAudio();
 			if(isPlayMp4){
 				try {
@@ -4485,6 +4522,143 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			Log.e("", "ptzId   ptzId:" + ptzId + "   ptzThreadRunning:" + ptzThreadRunning);
 		}
 	});
+
+
+	private void rockBackToLive_(){
+		if(mProgressBar!=null){
+			mProgressBar.setVisibility(View.VISIBLE);
+			mProgressBar.bringToFront();
+		}
+
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+
+		if(isPlayMp4){
+			handler.postDelayed(new Runnable() {
+				public void run() {
+
+						// initSpeakVolume();
+						monitor.restartPlay();
+						mCameraManagerment.userIPCstartShow(mDevUID);
+						if (mIsListening) {
+							mCameraManagerment.userIPCstartListen(mDevUID);
+						}
+
+						if (mIsSpeaking) {
+							mCameraManagerment.userIPCstartSpeak(mDevUID);
+						}
+					/*	monitor.attachCamera(mCameraManagerment.getexistCamera(mDevUID), 0,mDevice.installmode,mDevice,mDevice.snapshot,true);
+						monitor.setCameraPutModel(mDevice.installmode);
+						MyCamera mCamera = mCameraManagerment .getexistCamera(mDevUID);
+						monitor.setCameraHardware_pkg(mCamera.hardware_pkg);
+						checkDoorbellSound();*/
+
+
+				}
+			}, 500);
+		}else{
+			monitor.restartPlay();
+			mCameraManagerment.userIPCstartShow(mDevUID);
+			if ( mIsListening) {
+				mCameraManagerment.userIPCstartListen(mDevUID);
+			}
+
+			if ( mIsSpeaking) {
+				mCameraManagerment.userIPCstartSpeak(mDevUID);
+			}
+			checkDoorbellSound();
+		}
+		isPlayMp4 = false;
+
+		handler.sendEmptyMessage(1112);//控制界面
+		if (System.currentTimeMillis() - clickBackToLivetime > 1000) {// 大于一秒以上的点击才认为有效
+			Log.d("", "     clickBackToLivetime = System.currentTimeMillis(); ="+clickBackToLivetime +"     " +System.currentTimeMillis() );
+
+			currentplaySeq++;
+			mCameraManagerment.setcurrentplaySeq( mDevUID,currentplaySeq);
+			mCameraManagerment.userIPCStart(mDevUID, 	mDevice.getChannelIndex(), 	(byte) currentplaySeq);
+			if(myHorizontalScrollView!=null){
+				myHorizontalScrollView
+						.scorllToCurrentTimeAndNoRecall();
+			}
+		}
+
+		if( !UbiaApplication.BUILD_CHECK_PLAYVOICE){////check playVoice; detail default close
+
+			try {
+				handler.postDelayed(new Runnable() {
+
+					@Override
+					public void run() {
+						// FdkAACCodec
+						// 解码器会被释放，延后处理，保证MP4线程先退出后再初始化FdkAACCodec
+						// 返回直播，关闭声音
+						mCameraManagerment .userIPCMuteControl(mDevUID, true);
+						LiveViewGLviewActivity.this.mIsListening = false;
+						StartAudio();
+					}
+				}, 500);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			if(voiceMute!=null){
+				voiceMute.setImageResource(R.drawable.sound_off);
+			}
+		}else{
+			try {
+
+				mCameraManagerment.userIPCMuteControl(mDevUID,false);
+				LiveViewGLviewActivity.this.mIsListening = true;
+				StartAudio();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			if(voiceMute!=null){
+				voiceMute.setImageResource(R.drawable.sound_on);
+			}
+		}
+
+		clickBackToLivetime = System.currentTimeMillis();
+
+	/*	final MyCamera mCamera=  CameraManagerment.getInstance().getexistCamera(mDevUID);
+		monitor.setCameraHardware_pkg(mCamera.hardware_pkg);
+		monitor.attachCamera(mCameraManagerment.getexistCamera(mDevUID), 0,mDevice.installmode,mDevice,mDevice.snapshot,true);
+		monitor.setCameraPutModel(mDevice.installmode);
+		checkDoorbellSound();*/
+
+		final MyCamera mCamera=  CameraManagerment.getInstance().getexistCamera(mDevUID);
+		handler.postDelayed(new Runnable() {
+
+			@Override
+			public void run() {
+				monitor.restartPlay();
+				monitor.attachCamera(mCameraManagerment.getexistCamera(mDevUID), 0,mDevice.installmode,mDevice,mDevice.snapshot,true);
+				monitor.setCameraHardware_pkg(mCamera.hardware_pkg);
+				monitor.setCameraPutModel(mDevice.installmode);
+				if(UbiaApplication.SHOWLASTSNAPSHOT)
+					monitor.refreshBitmap(mDevice.snapshot) ;
+			}
+		}, 500);
+
+		HARDWAEW_INFO mdd =VRConfig.getInstance().getDeviceType(mCamera.hardware_pkg);
+		if(mdd.type == VRConfig.VRDEVICE && mdd.width==960 && mdd.height==960 ){
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+		}else{
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+		}
+
+		if (right_image3 != null) {
+			right_image3.setImageResource(R.drawable.mic_off);
+			right_image3.setEnabled(true);
+		}
+		if (img_mic != null) {
+			img_mic.setImageResource(R.drawable.mic_off);
+			img_mic.setEnabled(true);
+		}
+		showGridViewBitmap = false;
+
+	}
+
 
 	private void rockBackToLive(){
 

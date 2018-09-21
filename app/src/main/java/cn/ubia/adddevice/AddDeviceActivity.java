@@ -291,7 +291,6 @@ public class AddDeviceActivity extends BaseActivity {
 	private EditText edtUID;
 	private IntentFilter filter;
 	private List<SearchResult> list = new ArrayList<SearchResult>();
-	private ResultStateReceiver resultStateReceiver;
 
 	// private ThreadTPNS thread;
 
@@ -333,7 +332,7 @@ public class AddDeviceActivity extends BaseActivity {
 
 	private void startInstall(File var1) {
 		Intent var2 = new Intent();
-		var2.addFlags(268435456);
+		var2.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		var2.setAction("android.intent.action.VIEW");
 		var2.setDataAndType(Uri.fromFile(var1),
 				"application/vnd.android.package-archive");
@@ -409,12 +408,7 @@ public class AddDeviceActivity extends BaseActivity {
 		String stringpwd = intent.getStringExtra("selectPWD");
 
 		mProgressBar = new MyProgressBar(this);
-		this.filter = new IntentFilter();
-		this.filter.addAction(AddDeviceActivity.class.getName());
-		this.resultStateReceiver = new ResultStateReceiver(
-				(ResultStateReceiver) null);
-		LocalBroadcastManager.getInstance(this).registerReceiver(resultStateReceiver,
-				filter);
+
 		this.edtUID = (EditText) this.findViewById(R.id.edtUID);
 		// this.edtSecurityCode = (EditText) this
 		// .findViewById(R.id.edtSecurityCode);
@@ -479,22 +473,10 @@ public class AddDeviceActivity extends BaseActivity {
 
 	protected void onDestroy() {
 		super.onDestroy();
-		this.unregisterReceiver(this.resultStateReceiver);
+
 	}
 
-	private class ResultStateReceiver extends BroadcastReceiver {
 
-		private ResultStateReceiver() {
-		}
-
-		// $FF: synthetic method
-		ResultStateReceiver(ResultStateReceiver var2) {
-			this();
-		}
-
-		public void onReceive(Context var1, Intent var2) {
-		}
-	}
 
 	private class SearchResult {
 
@@ -572,7 +554,7 @@ public class AddDeviceActivity extends BaseActivity {
 			Toast.makeText(
 					AddDeviceActivity.this,
 					AddDeviceActivity.this.getText(R.string.page6_tips_add_camera_ok)
-							.toString(), 0).show();
+							.toString(), Toast.LENGTH_SHORT).show();
 			Bundle var10 = new Bundle();
 			var10.putLong("db_id", var8);
 			var10.putString("dev_nickname", deviceName);
@@ -664,7 +646,7 @@ public class AddDeviceActivity extends BaseActivity {
 											AddDeviceActivity.this
 													.getText(
 															R.string.page6_tips_add_camera_ok)
-													.toString(), 0).show();
+													.toString(), Toast.LENGTH_SHORT).show();
 									Bundle var10 = new Bundle();
 									var10.putLong("db_id", var8);
 									var10.putString("dev_nickname", deviceName);

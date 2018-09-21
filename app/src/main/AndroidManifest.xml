@@ -93,7 +93,7 @@
               android:windowSoftInputMode="stateHidden|adjustResize" 
             android:finishOnTaskLaunch="true"
             android:label="${APP_NAME}"
-            android:screenOrientation="sensorPortrait"  >
+             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -102,29 +102,28 @@
         </activity>
         <activity
             android:name="cn.ubia.adddevice.AddCarmeraFragmentActivity"
-              android:theme="@style/MainActivity"
-            android:screenOrientation="sensorPortrait" />
-              <activity
+            android:theme="@style/MainActivity"
+           />
+        <activity
             android:name="cn.ubia.adddevice.AddCarmeraLanSearchActivity"
-              android:theme="@style/MainActivity"
-            android:screenOrientation="sensorPortrait" />
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/MainActivity" />
         
         <activity
             android:name="cn.ubia.adddevice.AddCarmeraFragmentYesOrNoActivity"
-              android:theme="@style/MainActivity"
-            android:screenOrientation="sensorPortrait" />
+              android:theme="@style/MainActivity" />
         <activity
             android:name="cn.ubia.adddevice.SearchCarmeraFragmentActivity"
               android:theme="@style/MainActivity"
-            android:screenOrientation="sensorPortrait" />
+           />
         <activity
             android:name="cn.ubia.adddevice.SearchCarmeraFragmentFailActivity"
-              android:theme="@style/MainActivity"
-            android:screenOrientation="sensorPortrait" />
+            android:theme="@style/MainActivity"
+           />
         <activity
             android:name="cn.ubia.adddevice.AddCarmeraNoBlueLedFragmentActivity"
               android:theme="@style/MainActivity"
-            android:screenOrientation="sensorPortrait" />
+         />
        <!-- <activity
             android:name="cn.ubia.LoginActivity"
             android:theme="@style/MainActivity"
@@ -138,7 +137,8 @@
             android:finishOnTaskLaunch="true"
             android:launchMode="singleTask"
             android:theme="@style/MainActivitynoAnimation"
-            android:screenOrientation="sensorPortrait"  >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            >
         </activity>
         <activity
             android:name="cn.ubia.adddevice.AddDeviceActivity"
@@ -147,8 +147,7 @@
         <activity
             android:name="cn.ubia.adddevice.LoginAddDeviceActivity"
               android:windowSoftInputMode="stateHidden|adjustResize" 
-              android:theme="@style/MainActivity"
-            android:screenOrientation="sensorPortrait" />
+              android:theme="@style/MainActivity" />
         <activity
             android:name="cn.ubia.LiveViewGLviewActivity"
              android:launchMode="singleTask"
@@ -157,17 +156,16 @@
 
         <activity
             android:name="cn.ubia.adddevice.WIfiAddDeviceActivity"
-            android:theme="@style/MainActivity"
-            android:screenOrientation="sensorPortrait" />
+            android:theme="@style/MainActivity" />
 
         <activity
             android:name="cn.ubia.PhotoGridActivity"
-            android:screenOrientation="sensorPortrait" />
+           />
 
         <activity
             android:name="cn.ubia.adddevice.SetupAddDeviceActivity" 
             android:theme="@style/MainActivity"
-            android:screenOrientation="sensorPortrait" />
+           />
         <activity
             android:name="cn.ubia.GridViewGalleryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -184,27 +182,24 @@
             android:name="com.baidu.push.PhoneMessageActivity"
             android:excludeFromRecents="true"
             android:finishOnTaskLaunch="true"
-            android:screenOrientation="portrait"
             android:launchMode="singleTask" >
         </activity>
         
         <activity
             android:name="cn.ubia.CloudSaveVideoListActivity"
             android:finishOnTaskLaunch="true"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/MainActivity"
-            android:screenOrientation="portrait"
             android:launchMode="singleTask" />
         <activity
             android:name="cn.ubia.Mp4PlayActivity"
             android:finishOnTaskLaunch="true"
-            android:screenOrientation="portrait"
             android:theme="@style/MainActivity"
             android:launchMode="singleTask" >
         </activity>
         <activity
             android:name="cn.ubia.AboutActivity"
-              android:theme="@style/MainActivity"
-            android:screenOrientation="sensorPortrait" >
+              android:theme="@style/MainActivity">
         </activity>
 
 
@@ -223,16 +218,12 @@
             android:label="@string/app_name" />
         <activity
             android:name="com.zbar.lib.CaptureActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="sensorPortrait"
             android:theme="@style/noAnimation"
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
         <activity
             android:name="cn.ubia.adddevice.QrCodeShareInfoActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
-            android:screenOrientation="sensorPortrait"
             android:theme="@style/MainActivity" />
 
 

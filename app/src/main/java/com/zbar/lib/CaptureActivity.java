@@ -105,7 +105,7 @@ public class CaptureActivity extends BaseActivity implements OnClickListener,
 		setContentView(R.layout.twodimensioncode_camera);
 
 		hasAdd = getIntent().getBooleanExtra("hasAdd", false);
-		CameraManager.init(getApplication());
+		CameraManager.init(getApplication(),getResources().getConfiguration().orientation);
 		hasSurface = false;
 		inactivityTimer = new InactivityTimer(this);
 		initView();

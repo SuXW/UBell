@@ -16,12 +16,13 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <RelativeLayout
-                android:layout_width="wrap_content"
+                android:layout_width="450dip"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 >
@@ -51,8 +52,7 @@
                         />
                     <TextView
                         android:id="@+id/textView_1"
-                        android:layout_width="100dip"
-                        android:gravity="center"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/page11__setupwifi"
@@ -81,8 +81,7 @@
 
                     <TextView
                         android:id="@+id/textView_2"
-                        android:layout_width="100dip"
-                        android:gravity="center"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/page11__searchdevice"
                         android:textColor="@color/color_text_color_tip" />
@@ -107,9 +106,9 @@
 
                     <TextView
                         android:id="@+id/textView_3"
-                        android:layout_width="100dip"
-                        android:gravity="center"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="@string/page11__modifydevice"
                         android:textColor="@color/color_skin_color" />
                 </LinearLayout>
@@ -124,7 +123,8 @@
             </RelativeLayout>
 
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
                 android:orientation="vertical"
@@ -172,7 +172,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
+                    android:layout_width="300dip"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/x100"
                     android:layout_marginRight="@dimen/x100"
@@ -221,7 +221,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
+                    android:layout_width="300dip"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/x100"
                     android:layout_marginRight="@dimen/x100"
@@ -279,7 +279,7 @@
                     android:layout_marginTop="10.0dip" />
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
+                    android:layout_width="300dip"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/x100"
                     android:layout_marginRight="@dimen/x100"
@@ -381,7 +381,7 @@
 
                 <LinearLayout
                     android:id="@+id/devlocal_lv"
-                    android:layout_width="fill_parent"
+                    android:layout_width="300dip"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/x100"
                     android:layout_marginRight="@dimen/x100"
@@ -558,12 +558,12 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_width="300dip"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="@dimen/x150"
                 android:layout_marginRight="@dimen/x150"
-                android:layout_marginTop="25dp">
+                android:layout_margin="25dp">
 
                 <Button
                     android:id="@+id/btnok"

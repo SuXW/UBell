@@ -602,4 +602,9 @@
     <string name="setting_sdcord_noformat">Non formaté</string>
     <string name="live_lowpower">de faible puissance,S\'il vous plaît, de charge</string>
     <string name="live_lowpower_ota"> L\'OTA a besoin de plus de 50% d\'énergie, veuillez charger d\'abord le périphérique </string>
+
+    <string name = "push_lowerpower_level_1"> L'appareil est faible et la fonction de surveillance à distance cessera d'utiliser </string>
+    <string name = "push_lowerpower_level_2"> L'appareil est faible, veuillez le recharger à temps </string>
+    <string name = "push_lowerpower_level_3"> Le verrou de la porte est bas, il sera arrêté </string>
+    <string name = "push_lock"> Quelqu'un sonne à la porte et demande à déverrouiller </string>
 </resources>			

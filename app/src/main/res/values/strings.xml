@@ -603,4 +603,9 @@
     <string name="setting_sdcord_noformat">NOT FORMAT</string>
     <string name="live_lowpower">Low power,please charge it</string>\
     <string name="live_lowpower_ota">OTA needs more than 50% power,please charge the device first </string>
+
+    <string name="push_lowerpower_level_1">The device is low and the remote monitoring function will stop using </string>
+    <string name="push_lowerpower_level_2">The device is low battery, please charge it in time </string>
+    <string name="push_lowerpower_level_3">The door lock is low, it will be shut down </string>
+    <string name="push_lock">Someone rings the door and requests to unlock </string>
 </resources>

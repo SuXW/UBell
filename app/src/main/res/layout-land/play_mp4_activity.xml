@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <include
+        android:visibility="gone"
         android:id="@+id/de_ti"
         layout="@layout/detail_title"
         android:layout_width="wrap_content"
@@ -32,16 +33,16 @@
         android:orientation="vertical">
 
         <com.ubia.IOTC.Monitor
-            android:layout_centerInParent="true"
             android:id="@+id/play_monitor"
             android:layout_width="match_parent"
-            android:layout_height="250dp" />
+            android:layout_height="match_parent" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="5dip">
+            android:layout_marginBottom="5dip"
+            >
 
             <ImageView
                 android:id="@+id/play_btn"

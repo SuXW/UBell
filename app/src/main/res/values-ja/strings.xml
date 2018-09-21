@@ -601,4 +601,9 @@
     <string name="setting_sdcord_noformat">非フォーマット</string>
     <string name="live_lowpower">電池が低い,充電してください</string>
     <string name= "live_lowpower_ota">OTAは50％以上の電力を必要とします。デバイスを最初に充電してください。</string>
+
+    <string name = "push_lowerpower_level_1">デバイスが少なく、リモート監視機能は</string>を使用して停止します。
+    <string name = "push_lowerpower_level_2">デバイスのバッテリーが切れています。時間内に充電してください。</string>
+    <string name = "push_lowerpower_level_3">ドアロックが低く、シャットダウンされます</string>
+    <string name = "push_lock">誰かがドアを鳴らしてロックを解除するよう要求します</string>
 </resources>

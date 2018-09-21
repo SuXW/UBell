@@ -1091,14 +1091,7 @@ public class SettingActivity extends BaseActivity implements
 		this.finish();
 	}
 
-	public void onConfigurationChanged(Configuration var1) {
-		super.onConfigurationChanged(var1);
-		Configuration var2 = this.getResources().getConfiguration();
-		if (var2.orientation != 2) {
-			int var10000 = var2.orientation;
-		}
 
-	}
 
 	MyProgressBar mProgressBar;
 	private LinearLayout pnlosdSeting;

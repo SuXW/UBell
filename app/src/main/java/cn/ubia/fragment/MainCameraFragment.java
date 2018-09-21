@@ -35,6 +35,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -1952,7 +1953,7 @@ public class MainCameraFragment extends  Fragment implements
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-	 
+		getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
 		// mHttpClient = new HttpClient(token, tokenSecret);
 		Resources res = getResources();
 		default_snap = BitmapFactory.decodeResource(res, R.drawable.usnap_bg);

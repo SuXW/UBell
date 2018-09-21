@@ -572,8 +572,8 @@
     <string name="settings_tip">Ajustes</string>
     <string name="firmware_update_success">Firmware actualizado correctamente</string>
 
-    <string name = "password_sim_tip"> su contraseña es demasiado simple, modifique la contraseña más de 8 </string>
-    <string name = "password_short_tip"> La contraseña del dispositivo que ingresó está fuera de servicio: \ n menos de 8 caracteres </string>
+    <string name = "password_sim_tip"> Su contraseña es demasiado simple, modifique la contraseña mas de 8 caracteres </string>
+    <string name = "password_short_tip"> La contraseña del dispositivo que ingresó está fuera de servicio: \n no menos de 8 caracteres </string>
     <string name = "password_wifi_tip"> la contraseña de la red inalámbrica generalmente tiene al menos 8 caracteres, lo que permite hasta 42 caracteres, solo la longitud de la contraseña del modo WEP64 es de 5 caracteres </string>
 
     <string name = "descargar"> Descargar </string>
@@ -596,7 +596,7 @@
             <string name = "cloud_delete_all"> eliminar todos los archivos </string>
          <string name = "cloud_delete_day"> eliminar el archivo del día </string>
 
-    <string name="add_getssid_fail">Failed to get SSID. Please confirm whether to open: \n1.WIFI network \n2. location permissions \n3.GPS location switch.</string>
+    <string name="add_getssid_fail">Fallo al obtener SSID. Por favor confirme qué desea abrir:\n1.Red Wi-Fi\n2.Permisos de ubicación\n3.Activación de GPS</string>
     <string name="add_setect_tip">Tip: location selection should be consistent with device selection, otherwise cloud storage video will not be seen.</string>
 
     <string name="calling">Llamada de</string>
@@ -604,4 +604,9 @@
     <string name="live_lowpower">Baja potencia,Recarga, por favor.</string>
 
     <string name = "live_lowpower_ota"> OTA necesita más del 50% de energía,cargue primero el dispositivo </string>
+
+    <string name = "push_lowerpower_level_1"> El dispositivo está bajo y la función de supervisión remota dejará de usar </string>
+    <string name = "push_lowerpower_level_2"> El dispositivo tiene poca batería, cárgalo a tiempo </string>
+    <string name = "push_lowerpower_level_3"> El bloqueo de la puerta es bajo, se cerrará </string>
+    <string name = "push_lock"> Alguien toca la puerta y solicita desbloquear </string>
 </resources>

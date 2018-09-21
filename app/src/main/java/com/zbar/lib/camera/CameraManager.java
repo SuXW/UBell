@@ -42,18 +42,19 @@ public final class CameraManager {
 	private final AutoFocusCallback autoFocusCallback;
 	private Parameters parameter;
 
-	public static void init(Context context) {
-		if (cameraManager == null) {
-			cameraManager = new CameraManager(context);
-		}
+	public static void init(Context context,int orientation) {
+		//if (cameraManager == null) {
+			cameraManager = new CameraManager(context,orientation);
+	//	}
 	}
 
 	public static CameraManager get() {
 		return cameraManager;
 	}
 
-	private CameraManager(Context context) {
-		this.configManager = new CameraConfigurationManager(context);
+
+	private CameraManager(Context context,int orientation) {
+		this.configManager = new CameraConfigurationManager(context,orientation);
 
 		useOneShotPreviewCallback = SDK_INT > 3;
 		previewCallback = new PreviewCallback(configManager,

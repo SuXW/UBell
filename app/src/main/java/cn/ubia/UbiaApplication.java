@@ -111,7 +111,7 @@ public class UbiaApplication extends DaemonApplication {
 			MiPushClient.registerPush(this, APP_ID, APP_KEY);
 
 			JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
-			JPushInterface.init(this);
+			//JPushInterface.init(this);
 		}else{
 			Log.e("UbiaApplication","Skip RegisterPush APP_ID:"+APP_ID+" APP_KEY:"+APP_KEY);
 

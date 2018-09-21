@@ -32,9 +32,10 @@ final class CameraConfigurationManager {
 	private Point cameraResolution;
 	private int previewFormat;
 	private String previewFormatString;
-
-	CameraConfigurationManager(Context context) {
+	private int orientation;
+	CameraConfigurationManager(Context context,int orientation) {
 		this.context = context;
+		this.orientation = orientation;
 	}
 
 	@SuppressWarnings("deprecation")
@@ -62,7 +63,12 @@ final class CameraConfigurationManager {
 		parameters.setPreviewSize(cameraResolution.x  , cameraResolution.y  );
 		setFlash(parameters);
 		setZoom(parameters);
-		camera.setDisplayOrientation(90);
+		if(orientation == 1){
+			camera.setDisplayOrientation(90);
+		}else{
+			camera.setDisplayOrientation(0);
+		}
+
 		camera.setParameters(parameters);
 	}
 

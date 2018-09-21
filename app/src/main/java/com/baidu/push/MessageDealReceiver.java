@@ -215,6 +215,7 @@ public class MessageDealReceiver extends BroadcastReceiver{
         boolean showActivityCall = true;
         int pushType = !UbiaApplication.currentDeviceLive.equals("")? 1:PreferenceUtil.getInstance().getInt(Constants.MESSAGETYPE_CHECK + messuid, UbiaApplication.DefaultReceiverType);
         Log.d("guo,,push","pushType="+pushType+",currentDeviceLive="+UbiaApplication.currentDeviceLive);
+
         if (pushType == 0) {
             return;
         } else if (pushType > 1) {// 来电呼叫
@@ -246,12 +247,30 @@ public class MessageDealReceiver extends BroadcastReceiver{
             PendingIntent Pintent = PendingIntent.getActivity(UbiaApplication.getInstance().getApplicationContext(), 110, IntentLiveViewGLviewActivity, PendingIntent.FLAG_UPDATE_CURRENT);
             Resources res = context.getResources();
             Bitmap nty_alert = BitmapFactory.decodeResource(res, R.drawable.nty_alert);
-            String title;//context.getString(R.string.page26_page34_MyPushMessageReceiver_alarm_alert_frombell);
+            String title = context.getString(R.string.page26_page34_MyPushMessageReceiver_alarm_alert_frombell);
             if (event.equals("push")) {
                 title = UbiaApplication.getInstance().getString(R.string.page26_page34_MyPushMessageReceiver_alarm_alert_frombell);
             } else if (event.equals("plug")) {
                 title = UbiaApplication.getInstance().getString(R.string.page26_page34_MyPushMessageReceiver_alarm_plug_frombell);
-            } else {
+            }  else if (event.equals("battery")) {
+                try {
+                    int battery = Integer.valueOf(state);
+                    if (battery > 0 && battery < 20) {
+                        //设备电量不足，远程监控功 能将停止使用
+                        title = UbiaApplication.getInstance().getString(R.string.push_lowerpower_level_1);
+                    } else if (battery >= 20 && battery < 28) {
+                        //“设备电量不足，请及时充电 ”
+                        title = UbiaApplication.getInstance().getString(R.string.push_lowerpower_level_2);
+                    }else{
+                        return;
+                    }
+                }catch (Exception e){
+                    title = UbiaApplication.getInstance().getString(R.string.page26_page34_MyPushMessageReceiver_alarm_alert_frombell);
+                }
+
+            } else if(event.equals("lock")){
+                title = UbiaApplication.getInstance().getString(R.string.push_lock);
+            }else {
                 title = UbiaApplication.getInstance().getString(R.string.page26_page34_MyPushMessageReceiver_alarm_pir_frombell);
             }
             //获取时间系统时间

@@ -1076,7 +1076,7 @@ public class GLRenderer implements  Renderer {
 	    bitmap.getPixels(pixels, 0, width, 0, 0, width, height);   
     	int w = bitmap.getWidth();
     	int h = bitmap.getHeight();
-    	
+        Log.d("guo,,GLRenderer","mScreenWidth:"+mScreenWidth+",,mScreenHeight:"+mScreenHeight);
         if (w > 0 && h > 0) {
             // 调整比例
             if (mScreenWidth > 0 && mScreenHeight > 0) {
@@ -1122,9 +1122,10 @@ public class GLRenderer implements  Renderer {
         
             synchronized (this) {
              	int value = 	mVRConfig.ARGB2YUV(w,h,pixels,y,u,v);
-             	Log.d("","解码更新   refreshBitmap ARGB2YUV ret: "+value);
+             	Log.d("guo,,","解码更新   width: "+width+",,_video_width:"+_video_width+",,mVideoWidth:"+mVideoWidth+"..");
             		
                if(width == mScreenWidth && _video_width == width&& mVideoWidth == width && value>=0){
+                   Log.d("guo..GLRenderer","解码更新.....");
             	   	updateYUV = true;
                     mTargetSurface.requestRender();
         	    };

@@ -599,5 +599,9 @@
     <string name="calling">正在呼叫..</string>
     <string name="setting_sdcord_noformat">未格式化</string>
     <string name="live_lowpower">電量低,請充電</string>
-    <string name="live_lowpower_ota">OTA需要電量大於50%，請先給設備充電</string>
+
+    <string name="push_lowerpower_level_1">設備電量不足，遠程監控功能將停止使用</string>
+    <string name="push_lowerpower_level_2">設備電量不足，請及時充電</string>
+    <string name="push_lowerpower_level_3">門鎖電量低，即將關機</string>
+    <string name="push_lock">有人按門鈴，請求開鎖</string>
 </resources>

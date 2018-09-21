@@ -11,7 +11,7 @@
         layout="@layout/detail_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/x77" />
+        />
 
     <RelativeLayout
         android:id="@+id/cloud_save_rlayout"
@@ -160,9 +160,10 @@
             android:textSize="@dimen/x40" />
 
         <Button
+            android:layout_gravity="center_horizontal"
             android:id="@+id/btnok"
             android:textAllCaps="false"
-            android:layout_width="fill_parent"
+            android:layout_width="350dip"
             android:layout_height="@dimen/x120"
             android:layout_marginLeft="@dimen/x66"
             android:layout_marginRight="@dimen/x66"

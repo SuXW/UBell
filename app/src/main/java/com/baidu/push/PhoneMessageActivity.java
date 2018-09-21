@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -75,6 +76,12 @@ public class PhoneMessageActivity extends BaseActivity {
 	            | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
 	            | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
+		if(getResources().getConfiguration().orientation==1){
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+		}else{
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		}
+
 		wakeUpAndUnlock();
 		isruning = true;
 		AlarmMessage alarmMessage = new AlarmMessage("",UbiaApplication.messageUID, UbiaApplication.messageTime,UbiaApplication.messageEvent);
@@ -98,9 +105,12 @@ public class PhoneMessageActivity extends BaseActivity {
 
 		startAlarm();
 		alarmimage = (ImageView) findViewById(R.id.thumbnail_img);
-		if(!UbiaApplication.messageState.equals("1")){
-			getImage();
+		if(!UbiaApplication.messageEvent.equals("lock")){
+			if(!UbiaApplication.messageState.equals("1")){
+				getImage();
+			}
 		}
+
 
 		TextView camera_name_tv = (TextView) findViewById(R.id.camera_name_tv);
 		if(alarmMessage.getEvent().equals("plug")){
@@ -110,6 +120,25 @@ public class PhoneMessageActivity extends BaseActivity {
 			camera_name_tv.setText(deviceInfo.nickName+" "+getString(R.string.calling));
 
 
+		} else if (alarmMessage.getEvent().equals("battery")) {
+			try {
+				int battery = Integer.valueOf(UbiaApplication.messageState);
+				if (battery > 0 && battery < 20) {
+					//设备电量不足，远程监控功 能将停止使用
+					camera_name_tv.setText(deviceInfo.nickName+"\n"+getString(R.string.push_lowerpower_level_1));
+				} else if (battery >= 20 && battery < 28) {
+					//“设备电量不足，请及时充电 ”
+					camera_name_tv.setText(deviceInfo.nickName+"\n"+getString(R.string.push_lowerpower_level_2));
+				} else {
+					return ;
+				}
+			}catch (Exception e){
+				camera_name_tv.setText(deviceInfo.nickName+"\n"+getString(R.string.page26_page34_MyPushMessageReceiver_alarm_plug_frombell));
+			}
+
+		} else if(alarmMessage.getEvent().equals("lock")){
+			//有人按门铃，请求开锁
+			camera_name_tv.setText(deviceInfo.nickName+"\n"+getString(R.string.push_lock));
 		}else{
 			camera_name_tv.setText(deviceInfo.nickName+"\n"+getString(R.string.page26_page34_MyPushMessageReceiver_alarm_pir_frombell));
 		}
@@ -140,7 +169,6 @@ public class PhoneMessageActivity extends BaseActivity {
 				var3.putExtras(var21);
 				var3.setClass(PhoneMessageActivity.this, LiveViewGLviewActivity.class);
 				startActivity(var3);
-
 				/*if (null != alarmAudio && !Pushmute) {
 					alarmAudio.release();
 					alarmAudio = null;

@@ -1267,8 +1267,9 @@
             </RelativeLayout>
 
             <Button
+                android:layout_gravity="center_horizontal"
                 android:id="@+id/btnRemoveCamera"
-                android:layout_width="fill_parent"
+                android:layout_width="300dip"
                 android:layout_height="@dimen/x120"
                 android:layout_marginLeft="@dimen/x66"
                 android:layout_marginRight="@dimen/x66"

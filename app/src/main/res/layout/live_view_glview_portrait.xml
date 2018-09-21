@@ -93,6 +93,7 @@
             android:layout_centerVertical="true"
             android:background="@drawable/reconnect_bt"
             android:visibility="gone"/>
+
         <ProgressBar
             android:id="@+id/MyprogressBar"
             android:layout_width="wrap_content"

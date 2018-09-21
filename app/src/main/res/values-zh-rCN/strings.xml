@@ -602,5 +602,10 @@
     <string name="live_lowpower">低电量，请充电</string>
     <string name="live_lowpower_ota">OTA需要电量大于50%，请先给设备充电</string>
 
+    <string name="push_lowerpower_level_1">设备电量不足，远程监控功能将停止使用</string>
+    <string name="push_lowerpower_level_2">设备电量不足，请及时充电</string>
+    <string name="push_lowerpower_level_3">门锁电量低，即将关机</string>
+    <string name="push_lock">有人按门铃，请求开锁</string>
+
 
 </resources>

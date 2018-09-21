@@ -119,46 +119,13 @@ public class MainActivity extends BaseActivity {
 
 		mHelper = new ActivityHelper(this);
 
-
-
-
-	     openTwoService();
+		 openTwoService();
 	     final Window win = getWindow();
 		    win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
 		            | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
 		            | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
 
-	/*	new Thread(new  Runnable() {
-			@Override
-			public void run() {
-			UbiaApplication.registerPushScuess = false;
-			while (registerPushCount<=5) {
-				Log.e(TAG, "xiaomi  going to registerPush registerPushCount：  " +  registerPushCount + "   registerPushScuess：" + 	UbiaApplication.registerPushScuess);
-				if ((shouldInit() || !	UbiaApplication.registerPushScuess) && registerPushCount < 5) {
-					MiPushClient.registerPush(MainActivity.this, BuildConfig.MIPUSHID, BuildConfig.MIPUSHKEY);
-				}
-				if(	UbiaApplication.registerPushScuess){
-					break;
-				}
-				*//*if (registerPushCount == 5 ) {
-					runOnUiThread(new Runnable() {
-						@Override
-						public void run() {
-						Toast.makeText(	MainActivity.this, 	MainActivity.this.getString(R.string.register_fail), Toast.LENGTH_LONG).show();
-						}
-					});
-				}*//*
-				registerPushCount++;
-				try {
-					Thread.sleep(5000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-			}
-		}).start();
-		startService(new Intent( this, Service1.class));*/
 	}
 
 

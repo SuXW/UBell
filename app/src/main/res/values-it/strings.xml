@@ -602,4 +602,9 @@
     <string name="setting_sdcord_noformat">Non formattati</string>
     <string name="live_lowpower">Bassa potenza,per favore, carica</string>
     <string name = "live_lowpower_ota">OTA richiede più del 50% di potenza,carica prima il dispositivo </string>
+
+    <string name = "push_lowerpower_level_1"> Il dispositivo è in esaurimento e la funzione di monitoraggio remoto smetterà di usare </string>
+    <string name = "push_lowerpower_level_2"> Il dispositivo è a batteria scarica, si prega di caricarlo in tempo </string>
+    <string name = "push_lowerpower_level_3"> Il blocco della porta è basso, verrà spento </string>
+    <string name = "push_lock"> Qualcuno suona la porta e chiede di sbloccare </string>
 </resources>

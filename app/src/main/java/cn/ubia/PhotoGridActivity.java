@@ -745,15 +745,29 @@ public class PhotoGridActivity extends BaseActivity implements
 				Intent intent = new Intent(PhotoGridActivity.this,
 						PhotoViewActivity.class);
 				Log.i("images", "uri:" + imageInfo.path);
-				if (imageInfo.uri.toUpperCase().contains(".MP4"))
+				if (imageInfo.uri.toUpperCase().contains(".MP4")) {
 					intent.putExtra("uri", imageInfo.path);
-				else
-					intent.putExtra("uri", imageInfo.uri);
-				Bundle bundle = new Bundle();
+					Bundle bundle = new Bundle();
 
-				intent.putExtras(bundle);
-				this.setResult(LiveViewGLviewActivity.PHOTOGRID_REQUESTCODE, intent);
-			    this.finish();
+					intent.putExtras(bundle);
+					this.setResult(LiveViewGLviewActivity.PHOTOGRID_REQUESTCODE, intent);
+					this.finish();
+				}else {
+					if(getResources().getConfiguration().orientation==1){
+						Bundle bundle = new Bundle();
+						intent.putExtra("uri", imageInfo.uri);
+						intent.putExtras(bundle);
+						this.setResult(LiveViewGLviewActivity.PHOTOGRID_REQUESTCODE, intent);
+						this.finish();
+					}else {
+						this.startActivity(cn.ubia.util.AndroidFileUtil
+								.openFile(imageInfo.uri.substring(7,
+										imageInfo.uri.length())));
+					}
+				}
+
+
+
 		/*	}else{
 				String[] dates = imageInfo.name.split("_");
 				StringBuilder yearSb = new StringBuilder(dates[2]);
@@ -845,7 +859,6 @@ public class PhotoGridActivity extends BaseActivity implements
 		int minfosize = mImageInfos.size();
 		for (int i = 0; i < minfosize; i++) {
 			if (Uri == mImageInfos.get(i).path) {
-
 				mImageInfos.remove(i);
 
 				return;
