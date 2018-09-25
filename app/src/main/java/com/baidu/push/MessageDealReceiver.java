@@ -213,7 +213,7 @@ public class MessageDealReceiver extends BroadcastReceiver{
         pushDeviceMap.put(messuid, event + "-" + timestamp);
 
         boolean showActivityCall = true;
-        int pushType = !UbiaApplication.currentDeviceLive.equals("")? 1:PreferenceUtil.getInstance().getInt(Constants.MESSAGETYPE_CHECK + messuid, UbiaApplication.DefaultReceiverType);
+        int pushType = !UbiaApplication.currentDeviceLive.equals("") || event.equals("battery")? 1:PreferenceUtil.getInstance().getInt(Constants.MESSAGETYPE_CHECK + messuid, UbiaApplication.DefaultReceiverType);
         Log.d("guo,,push","pushType="+pushType+",currentDeviceLive="+UbiaApplication.currentDeviceLive);
 
         if (pushType == 0) {
