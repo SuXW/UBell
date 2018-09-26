@@ -8,195 +8,202 @@
     <include layout="@layout/detail_title" />
 
 
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="false"
-        android:layout_marginTop="10dp"
-        android:background="#00000000"
-        android:orientation="vertical" >
-
-        <RelativeLayout
-            android:layout_width="450dip"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            >
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:layout_marginLeft="50dip"
-                android:layout_marginRight="50dip"
-                android:layout_marginTop="20dip"
-                android:background="#dddddddd" />
-
-
-            <LinearLayout
-                android:id="@+id/step_one_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-                <ImageView
-                    android:id="@+id/imageView_1"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/connection_wifi_gray"
-
-                    />
-                <TextView
-                    android:id="@+id/textView_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/page11__setupwifi"
-                    android:textColor="@color/color_text_color_tip" />
-            </LinearLayout>
-
-
-
-
-
-            <LinearLayout
-                android:id="@+id/step_two_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerHorizontal="true"
-                android:gravity="center_horizontal"
-                >
-                <ImageView
-                    android:id="@+id/imageView_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/connection_search"
-
-                    />
-
-                <TextView
-                    android:id="@+id/textView_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/page11__searchdevice"
-                    android:textColor="@color/color_skin_color" />
-            </LinearLayout>
-
-
-
-            <LinearLayout
-                android:id="@+id/step_three_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
-                >
-                <ImageView
-                    android:id="@+id/imageView_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/connection_information_gray"
-                    />
-
-                <TextView
-                    android:id="@+id/textView_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/page11__modifydevice"
-                    android:textColor="@color/color_text_color_tip" />
-            </LinearLayout>
-
-
-
-
-
-
-
-
-        </RelativeLayout>
-
-        <ImageView
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="80dp"
-            android:src="@drawable/adddev"
-            android:visibility="gone" />
-
-        <RelativeLayout
-            android:layout_width="@dimen/x520"
-            android:layout_height="@dimen/x520"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:gravity="center" >
-
-            <ImageView
-                android:id="@+id/iv_configure_anim"
-                android:layout_width="@dimen/x520"
-                android:layout_height="@dimen/x520"
-                android:background="@drawable/connection_search1"
-                 />
-
-
-   			 <cn.ubia.widget.RoundProgressBar
-                android:id="@+id/roundProgressBar"
-                          android:layout_width="@dimen/x520"
-                android:layout_height="@dimen/x520"
-                android:visibility="gone"
-                android_custom:roundColor="#00FFFFFF"
-                android_custom:roundProgressColor="#00FFFFFF"
-                android_custom:roundWidth="5dip"
-                android_custom:roundtextColor="#FFFFFF"
-                          android:layout_centerInParent="true"
-                android_custom:roundtextSize="18sp"
-                android_custom:textIsDisplayable="true" />
-            <TextView
-                android:id="@+id/ivRotateCircleProcess"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:paddingBottom="0dp"
-                android:text="0%"
-                android:visibility="gone"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/x84" />
-        </RelativeLayout>
-        <TextView
-            android:id="@+id/displayQW"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="25dp"
-            android:gravity="center"
-            android:text="@string/page31_p6_stage1_note"
-            android:textColor="@color/color_text_color" />
-            android:textSize="19sp"
-            />
-        <RelativeLayout
-            android:id="@+id/ivRotateCircleRL"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp" >
+            android:layout_centerInParent="false"
+            android:layout_marginTop="50dp"
+            android:background="#00000000"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="450dip"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_marginLeft="50dip"
+                    android:layout_marginRight="50dip"
+                    android:layout_marginTop="20dip"
+                    android:background="#dddddddd" />
+
+
+                <LinearLayout
+                    android:id="@+id/step_one_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <ImageView
+                        android:id="@+id/imageView_1"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/connection_wifi_gray"
+
+                        />
+                    <TextView
+                        android:id="@+id/textView_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/page11__setupwifi"
+                        android:textColor="@color/color_text_color_tip" />
+                </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:id="@+id/step_two_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"
+                    >
+                    <ImageView
+                        android:id="@+id/imageView_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/connection_search"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textView_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/page11__searchdevice"
+                        android:textColor="@color/color_skin_color" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/step_three_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    >
+                    <ImageView
+                        android:id="@+id/imageView_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/connection_information_gray"
+                        />
+
+                    <TextView
+                        android:id="@+id/textView_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/page11__modifydevice"
+                        android:textColor="@color/color_text_color_tip" />
+                </LinearLayout>
+
+
+
+
+
+
+
+
+            </RelativeLayout>
 
             <ImageView
-                android:id="@+id/ivRotateCircle"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_centerInParent="true"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/winexperience_rotate_circle_nor"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/adddev"
                 android:visibility="gone" />
 
+            <RelativeLayout
+                android:layout_width="@dimen/x520"
+                android:layout_height="@dimen/x520"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:gravity="center" >
 
-        </RelativeLayout>
-    </LinearLayout>
+                <ImageView
+                    android:id="@+id/iv_configure_anim"
+                    android:layout_width="@dimen/x520"
+                    android:layout_height="@dimen/x520"
+                    android:background="@drawable/connection_search1"
+                    />
+
+
+                <cn.ubia.widget.RoundProgressBar
+                    android:id="@+id/roundProgressBar"
+                    android:layout_width="@dimen/x520"
+                    android:layout_height="@dimen/x520"
+                    android:visibility="gone"
+                    android_custom:roundColor="#00FFFFFF"
+                    android_custom:roundProgressColor="#00FFFFFF"
+                    android_custom:roundWidth="5dip"
+                    android_custom:roundtextColor="#FFFFFF"
+                    android:layout_centerInParent="true"
+                    android_custom:roundtextSize="18sp"
+                    android_custom:textIsDisplayable="true" />
+                <TextView
+                    android:id="@+id/ivRotateCircleProcess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingBottom="0dp"
+                    android:text="0%"
+                    android:visibility="gone"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/x84" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/displayQW"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:gravity="center"
+                android:text="@string/page31_p6_stage1_note"
+                android:textColor="@color/color_text_color" />
+            android:textSize="19sp"
+            />
+            <RelativeLayout
+                android:id="@+id/ivRotateCircleRL"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp" >
+
+                <ImageView
+                    android:id="@+id/ivRotateCircle"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/winexperience_rotate_circle_nor"
+                    android:visibility="gone" />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"

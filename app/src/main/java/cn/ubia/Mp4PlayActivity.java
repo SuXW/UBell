@@ -58,6 +58,7 @@ public class Mp4PlayActivity extends BaseActivity implements View.OnClickListene
     private boolean isPlaying;
 
     private TextView current_time_txt, total_time_txt, record_time_txt;
+    private RelativeLayout title_father,contorl_bar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +98,8 @@ public class Mp4PlayActivity extends BaseActivity implements View.OnClickListene
         play_btn = (ImageView) findViewById(R.id.play_btn);
         play_btn.setOnClickListener(this);
         play_monitor = (Monitor) findViewById(R.id.play_monitor);
+
+
         /*play_monitor.attachCamera(CameraManagerment.getInstance().getexistCamera(mDevUid), 0, mDevice.installmode, mDevice, mDevice.snapshot, true);
         play_monitor.setCameraPutModel(mDevice.installmode);
         play_monitor.setCameraHardware_pkg(mDevice.hardware_pkg);
@@ -111,9 +114,35 @@ public class Mp4PlayActivity extends BaseActivity implements View.OnClickListene
         play_monitor.setrectCanvas(mDevice.snapshot);
         time_seek = (SeekBar) findViewById(R.id.time_seek);
         time_seek.setOnTouchListener(this);
+
         total_time_txt = (TextView) findViewById(R.id.total_time_txt);
         current_time_txt = (TextView) findViewById(R.id.current_time_txt);
         record_time_txt = (TextView) findViewById(R.id.record_time_txt);
+        title_father   = (RelativeLayout) findViewById(R.id.de_ti);
+        contorl_bar= (RelativeLayout) findViewById(R.id.control_bar);
+
+        play_monitor.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_UP:
+                        if(getResources().getConfiguration().orientation==2) {
+                            if (title_father.getVisibility() == View.GONE) {
+                                title_father.setVisibility(View.VISIBLE);
+                                contorl_bar.setVisibility(View.VISIBLE);
+                            } else {
+                                title_father.setVisibility(View.GONE);
+                                contorl_bar.setVisibility(View.GONE);
+                            }
+                        }
+                        break;
+                }
+
+                return false;
+            }
+        });
+
     }
 
     @Override
@@ -128,6 +157,7 @@ public class Mp4PlayActivity extends BaseActivity implements View.OnClickListene
                 else
                     pause();
                 break;
+
         }
     }
 

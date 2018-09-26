@@ -5,10 +5,11 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-            android:layout_height="@dimen/x125"
+        android:layout_height="@dimen/x125"
         android:layout_marginLeft="@dimen/x109"
         android:layout_marginRight="@dimen/x109"
         android:layout_marginTop="@dimen/x114"
+        android:layout_marginBottom="@dimen/x114"
         android:background="@drawable/but1_n"
         android:orientation="vertical" >
 

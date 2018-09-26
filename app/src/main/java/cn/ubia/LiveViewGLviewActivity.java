@@ -250,13 +250,17 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 					case 98:
 						if(title_father.getVisibility()==View.VISIBLE){
 							title_father.setVisibility(View.GONE);
-							control_bottom_new.setVisibility(View.GONE);
+							control_bottom_new.setVisibility(View.INVISIBLE);
 
 							right_image5.setVisibility(View.GONE);
 							right_image4.setVisibility(View.GONE);
 							right_image3.setVisibility(View.GONE);
 							right_image2.setVisibility(View.GONE);
 							right_image.setVisibility(View.GONE);
+							txt_time.setVisibility(View.GONE);
+							findViewById(R.id.info_ll).setVisibility(View.GONE );
+							findViewById(R.id.left_ll_plan).setVisibility(View.GONE );
+
 						}	else{
 							title_father.setVisibility(View.VISIBLE);
 							control_bottom_new.setVisibility(View.VISIBLE);
@@ -266,6 +270,9 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 							right_image3.setVisibility(View.VISIBLE);
 							right_image2.setVisibility(View.GONE);
 							right_image.setVisibility(View.GONE);
+							txt_time.setVisibility(View.VISIBLE);
+							findViewById(R.id.info_ll).setVisibility(View.VISIBLE );
+							findViewById(R.id.left_ll_plan).setVisibility(View.VISIBLE );
 						}
 
 						break;
@@ -661,39 +668,44 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 					break;
 					case 1111:
 					{
-						int duration = var1.getData().getInt("duration");
-						int mSampleTime = var1.getData().getInt("SampleTime");
-						mp4seekbar.setMax((int) (duration ));
-						Log.e("Thread", "=== ===duration:"+duration+"    mSampleTime:"+mSampleTime+"   getMax:" +mp4seekbar.getMax());
-						if(Math.abs(seekMp4time-mSampleTime)<2000)//滑动点与更新点相差2000毫秒
-						{
-							seekMp4time = mSampleTime;
-							if(!onSeekbar)
-								mp4seekbar.setProgress(mSampleTime);
-						}
-						totalTime_tv.setText(""+convertTime(duration));
-						nowTime_tv.setText(""+convertTime(mSampleTime));
+
 						if(rockbacktoLive_photo.getVisibility()==View.GONE)
 							rockbacktoLive_photo.setVisibility(View.VISIBLE);
-						myHorizontalScrollView.setVisibility(View.GONE);
-						if (!isPause) {
-							mp4pause.setImageResource(R.drawable.playing_pause);
-						} else {
-							mp4pause.setImageResource(R.drawable.playing_start);
-						}
-						if(isPlayMp4){
-							if(right2_tv!=null)
-								right2_tv.setVisibility(View.GONE);
-							if(mViewPager!=null) //回放时按钮消失
-								mViewPager.setVisibility(View.GONE);
-							LinearLayout points_ll = (LinearLayout)	findViewById(R.id.points_ll);
-							if(points_ll!=null){
-								points_ll.setVisibility(View.GONE);
+
+						if(getResources().getConfiguration().orientation==1){
+							int duration = var1.getData().getInt("duration");
+							int mSampleTime = var1.getData().getInt("SampleTime");
+							mp4seekbar.setMax((int) (duration ));
+							Log.e("Thread", "=== ===duration:"+duration+"    mSampleTime:"+mSampleTime+"   getMax:" +mp4seekbar.getMax());
+							if(Math.abs(seekMp4time-mSampleTime)<2000)//滑动点与更新点相差2000毫秒
+							{
+								seekMp4time = mSampleTime;
+								if(!onSeekbar)
+									mp4seekbar.setProgress(mSampleTime);
+							}
+							totalTime_tv.setText(""+convertTime(duration));
+							nowTime_tv.setText(""+convertTime(mSampleTime));
+
+							if (!isPause) {
+								mp4pause.setImageResource(R.drawable.playing_pause);
+							} else {
+								mp4pause.setImageResource(R.drawable.playing_start);
+							}
+							if(isPlayMp4){
+								if(right2_tv!=null)
+									right2_tv.setVisibility(View.GONE);
+								if(mViewPager!=null) //回放时按钮消失
+									mViewPager.setVisibility(View.GONE);
+								LinearLayout points_ll = (LinearLayout)	findViewById(R.id.points_ll);
+								if(points_ll!=null){
+									points_ll.setVisibility(View.GONE);
+								}
+							}
+							if (LiveViewGLviewActivity.this.txtOnlineNumberlive != null && txtOnlineNumberlive.getVisibility()==View.VISIBLE) {
+								txtOnlineNumberlive.setVisibility(View.GONE);
 							}
 						}
-						if (LiveViewGLviewActivity.this.txtOnlineNumberlive != null && txtOnlineNumberlive.getVisibility()==View.VISIBLE) {
-							txtOnlineNumberlive.setVisibility(View.GONE);
-						}
+
 
 
 					}
@@ -760,6 +772,16 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 							Boolean isCloudSave = (isCloud==1);
 							Log.e("guo..live","hardware_pkg="+mDevice.hardware_pkg);
 
+							if (getSharedPreferences("isCloudSave",Context.MODE_PRIVATE).getBoolean(mDevice.UID, false)){
+								TextView	img_control_vrmode_tv =   (TextView) findViewById(R.id.img_control_vrmode_tv);
+								if(img_control_vrmode_tv!=null)
+									img_control_vrmode_tv.setText(getString(R.string.cloud_save_tip));
+							}else{
+								TextView img_control_vrmode_tv =   (TextView) findViewById(R.id.img_control_vrmode_tv);
+								if(img_control_vrmode_tv!=null)
+									img_control_vrmode_tv.setText(getString(R.string.switch_tip));
+							}
+
 							if(mDevice.hardware_pkg == HARDWAEW_PKG.BELL_LOCK) {
 								lockStatus =  lock == 1;
 								Log.e("guo..live","lockStatus="+lockStatus);
@@ -822,6 +844,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 	private ImageButton pzv_control_dot ;
 	private ImageButton voiceMute ;
 	private ImageButton img_control_vrmode,img_control_vrvideo,img_control_runrefresh,img_xy_setting,img_qr_setting ,img_ptz_setting;
+	private ImageButton img_control_vrmode_land,img_control_vrvideo_land,img_control_runrefresh_land,voiceMute_land,img_setting_land ;
 	private void addImageGallery(File var1) {
 		ContentValues var2 = new ContentValues();
 		var2.put("_data", var1.getAbsolutePath());
@@ -1103,6 +1126,116 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 		right_image2 = (ImageView) findViewById(R.id.right_image2);
 		right_image = (ImageView) findViewById(R.id.right_image);
 
+		rockbacktoLive_photo= (TextView) this
+				.findViewById(R.id.rockbacktoLive_photo);
+
+		img_control_vrmode_land = (ImageButton) findViewById(R.id.img_control_vrmode_land);
+		img_control_vrmode_land.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				if(mProgressBar!=null && mProgressBar.getVisibility()==View.VISIBLE)return;
+				if (getSharedPreferences("isCloudSave",Context.MODE_PRIVATE).getBoolean(mDevice.UID, false)){
+					Bundle bundle = new Bundle();
+					Intent intent = new Intent();
+					bundle.putString("dev_uid", LiveViewGLviewActivity.this.mDevice.UID);
+					bundle.putString("dev_nickName",
+							LiveViewGLviewActivity.this.mDevice.nickName);
+					bundle.putString("view_acc",
+							LiveViewGLviewActivity.this.mDevice.viewAccount);
+					bundle.putString("view_pwd",
+							LiveViewGLviewActivity.this.mDevice.viewPassword);
+					bundle.putInt("camera_channel",
+							LiveViewGLviewActivity.this.mDevice.getChannelIndex());
+					intent.putExtras(bundle);
+					intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+					intent.setClass(LiveViewGLviewActivity.this, CloudSaveVideoListActivity.class);
+					startActivityForResult(intent, -12);//(intent);
+				} else
+					monitor.changeSurfaceMode();
+			}
+		});
+		img_control_vrvideo_land = (ImageButton) findViewById(R.id.img_control_vrvideo_land);
+		img_control_vrvideo_land.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				goPhotoGridActivity();
+			}
+		});
+		img_control_runrefresh_land = (ImageButton) findViewById(R.id.img_control_runrefresh_land);
+		img_control_runrefresh_land.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				isruningRefresh = !isruningRefresh;
+				if(isruningRefresh){
+					img_control_runrefresh_land.setImageResource(R.drawable.tab_cruise_pre);
+				}
+				else{
+					img_control_runrefresh_land.setImageResource(R.drawable.tab_cruise_n);
+				}
+			}
+		});
+		voiceMute_land = (ImageButton) findViewById(R.id.voiceMute_land);
+		voiceMute_land.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				if( isPlayMp4)
+					mCameraManagerment.userIPCMuteControl(mDevUID,true); //mp4关闭底层声音
+				if(LiveViewGLviewActivity.this.mIsListening ){
+					try {
+						if(!isPlayMp4)
+							mCameraManagerment.userIPCMuteControl(mDevUID,true);
+
+						LiveViewGLviewActivity.this.mIsListening = false;
+						StartAudio();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					if(voiceMute_land!=null){
+						voiceMute_land.setImageResource(R.drawable.sound_off);
+					}
+				}
+				else{
+					try {
+						if(!isPlayMp4)
+							mCameraManagerment.userIPCMuteControl(mDevUID,false);
+						LiveViewGLviewActivity.this.mIsListening = true;
+						StartAudio();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					if(voiceMute_land!=null){
+						voiceMute_land.setImageResource(R.drawable.sound_on);
+					}
+				}
+			}
+		});
+		img_setting_land = (ImageButton) findViewById(R.id.img_setting_land);
+		img_setting_land.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Bundle bundle = new Bundle();
+				Intent intent = new Intent();
+				bundle.putString("dev_uid", LiveViewGLviewActivity.this.mDevice.UID);
+				bundle.putString("dev_nickName",
+						LiveViewGLviewActivity.this.mDevice.nickName);
+				bundle.putString("view_acc",
+						LiveViewGLviewActivity.this.mDevice.viewAccount);
+				bundle.putString("view_pwd",
+						LiveViewGLviewActivity.this.mDevice.viewPassword);
+				bundle.putInt("camera_channel",
+						LiveViewGLviewActivity.this.mDevice.getChannelIndex());
+				bundle.putInt("battery",battery);
+				intent.putExtras(bundle);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+				intent.setClass(LiveViewGLviewActivity.this, SettingActivity.class);
+				startActivityForResult(intent, -11);//(intent);
+				//		getTimeLineBitmap();
+			}
+		});
+
 		right_image5.setImageResource(R.drawable.photo_off);
 		right_image4.setImageResource(R.drawable.record_off);
 		right_image3.setImageResource(R.drawable.mic_off);
@@ -1191,7 +1324,9 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 		SetUpView();
 		getActionBar().hide();
 		setRecodestatue();
+		setRunrefreshStatus();
 		setstatue_voice_icon();
+		setVoiceMuteStauts();
 		myHorizontalScrollView =(com.view.timeline.MyHorizontalScrollView)this.findViewById(R.id.myHorizontalScrollView);
 		myHorizontalScrollView .setTimeLinePlayCallBackInterface(this);
 		myHorizontalScrollView.setRollBackToCurrentTimeCallbackInterface(this);
@@ -1208,8 +1343,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 //			getTimeLineBitmap();
 		myHorizontalScrollView.view.setTimeUnit(timeUnit);
 		myHorizontalScrollView.invalidate();
-		rockbacktoLive_photo= (TextView) this
-				.findViewById(R.id.rockbacktoLive_photo);
+		rockbacktoLive_photo = (TextView) this.findViewById(R.id.rockbacktoLive_photo);
 		if(rockbacktoLive_photo!=null)
 			rockbacktoLive_photo.setOnClickListener(new OnClickListener() {
 
@@ -1403,6 +1537,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 
 		getActionBar().hide();
 		setRecodestatue();
+
 		setstatue_voice_icon();
 		myHorizontalScrollView =(com.view.timeline.MyHorizontalScrollView)this.findViewById(R.id.myHorizontalScrollView);
 //		 myHorizontalScrollView.scorllToCurrentTime();
@@ -1570,6 +1705,8 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			}
 		});
 
+		setRunrefreshStatus();
+		setVoiceMuteStauts();
 		voiceMute =  (ImageButton)findViewById(R.id.voiceMute);
 		voiceMute.setOnClickListener(new OnClickListener() {
 			@Override
@@ -1586,11 +1723,8 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-					if(voiceMute!=null){
-						voiceMute.setImageResource(R.drawable.sound_off);
-					}
-				}
-				else{
+
+				}else{
 					try {
 						if(!isPlayMp4)
 							mCameraManagerment.userIPCMuteControl(mDevUID,false);
@@ -1599,10 +1733,9 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-					if(voiceMute!=null){
-						voiceMute.setImageResource(R.drawable.sound_on);
-					}
+
 				}
+				setVoiceMuteStauts();
 			}
 		});
 		if(!LiveViewGLviewActivity.this.mIsListening ){//状态设置
@@ -1613,11 +1746,8 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			if(voiceMute!=null){
-				voiceMute.setImageResource(R.drawable.sound_off);
-			}
-		}
-		else{
+
+		}else{
 			try {
 
 				mCameraManagerment.userIPCMuteControl(mDevUID,false);
@@ -1625,11 +1755,9 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			if(voiceMute!=null){
-				voiceMute.setImageResource(R.drawable.sound_on);
-			}
-		}
 
+		}
+		setVoiceMuteStauts();
 		if(VRConfig.isVRdevice(mCameraManagerment.getexistCamera(mDevUID).hardware_pkg)){
 			if(img_control_runrefresh!=null) img_control_runrefresh.setVisibility(View.VISIBLE);
 			if(img_control_vrmode!=null) img_control_vrmode.setVisibility(View.VISIBLE);
@@ -1835,6 +1963,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 				img_mic.setImageResource(R.drawable.mic_disable);
 				img_mic.setEnabled(false);
 			}
+
 			StopTalk();
 			this.invalidateOptionsMenu();
 			showGridViewBitmap = true;
@@ -1850,7 +1979,10 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			if(mUriString.toUpperCase().contains(".MP4")){
 
 				isPlayMp4 = true;
-				seek_bar_rl.setVisibility(View.VISIBLE);
+				if(seek_bar_rl!=null){
+					seek_bar_rl.setVisibility(View.VISIBLE); //先竖屏
+				}
+
 				if (LiveViewGLviewActivity.this.txt_time != null&& txt_time.getVisibility()==View.VISIBLE) {
 					txt_time.setVisibility(View.GONE);
 				}
@@ -1892,6 +2024,10 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 
 									voiceMute.setImageResource(R.drawable.sound_on);
 								}
+								if(voiceMute_land != null){
+
+									voiceMute_land.setImageResource(R.drawable.sound_on);
+								}
 								mCameraManagerment.userIPCMuteControl(mDevUID,true);
 								LiveViewGLviewActivity.this.mIsListening = true;
 							} catch (Exception e) {
@@ -1915,6 +2051,9 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 						if(points_ll!=null){
 							points_ll.setVisibility(View.GONE);
 						}
+					}
+					if(voiceMute_land != null){
+						voiceMute_land.setImageResource(R.drawable.sound_off);
 					}
 					mCameraManagerment.userIPCMuteControl(mDevUID,true);
 					LiveViewGLviewActivity.this.mIsListening = false;
@@ -2655,6 +2794,21 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 
 	}
 
+
+	public void setRunrefreshStatus(){
+		if(isruningRefresh){
+			if(img_control_runrefresh!=null)
+				img_control_runrefresh.setImageResource(R.drawable.tab_cruise_pre);
+			if(img_control_runrefresh_land!=null)
+				img_control_runrefresh_land.setImageResource(R.drawable.tab_cruise_pre);
+		}else{
+			if(img_control_runrefresh!=null)
+				img_control_runrefresh.setImageResource(R.drawable.tab_cruise_n);
+			if(img_control_runrefresh_land!=null)
+				img_control_runrefresh_land.setImageResource(R.drawable.tab_cruise_n);
+		}
+	}
+
 	public void setRecodestatue(){
 
 		try {
@@ -2848,6 +3002,26 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 		mCameraManagerment.userIPCStart(mDevUID, mDevice.getChannelIndex(),(byte)currentplaySeq );//1-60:1-60sec, 61-120:1-60min, 121-144:1-24hrs,145-176:1-31days
 
 	}
+
+
+	public void setVoiceMuteStauts(){
+		if(mIsListening){
+			if(voiceMute != null){
+				voiceMute.setImageResource(R.drawable.sound_on);
+			}
+			if(voiceMute_land != null){
+				voiceMute_land.setImageResource(R.drawable.sound_on);
+			}
+		}else{
+			if(voiceMute != null){
+				voiceMute.setImageResource(R.drawable.sound_off);
+			}
+			if(voiceMute_land != null){
+				voiceMute_land.setImageResource(R.drawable.sound_off);
+			}
+		}
+	}
+
 	public void setstatue_voice_icon() {
 
 		if (!mIsSpeaking) {
@@ -2987,11 +3161,8 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				if(voiceMute != null){
-					voiceMute.setImageResource(R.drawable.sound_off);
-				}
-			}
-			else{
+
+			}else{
 				try {
 
 					mCameraManagerment.userIPCMuteControl(mDevUID,false);
@@ -3000,11 +3171,10 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				if(voiceMute != null){
-					voiceMute.setImageResource(R.drawable.sound_on);
-				}
+
 			}
 			checkDoorbellSound();
+			setVoiceMuteStauts();
 
 		}else{
 //    		本地播放前后
@@ -3019,9 +3189,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				if(voiceMute != null){
-					voiceMute.setImageResource(R.drawable.sound_on);
-				}
+
 			}else{
 				try {
 
@@ -3031,11 +3199,9 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				if(voiceMute != null){
-					voiceMute.setImageResource(R.drawable.sound_off);
-				}
-			}
 
+			}
+			setVoiceMuteStauts();
 
 		}
 
@@ -3382,7 +3548,9 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 							String text = STimeDay.getLocalTime(UTCtime*1000);
 							if(txt_time!=null)
 							{
-								txt_time.setVisibility(View.VISIBLE);
+								if(title_father.getVisibility()==View.VISIBLE){
+									txt_time.setVisibility(View.VISIBLE);
+								}
 								txt_time.setText(text);
 							}
 							if(image_wifi!=null){
@@ -3433,14 +3601,6 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 				}
 			};
 		}.start();
-		if(isruningRefresh){
-			if(img_control_runrefresh!=null)
-				img_control_runrefresh.setImageResource(R.drawable.tab_cruise_pre);
-		}
-		else{
-			if(img_control_runrefresh!=null)
-				img_control_runrefresh.setImageResource(R.drawable.tab_cruise_n);
-		}
 		new Thread() {
 			public void run() {
 				int recordtimeCount = 0;
@@ -3649,8 +3809,8 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 				@Override
 				public void run() {
 					// TODO Auto-generated method stub
-					if(rockbacktoLive_photo!=null)
-					{
+
+					if(rockbacktoLive_photo!=null){
 						if(!isLandorientation){
 							if(isshow )
 							{
@@ -3930,9 +4090,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-					if(voiceMute != null){
-						voiceMute.setImageResource(R.drawable.sound_on);
-					}
+					setVoiceMuteStauts();
 				}
 				if(rockbacktoLive_photo!=null    )
 				{
@@ -4601,9 +4759,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			if(voiceMute!=null){
-				voiceMute.setImageResource(R.drawable.sound_off);
-			}
+
 		}else{
 			try {
 
@@ -4613,11 +4769,9 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			if(voiceMute!=null){
-				voiceMute.setImageResource(R.drawable.sound_on);
-			}
-		}
 
+		}
+		setVoiceMuteStauts();
 		clickBackToLivetime = System.currentTimeMillis();
 
 	/*	final MyCamera mCamera=  CameraManagerment.getInstance().getexistCamera(mDevUID);
@@ -4660,198 +4814,6 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 	}
 
 
-	private void rockBackToLive(){
-
-		if(mProgressBar!=null)
-		{
-			mProgressBar.setVisibility(View.VISIBLE);
-			mProgressBar.bringToFront();
-		}
-		if(isLandorientation){
-			if(rockbacktoLive_photo!=null)
-				rockbacktoLive_photo.setVisibility(View.GONE);
-			if(System.currentTimeMillis()-clickBackToLivetime>1000){//大于一秒以上的点击才认为有效
-				currentplaySeq++;
-				mCameraManagerment.setcurrentplaySeq(mDevUID,currentplaySeq);
-				if(txt_time!=null)
-					txt_time.setText("");
-				mCameraManagerment.userIPCStart(mDevUID, mDevice.getChannelIndex(),(byte)currentplaySeq );
-				mCameraManagerment.userIPCstartAllStream( mDevUID,  true,false);
-				if(myHorizontalScrollView!=null){
-					myHorizontalScrollView.scorllToCurrentTimeAndNoRecall();
-				}
-			}
-			clickBackToLivetime = System.currentTimeMillis();
-
-			MyCamera mCamera=  CameraManagerment.getInstance().getexistCamera(mDevUID);
-			HARDWAEW_INFO mdd =VRConfig.getInstance().getDeviceType(mCamera.hardware_pkg);
-			monitor.setCameraHardware_pkg(mCamera.hardware_pkg);
-			if(mdd.type == VRConfig.VRDEVICE && mdd.width==960 && mdd.height==960 ){
-				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-			}else{
-				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
-			}
-
-			if( UbiaApplication.BUILD_CHECK_PLAYVOICE)////check playVoice; detail default close
-			{
-				try {
-
-//				返回直播，关闭声音
-					mCameraManagerment.userIPCMuteControl(mDevUID,true);
-					LiveViewGLviewActivity.this.mIsListening = false;
-					StartAudio();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				if(voiceMute!=null){
-					voiceMute.setImageResource(R.drawable.sound_off);
-				}
-			}
-			else{
-				try {
-
-					mCameraManagerment.userIPCMuteControl(mDevUID,false);
-					LiveViewGLviewActivity.this.mIsListening = true;
-					StartAudio();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				if(voiceMute!=null){
-					voiceMute.setImageResource(R.drawable.sound_on);
-				}
-			}
-
-		}else{
-
-
-			if(isPlayMp4)
-			{
-				handler.postDelayed(new Runnable() {
-					public void run() {
-						{
-							// initSpeakVolume();
-							monitor.restartPlay();
-							mCameraManagerment.userIPCstartShow(mDevUID);
-							if (mIsListening) {
-								mCameraManagerment.userIPCstartListen(mDevUID);
-							}
-
-							if (mIsSpeaking) {
-								mCameraManagerment.userIPCstartSpeak(mDevUID);
-							}
-							monitor.attachCamera(mCameraManagerment.getexistCamera(mDevUID), 0,mDevice.installmode,mDevice,mDevice.snapshot,true);
-							monitor.setCameraPutModel(mDevice.installmode);
-							MyCamera mCamera = mCameraManagerment .getexistCamera(mDevUID);
-							monitor.setCameraHardware_pkg(mCamera.hardware_pkg);
-							checkDoorbellSound();
-						}
-					}
-				}, 500);
-			} else{
-				monitor.restartPlay();
-				mCameraManagerment.userIPCstartShow(mDevUID);
-				if ( mIsListening) {
-					mCameraManagerment.userIPCstartListen(mDevUID);
-				}
-
-				if ( mIsSpeaking) {
-					mCameraManagerment.userIPCstartSpeak(mDevUID);
-				}
-				checkDoorbellSound();
-
-
-			}
-			isPlayMp4 = false;
-			handler.sendEmptyMessage(1112);
-			if(rockbacktoLive_photo!=null)
-				rockbacktoLive_photo.setVisibility(View.GONE);
-			if (System.currentTimeMillis() - clickBackToLivetime > 1000) {// 大于一秒以上的点击才认为有效
-				Log.d("", "     clickBackToLivetime = System.currentTimeMillis(); ="+clickBackToLivetime +"     " +System.currentTimeMillis() );
-
-				currentplaySeq++;
-				mCameraManagerment.setcurrentplaySeq( mDevUID,currentplaySeq);
-				mCameraManagerment.userIPCStart(mDevUID, 	mDevice.getChannelIndex(), 	(byte) currentplaySeq);
-				if(myHorizontalScrollView!=null){
-					myHorizontalScrollView
-							.scorllToCurrentTimeAndNoRecall();
-				}
-			}
-
-
-
-			if( !UbiaApplication.BUILD_CHECK_PLAYVOICE)////check playVoice; detail default close
-			{
-				try {
-					handler.postDelayed(new Runnable() {
-
-						@Override
-						public void run() {
-							// FdkAACCodec
-							// 解码器会被释放，延后处理，保证MP4线程先退出后再初始化FdkAACCodec
-							// 返回直播，关闭声音
-							mCameraManagerment .userIPCMuteControl(mDevUID, true);
-							LiveViewGLviewActivity.this.mIsListening = false;
-							StartAudio();
-						}
-					}, 500);
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				if(voiceMute!=null){
-					voiceMute.setImageResource(R.drawable.sound_off);
-				}
-			}else{
-				try {
-
-					mCameraManagerment.userIPCMuteControl(mDevUID,false);
-					LiveViewGLviewActivity.this.mIsListening = true;
-					StartAudio();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				if(voiceMute!=null){
-					voiceMute.setImageResource(R.drawable.sound_on);
-				}
-			}
-
-
-			clickBackToLivetime = System.currentTimeMillis();
-
-			final MyCamera mCamera=  CameraManagerment.getInstance().getexistCamera(mDevUID);
-
-			handler.postDelayed(new Runnable() {
-
-				@Override
-				public void run() {
-					monitor.restartPlay();
-					monitor.attachCamera(mCameraManagerment.getexistCamera(mDevUID), 0,mDevice.installmode,mDevice,mDevice.snapshot,true);
-					monitor.setCameraHardware_pkg(mCamera.hardware_pkg);
-					monitor.setCameraPutModel(mDevice.installmode);
-					if(UbiaApplication.SHOWLASTSNAPSHOT)
-						monitor.refreshBitmap(mDevice.snapshot) ;
-				}
-			}, 500);
-
-			HARDWAEW_INFO mdd =VRConfig.getInstance().getDeviceType(mCamera.hardware_pkg);
-			if(mdd.type == VRConfig.VRDEVICE && mdd.width==960 && mdd.height==960 ){
-				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-			}else{
-				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
-			}
-
-
-		}
-		if (right_image3 != null) {
-			right_image3.setImageResource(R.drawable.mic_off);
-			right_image3.setEnabled(true);
-		}
-		if (img_mic != null) {
-			img_mic.setImageResource(R.drawable.mic_off);
-			img_mic.setEnabled(true);
-		}
-		showGridViewBitmap = false;
-	}
 
 
 	private void checkDoorbellSound(){
@@ -4865,9 +4827,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			if(voiceMute != null){
-				voiceMute.setImageResource(R.drawable.sound_on);
-			}
+			setVoiceMuteStauts();
 			if(!LiveViewGLviewActivity.this.mIsSpeaking){
 				if (right_image3 != null) {
 					right_image3.setImageResource(R.drawable.mic_off);

@@ -142,7 +142,10 @@ public class PhoneMessageActivity extends BaseActivity {
 		}else{
 			camera_name_tv.setText(deviceInfo.nickName+"\n"+getString(R.string.page26_page34_MyPushMessageReceiver_alarm_pir_frombell));
 		}
- 
+
+
+
+
 		Button seeJBButton = (Button) this.findViewById(R.id.seeJB);
 		seeJBButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
