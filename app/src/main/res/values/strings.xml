@@ -586,6 +586,7 @@
     <string name="delete_file_wait">Deleteing, please wait.</string>
 
     <string name="password_illegal">The password contains illegal characters</string>
+    <string name="setting_led">LED</string>
     <string name="setting_dormancytime">Dormancy time</string>
     <string name="setting_dormancytime_15s">15s</string>
     <string name="setting_dormancytime_30s">30s</string>

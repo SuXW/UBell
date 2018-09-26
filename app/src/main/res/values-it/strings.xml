@@ -585,7 +585,7 @@
     <string name="delete_file_tip">Sei sicuro di voler cancellare il file?</string>
     <string name="delete_file_wait">per favore, aspetta.</string>
     <string name="password_illegal">La password contiene caratteri non consentiti</string>
-
+    <string name="setting_led">Ha portato la modalità</string>
     <string name="setting_dormancytime">Tempo di latenza</string>
     <string name="setting_dormancytime_15s">15s</string>
     <string name="setting_dormancytime_30s">30s</string>

@@ -586,6 +586,7 @@
     <string name="delete_file_wait">Por favor espere.</string>
 
     <string name="password_illegal">Le mot de passe contient des caractères illégaux</string>
+    <string name="setting_led">En mode LED</string>
     <string name="setting_dormancytime">Temps de dormance</string>
     <string name="setting_dormancytime_15s">15s</string>
     <string name="setting_dormancytime_30s">30s</string>

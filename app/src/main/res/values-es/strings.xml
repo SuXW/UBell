@@ -585,6 +585,7 @@
     <string name ="delete_file_wait">por favor espere..</string>
 
         <string name = "password_illegal"> la contraseña no puede usar el carácter ":" </string>
+            <string name="setting_led">Modo de LED</string>
         <string name = "setting_dormancytime"> sleep time </string>
         <string name = "setting_dormancytime_15s"> 15 segundos </string>
         <string name = "setting_dormancytime_30s"> 30 segundos </string>
