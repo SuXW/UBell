@@ -905,6 +905,7 @@ public class Camera
     long currentDisplayTimeStamp;
     boolean isPlayback = false;
     SurfaceDecoder SDecoder = null;
+	long surplusTime = 0;
     private class ThreadDecodeVideo2 extends Thread
     {
         private int frameno = 0;
@@ -1202,7 +1203,20 @@ public class Camera
                         int needSleepTime = 1000/avFrame.getFramerate();
                         sleepEndTime = System.currentTimeMillis();
                         long hasUsedTime = sleepEndTime-sleepStartTime;
-                        long acturalSleep = needSleepTime - hasUsedTime;
+
+
+                        if(hasUsedTime > needSleepTime){
+                            surplusTime += hasUsedTime-needSleepTime; //多出的时间
+                             continue;
+                        }
+                        long acturalSleep = needSleepTime - hasUsedTime - surplusTime;
+
+                        surplusTime = 0;
+
+                        if(acturalSleep < 0){
+                           surplusTime = -acturalSleep; //补足后仍然多出的时间
+                           continue;
+                        }
 
                         if (width[0] == 1280) {
                             try {
@@ -1211,9 +1225,9 @@ public class Camera
                                 e.printStackTrace();
                             }
                         }else {
-                            if(acturalSleep<30 ){
-                                acturalSleep =30;
-                            }
+                           /* if(acturalSleep<30 ){
+                                acturalSleep = 0;
+                            }*/
                             if( acturalSleep > needSleepTime){
                                 acturalSleep = needSleepTime;
                             }
