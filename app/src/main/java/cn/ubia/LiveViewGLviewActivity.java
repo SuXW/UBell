@@ -2016,7 +2016,12 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 								monitor.attachCamera(mCameraManagerment.getexistCamera(mDevUID), 0,mDevice.installmode,mDevice,mDevice.snapshot,true);
 								monitor.setCameraPutModel(installmode);
 								monitor.setCameraHardware_pkg(hardware_pkg);
-								monitor.setHorizontal(false);
+								if(getResources().getConfiguration().orientation==1){
+									monitor.setHorizontal(false);
+								}else{
+									monitor.setHorizontal(true);
+								}
+
 							}
 							playingmUriString= mUriString;
 							try {
