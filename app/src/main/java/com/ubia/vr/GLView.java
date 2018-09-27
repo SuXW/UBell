@@ -249,7 +249,7 @@ public class GLView extends GLSurfaceView implements IRegisterIOTCListener,OnGes
             		count++;
             		if (count == 1) {
             			firstClick = System.currentTimeMillis();
-            	 
+
            				 if (isHorizontal && mhandle !=null&& mTouchType!=SCALE&& mTouchType!=DOUBLECLICK && Math.abs( touchX - mTouchDownX)<50 && Math.abs( touchY - mTouchDownY)<50) {//原地双击
            					myhanHandler.sendMessageDelayed(myhanHandler.obtainMessage(1015, this),  300); 
            				 }

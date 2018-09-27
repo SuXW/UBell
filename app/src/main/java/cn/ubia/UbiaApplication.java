@@ -18,6 +18,7 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Process;
+import android.os.StrictMode;
 import android.support.multidex.MultiDex;
 import android.util.Log;
 import android.widget.Toast;
@@ -91,6 +92,8 @@ public class UbiaApplication extends DaemonApplication {
 	public static final String endpoint_us = "http://oss-us-west-1.aliyuncs.com";
 	//public static final String bucket = "ubell";
 
+	public static boolean isPad = true;
+
 	@Override
 	public void onCreate() {
 		super.onCreate(); 
@@ -102,6 +105,11 @@ public class UbiaApplication extends DaemonApplication {
 	    instance = this;
 
 		LoadedApkHuaWei.hookHuaWeiVerifier(this);//修复华为手机Register too many Broadcast Receivers问题
+
+		if(Build.VERSION.SDK_INT > 24){  //修复7.0以上报FileUriExposedException ****.jpg beyond app through Intent.getData()错误
+			StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+			StrictMode.setVmPolicy(builder.build());
+		}
 
 		registerActivityLifecycleCallbacks(new com.ubia.IOTC.ActivityLifecycleListener());
 
@@ -116,6 +124,9 @@ public class UbiaApplication extends DaemonApplication {
 			Log.e("UbiaApplication","Skip RegisterPush APP_ID:"+APP_ID+" APP_KEY:"+APP_KEY);
 
 		}
+
+
+
 	}
 
     public static UbiaApplication getInstance() {

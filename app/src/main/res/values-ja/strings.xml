@@ -583,7 +583,7 @@
     <string name="delete_file_tip">あなたがファイルの削除を確認?</string>
     <string name="delete_file_wait">処理中、お待ちください.</string>
     <string name="password_illegal">パスワードには不法な文字が含まれています。</string>
-    <string name="setting_led">スリープモードへの移行時間</string>
+    <string name="setting_led">照度センサー</string>
     <string name="setting_dormancytime">スリープモードへの移行時間</string>
     <string name="setting_dormancytime_15s">15秒</string>
     <string name="setting_dormancytime_30s">30秒</string>

@@ -2105,8 +2105,13 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 					}else if( nameSplit.length<=6){
 						monitor.setCameraPutModel( VRConfig.CameraPutModelFaceFront);
 						monitor.setCameraHardware_pkg(HARDWAEW_PKG.MF_STD_1145);
-						this.monitor.setHorizontal(false);
+					//	this.monitor.setHorizontal(false);
 						monitor.refreshBitmap(createDefaultImage(bitmap)) ;
+					}
+					if(getResources().getConfiguration().orientation==1){
+						monitor.setHorizontal(false);
+					}else{
+						monitor.setHorizontal(true);
 					}
 //					monitor.setCameraPutModel();
 				} catch (FileNotFoundException e) {
@@ -2250,7 +2255,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 
 				MyCamera mMyCamera = new MyCamera(deviceInfo.nickName,deviceInfo.UID, deviceInfo.viewAccount, deviceInfo.viewPassword);
 				mMyCamera.registerIOTCListener(this);
-				mMyCamera.connect(deviceInfo.UID);
+				mMyCamera.connect(deviceInfo.UID,14);
 				mMyCamera.start(0, deviceInfo.viewAccount,  deviceInfo.viewPassword);
 				mMyCamera.LastAudioMode = 1;
 				mMyCamera.hardware_pkg = deviceInfo.hardware_pkg;

@@ -1,6 +1,7 @@
 package cn.ubia.base;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.WindowManager;
@@ -10,6 +11,8 @@ import cn.ubia.util.ActivityHelper;
 import com.ubia.IOTC.AVFrame;
 import com.ubia.IOTC.Camera;
 import com.ubia.IOTC.IRegisterIOTCListener;
+
+import static cn.ubia.UbiaApplication.isPad;
 
 public class BaseActivity extends  Activity implements
 		IRegisterIOTCListener {
@@ -23,6 +26,11 @@ public class BaseActivity extends  Activity implements
 				WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
 						|WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD //| WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
 						|WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+		if(!isPad){
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+		}else{
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+		}
 
 	}
 

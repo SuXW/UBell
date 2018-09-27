@@ -13,8 +13,6 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.TimeZone;
 
-import cn.ubia.adddevice.SetupAddDeviceActivity;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,18 +22,15 @@ import android.app.ActivityManager;
 import android.app.ActivityManager.RunningTaskInfo;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
-import android.app.Fragment;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -48,11 +43,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
-import android.graphics.Shader.TileMode;
-import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
-import android.net.Uri;
 import android.os.Build.VERSION;
 import android.os.Build;
 import android.os.Bundle;
@@ -100,6 +92,7 @@ import cn.ubia.UBell.R;
 import cn.ubia.adddevice.AddCarmeraFragmentActivity;
 import cn.ubia.adddevice.AddDeviceActivity;
 import cn.ubia.adddevice.WIfiAddDeviceActivity;
+import cn.ubia.base.BaseFragment;
 import cn.ubia.base.Constants;
 import cn.ubia.bean.AlarmMessage;
 import cn.ubia.bean.DeviceInfo;
@@ -131,7 +124,7 @@ import com.ubia.util.MobileInfoUtils;
 import com.ubia.vr.VRConfig;
 import com.zbar.lib.CaptureActivity;
 
-public class MainCameraFragment extends  Fragment implements
+public class MainCameraFragment extends BaseFragment implements
 		IRegisterIOTCListener, IRegisterUBIAListener {
 	
 	public static final int CONNSTATUS_NULL=0;
@@ -251,7 +244,7 @@ public class MainCameraFragment extends  Fragment implements
 							.equalsIgnoreCase(var3)) {
 						var7 = (DeviceInfo) MainCameraFragment.DeviceList
 								.get(var5);
-				 
+
 						break;
 					}
 
@@ -290,7 +283,7 @@ public class MainCameraFragment extends  Fragment implements
 //						Resources res = getResources();
 //						String text = res
 //								.getString(R.string.connstus_connecting);
-//						var7.Status = text; 
+//						var7.Status = text;
 //						var7.online = false;
 //						var7.offline = false;
 //						var7.lineing = true;
@@ -303,7 +296,7 @@ public class MainCameraFragment extends  Fragment implements
 //							&& var10.isChannelConnected(0) && var7 != null) {
 //						Resources res = getResources();
 //						String text = res.getString(R.string.state_connected);
-//						var7.Status = text; 
+//						var7.Status = text;
 //						var7.online = true;
 //						var7.offline = false;
 //						var7.lineing = false;
@@ -441,29 +434,29 @@ public class MainCameraFragment extends  Fragment implements
 				case AVIOCTRLDEFs.IOTYPE_USER_IPCAM_SETMOTIONDETECT_RESP:
 //					if (var4[0] == 0) {
 //						if (var4[4] == 0) {
-//							
+//
 //							bfcg_istrue = true;
 //							if(g_imgbt!=null)
 //								g_imgbt.setImageResource(R.drawable.start_alarm);
-//					
+//
 //						} else {
-//				
+//
 //							bfcg_istrue = false;
 //							if(g_imgbt!=null)
 //							g_imgbt.setImageResource(R.drawable.stop_alarm);
 //						}
-//						
-//				
+//
+//
 //					}
-//					
-//			 
+//
+//
 //					adapter.notifyDataSetChanged();
 					break;
-					
+
 				case AVIOCTRLDEFs.IOTYPE_USER_IPCAM_GETMOTIONDETECT_RESP:
-				 
+
 //					if(bfcg_istrue){
-//						
+//
 //					if (var4[4] == 0) {
 //						alarmAudio = MediaPlayer.create(MainCameraFragment.this.getActivity(), R.raw.cfcg);
 //						// alarmAudio.setVolume(1, 1);
@@ -471,7 +464,7 @@ public class MainCameraFragment extends  Fragment implements
 //						alarmAudio.start();
 //						var10.setbIsIOAlarm(false);
 //					} else {
-//						
+//
 //						alarmAudio = MediaPlayer.create(MainCameraFragment.this.getActivity(), R.raw.bfcg);
 //						// alarmAudio.setVolume(1, 1);
 //						alarmAudio.setLooping(false);
@@ -521,16 +514,16 @@ public class MainCameraFragment extends  Fragment implements
 	private OnItemClickListener listViewOnItemClickListener = new OnItemClickListener() {// 视频列表
 		public void onItemClick(AdapterView var1, View var2, int sel, long var4) {
 			try {
-				
+
 //				AlarmMessage alarmMessage = new AlarmMessage("", "RL6CP4FRATYEOPYBB4BQ", "");
 //		    	Intent activityIntent = new Intent(MainCameraFragment.this.getActivity(), PhoneMessageActivity.class)
 //		    			.putExtra("alarmMessage", alarmMessage);
 //		    	activityIntent.setClass(MainCameraFragment.this.getActivity(),
 //		    			PhoneMessageActivity.class);
-//		    	activityIntent.putExtra("alarmMessage", alarmMessage); 
-//		        startActivity(activityIntent); 
-//		        
-//		  
+//		    	activityIntent.putExtra("alarmMessage", alarmMessage);
+//		        startActivity(activityIntent);
+//
+//
 //		    	if(1==1)return;
 				nowtime = System.currentTimeMillis();
 				if (nowtime - lasttime > 1500) {
@@ -541,22 +534,22 @@ public class MainCameraFragment extends  Fragment implements
 						startActivityForResult(intentadd, 1);
 						return;
 					}
-				
+
 					selectedDevice = (DeviceInfo) MainCameraFragment.DeviceList .get(sel);
 					selectedCamera = (MyCamera) mCameraManagerment.CameraList .get(sel);
 					final int var3 = sel;
-					
+
 					if(selectedDevice.device_connect_state == CONNSTATUS_WRONG_PASSWORD ){
 							Log.d("","   密码错误");
 							DialogUtil.getInstance().showpwdErrorDialo(getActivity(),new DialogChooseItemStringcallback(){
 
 								@Override
 								public void chooseItemString(String newPassword) {
-								 
+
 									DeviceInfo mDevice =  selectedDevice;
-									String var17; 
+									String var17;
 									 var17 = newPassword;
-							 
+
 									 mDevice.viewPassword = var17;
 									// //////////////////////////////////////////////////////////////////////////
 									 (new DatabaseManager(
@@ -579,11 +572,11 @@ public class MainCameraFragment extends  Fragment implements
 												selectedDevice.viewAccount,
 												selectedDevice.viewPassword);
 										DialogUtil.getInstance().hidePopupWindow( );
-										
+
 								}
-								
+
 						},null)	;
-							
+
 						return;
 					}
 					Resources res = getResources();
@@ -603,9 +596,9 @@ public class MainCameraFragment extends  Fragment implements
 										selectedCamera.start(0,
 												selectedDevice.viewAccount,
 												selectedDevice.viewPassword);
-									} 
+									}
 									if ( (DeviceList.get(var3).device_connect_state!=CONNSTATUS_CONNECTED ) &&  (DeviceList.get(var3).device_connect_state!=CONNSTATUS_STARTDEVICECLIENT )) {
-									
+
 										selectedCamera.disconnect();
 										try {
 											Thread.sleep(1000);
@@ -618,14 +611,14 @@ public class MainCameraFragment extends  Fragment implements
 										selectedCamera.start(0,
 												selectedDevice.viewAccount,
 												selectedDevice.viewPassword);
-										
+
 										mCameraManagerment.userIPCDeviceInfo(selectedDevice.UID);
 //										mCameraManagerment.userIPCGetSupportStream(selectedDevice.UID);
 //										mCameraManagerment.userIPCGetAudioOutFormat(selectedDevice.UID);
 //										mCameraManagerment.userIPCGetTimeZone(selectedDevice.UID);
-										
 
-									} 
+
+									}
 									else {
 										Bundle var6 = new Bundle();
 										var6.putString(
@@ -685,7 +678,7 @@ public class MainCameraFragment extends  Fragment implements
 	private OnItemLongClickListener listViewOnItemLongClickListener = new OnItemLongClickListener() {
 		public boolean onItemLongClick(AdapterView var1, View var2, int var3,
 				long var4) {
-			 
+
 			if (var3 < MainCameraFragment.DeviceList.size()
 					&& var3 < mCameraManagerment.CameraList.size() && build_for_factory_tool) {
 				MainCameraFragment.this.selectedCamera = (MyCamera) mCameraManagerment.CameraList
@@ -740,12 +733,12 @@ public class MainCameraFragment extends  Fragment implements
 //						var1.disconnect();
 //						var1.connect(var2.UID);
 //						var1.start(0, var2.viewAccount, var2.viewPassword);
-						
+
 //						mCameraManagerment.userIPCDeviceInfo(var2.UID);
 //						mCameraManagerment.userIPCGetSupportStream(var2.UID);
 //						mCameraManagerment.userIPCGetAudioOutFormat(var2.UID);
 //						mCameraManagerment.userIPCGetTimeZone(var2.UID);
-					
+
 //					}
 				}
 			}
@@ -832,7 +825,7 @@ public class MainCameraFragment extends  Fragment implements
 	public boolean v = false;
 
 	private void loadMyCameraListFromWebServer() {
- 
+
 	}
 
 	// 解析设备信息
@@ -901,7 +894,7 @@ public class MainCameraFragment extends  Fragment implements
 		return infos;
 	}
 
-	 
+
 	// AlarmMessageActivity
 	private void initCameraList() {
 		// DeviceList.clear();
@@ -928,12 +921,12 @@ public class MainCameraFragment extends  Fragment implements
 			int var11 = var3.getInt(8);
 			byte[] var12 = var3.getBlob(9);
 			int var13 = var3.getInt(10);
-			int ispublic = var3.getInt(11); 
+			int ispublic = var3.getInt(11);
 			int installmode = var3.getInt(12);
 			int hardware_pkg = var3.getInt(13);
 
 			JiGuangTags.add(var7); //uuid
-			
+
 			DeviceInfo var16 = new DeviceInfo(var4, var7, var6,
 					var7, var8, var9, "", var10, var11, null);
 			// Log.i("IOTCamera", "DeviceInfo.size()>>>>>>>>>>>" + var16);
@@ -962,7 +955,7 @@ public class MainCameraFragment extends  Fragment implements
 				var16.ShowTipsForFormatSDCard = var17;
 				DeviceList.add(var16);
 				Log.i("guo..IOTCamera", "DeviceList.add.."+var16.UID+"...........检测不存在，加入设备列表..device_connect_state:" + var16.device_connect_state);
- 
+
 				MyCamera mMyCamera = new MyCamera(var6, var7, var8, var9);
 				mMyCamera.hardware_pkg = hardware_pkg;
 //				mMyCamera.setInstallmode(installmode);
@@ -970,19 +963,19 @@ public class MainCameraFragment extends  Fragment implements
 			if (!hasexistCamera(mMyCamera)) {
 				mMyCamera.registerIOTCListener(this);
 				mMyCamera.connect(var7);
- 				mMyCamera.start(0, var8, var9); 
+ 				mMyCamera.start(0, var8, var9);
 				mMyCamera.LastAudioMode = 1;
 				mCameraManagerment.AddCameraItem(mMyCamera);
 					Log.v("guo..IOTCamera", "initCameraList mMyCamera   add  reconnect UID:"+var6 +"   var9:"+var9);
-				 
+
 			}else{
 					Log.v("guo..IOTCamera", "222initCameraList mMyCamera   add  reconnect UID:"+var6 +"   var9:"+var9);
 				mMyCamera.registerIOTCListener(this);
 			    mMyCamera.connect(var7);
 					Log.v("guo..IOTCamera", "initCameraList mMyCamera   add  connect");
 			}
-			
-			}  
+
+			}
 			try {
 				Thread.sleep(20L);
 			} catch (InterruptedException e) {
@@ -990,7 +983,7 @@ public class MainCameraFragment extends  Fragment implements
 				e.printStackTrace();
 			}
 		}
-	
+
 		var3.close();
 		var2.close();
 		String var23;
@@ -1016,7 +1009,7 @@ public class MainCameraFragment extends  Fragment implements
 		if(show)//不想显示状态栏提示就关闭，想就打开
 		// }
 		this.showButtonNotify(var23);
-		
+
 		//this.startOnGoingNotification(var23);
 //		if(CameraList.size()>8 && maddMenu!=null)
 //			maddMenu.setVisible(false);
@@ -1026,20 +1019,20 @@ public class MainCameraFragment extends  Fragment implements
 //		}
 		verifyCameraLimit();
 		isFirstinit = false;
-		
+
 		getActivity().runOnUiThread(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
 				if(DeviceList.size()==0){
 					empty_layout.setVisibility(View.VISIBLE);
 					listView.setVisibility(View.GONE);
-			
+
 				}else{
 					empty_layout.setVisibility(View.GONE);
 					listView.setVisibility(View.VISIBLE);
-				}	
+				}
 				if(adapter!=null)
 					adapter.notifyDataSetChanged();
 			}
@@ -1048,7 +1041,7 @@ public class MainCameraFragment extends  Fragment implements
 
 	private boolean hasexistCamera(MyCamera checkCamera) {
 
-		for (MyCamera myCamera : mCameraManagerment.CameraList) { 
+		for (MyCamera myCamera : mCameraManagerment.CameraList) {
 			if (myCamera.getUID().equals(checkCamera.getUID()))
 				return true;
 		}
@@ -1057,7 +1050,7 @@ public class MainCameraFragment extends  Fragment implements
 
 	private static MyCamera getexistCamera(MyCamera checkCamera) {
 
-		for (MyCamera myCamera : CameraManagerment.getInstance().CameraList) { 
+		for (MyCamera myCamera : CameraManagerment.getInstance().CameraList) {
 			if (myCamera.getUID().equals(checkCamera.getUID()))
 				return myCamera;
 		}
@@ -1065,7 +1058,7 @@ public class MainCameraFragment extends  Fragment implements
 	}
 
 	public static MyCamera getexistCameraBySid(int sid) {
-		for (MyCamera myCamera : CameraManagerment.getInstance().CameraList) { 
+		for (MyCamera myCamera : CameraManagerment.getInstance().CameraList) {
 			if (myCamera.getMSID()==sid)
 				return myCamera;
 		}
@@ -1073,7 +1066,7 @@ public class MainCameraFragment extends  Fragment implements
 	}
 	private boolean hasexistDevice(DeviceInfo checkDevice) {
 
-		for (DeviceInfo mydev : DeviceList) { 
+		for (DeviceInfo mydev : DeviceList) {
 			Log.v("","hasexistDevice  checkDevice: "+checkDevice.UID+"   checkDevice:"+checkDevice.device_connect_state
 					+"   mydev.device_connect_state:"+mydev.device_connect_state);
 			if (mydev.UID.equals(checkDevice.UID))
@@ -1118,7 +1111,7 @@ public class MainCameraFragment extends  Fragment implements
 		this.iconContextMenu.addItem(var1,
 				this.getText(R.string.page17_ctxEditCamera),
 				R.drawable.ic_edit_camera, 2);
-		
+
 //		if(uidPrefix.equals("FFFFFFFFFFFFFFFFFF")){
 //			this.iconContextMenu.addItem(var1,
 //					this.getText(R.string.ctxChangeUID),
@@ -1153,7 +1146,7 @@ public class MainCameraFragment extends  Fragment implements
 									// TODO Auto-generated method stub
 									selectedCamera.disconnect();
 									selectedCamera.connect(selectedDevice.UID);
-		
+
 								}
 							}).start();
 
@@ -1253,7 +1246,7 @@ public class MainCameraFragment extends  Fragment implements
 														DialogInterface var1,
 														int var2) {
 													doDeleteMyDevice();
-								
+
 												}
 											})
 									.setNegativeButton(
@@ -1283,7 +1276,7 @@ public class MainCameraFragment extends  Fragment implements
 														DialogInterface var1,
 														int var2) {
 
-												 
+
 																		// add
 													//
 													// String var13;
@@ -1347,7 +1340,7 @@ public class MainCameraFragment extends  Fragment implements
 //									.getString(R.string.u_tips_scan_qrcode));
 //							progressdlg.setCancelable(false);
 //							progressdlg.show();
-							
+
 							Intent intent = new Intent(getActivity(),
 									CaptureActivity.class);
 							startActivityForResult(intent, CAMERA_SCAN_REQUEST);
@@ -1378,9 +1371,9 @@ public class MainCameraFragment extends  Fragment implements
 
 				} else {
 					try {
-						if (response.getInt("reason") == 207) { 
+						if (response.getInt("reason") == 207) {
 
-						} else { 
+						} else {
 						}
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
@@ -1392,7 +1385,7 @@ public class MainCameraFragment extends  Fragment implements
 
 		@Override
 		public void onFailure(int statusCode, Throwable error,
-				String content) { 
+				String content) {
 			error.printStackTrace();
 		}
 
@@ -1425,9 +1418,9 @@ public class MainCameraFragment extends  Fragment implements
 					var8.delete();
 				}
 			}
-		 
+
 		 HttpClient.operateDeviceVoip(selectedDevice.UID, 2,mJsonHttpResponseHandler);
-		 
+
 		 NotificationTagManager.getInstance().removeTag(selectedDevice.UID);
 			var7.close();
 			var6.close();
@@ -1435,12 +1428,12 @@ public class MainCameraFragment extends  Fragment implements
 			var5.removeDeviceByUID(selectedDevice.UID);
 			this.DeviceList.remove(selectedDevice);
 			adapter.notifyDataSetChanged();
-		}  
+		}
 		verifyCameraLimit() ;
-		
+
 	}
 
- 
+
 	private void updateDevice(DeviceInfo deviceInfo) {
 		// new
 		// DatabaseManager(this.getActivity()).updateDeviceInfoByDBID(selectedDevice.DBID,
@@ -1457,7 +1450,7 @@ public class MainCameraFragment extends  Fragment implements
 		// AntsApplication.bus.post(deviceInfo);
 	}
 
- 
+
 	private boolean isNetworkAvailable() {
 		((ConnectivityManager) this.getActivity().getSystemService(
 				"connectivity")).getActiveNetworkInfo();
@@ -1498,15 +1491,15 @@ public class MainCameraFragment extends  Fragment implements
 		View v = View.inflate(getActivity(), R.layout.camera_list, null);
 		mRootView = (ViewGroup) v;
 
-		//listView = (ListView) v.findViewById(R.id.list); 
+		//listView = (ListView) v.findViewById(R.id.list);
 		// this.addDeviceView = this.getActivity().getLayoutInflater()
 		// .inflate(R.layout.add_device_row, (ViewGroup) null);
 		// v.findViewById(R.id.btnAddDevice).setOnClickListener(this);
 		empty_layout = (LinearLayout) v.findViewById(R.id.empty_layout);
-		
+
 		add_device_row_ll =  (LinearLayout)v.findViewById(R.id.add_device_row_ll);
 		add_device_row_ll.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
@@ -1516,7 +1509,7 @@ public class MainCameraFragment extends  Fragment implements
 			}
 		});
 		v.findViewById(R.id.nodevicetip) .setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
@@ -1536,7 +1529,7 @@ public class MainCameraFragment extends  Fragment implements
 		// this.initCameraList();
 		 this.listView.addFooterView(this.addDeviceView);
 		// this.listView.setAdapter(this.adapter);
-		 this.listView.setOnItemClickListener(this.listViewOnItemClickListener); 
+		 this.listView.setOnItemClickListener(this.listViewOnItemClickListener);
 		// this.listView
 		// .setOnItemLongClickListener(this.listViewOnItemLongClickListener);
 	 	this.verifyCameraLimit();
@@ -1598,19 +1591,19 @@ public class MainCameraFragment extends  Fragment implements
 			Notification var16 = new Notification(
 					 R.drawable.nty_alert, getString(R.string.page26_page34_MyPushMessageReceiver_alarm_alert_from) +" "+ var1.nickName, (System.currentTimeMillis()));
 			var16.flags |= Notification.FLAG_AUTO_CANCEL;
-			
+
 			// var16.flags |= 32;
 			/**
-			 *  	 public static final int DEFAULT_SOUND = 1; 
-  					public static final int DEFAULT_VIBRATE = 2; 
+			 *  	 public static final int DEFAULT_SOUND = 1;
+  					public static final int DEFAULT_VIBRATE = 2;
   					public static final int DEFAULT_LIGHTS = 4;
   */
 			boolean Pushmute= PreferenceUtil.getInstance().getBoolean(Constants.IS_PUSHMUTE_CHECKED) ;
 			boolean Pushvirable= PreferenceUtil.getInstance().getBoolean(Constants.IS_VIBRATE_CHECKED) ;
-			
+
 			Log.v("deviceinfo", "Pushmute ="+Pushmute+"  Pushvirable = "+Pushvirable);
-			
-			
+
+
 		   if (!Pushmute && Pushvirable) {
 				var16.defaults = Notification.DEFAULT_VIBRATE |Notification.DEFAULT_SOUND ;
 			} else if ( Pushmute && Pushvirable) {
@@ -1619,7 +1612,7 @@ public class MainCameraFragment extends  Fragment implements
 				var16.defaults =Notification.DEFAULT_SOUND  ;
 			} else if ( Pushmute && !Pushvirable) {
 				var16.defaults = 0;
-			} 
+			}
 
 
 			String var17 = this.getText(R.string.page26_ntfIncomingEvent).toString();
@@ -1646,7 +1639,7 @@ public class MainCameraFragment extends  Fragment implements
 			activityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			this.getActivity().startActivity(activityIntent);
 			}
-	 
+
 
 		} catch (Exception var22) {
 			var22.printStackTrace();
@@ -1666,28 +1659,28 @@ public class MainCameraFragment extends  Fragment implements
 
 		return false;
 	}
-   
+
 	public static  boolean getAllRunningActivityName(String name) {
 		ActivityManager activityManager = (ActivityManager) UbiaApplication
 				.getInstance().getApplicationContext()
 				.getSystemService(Context.ACTIVITY_SERVICE);
-	    
-	        boolean flag = false;       
-	    List<RunningTaskInfo> taskInfoList = activityManager.getRunningTasks(10);  //获取从栈顶开始往下查找的10个activity  
-        for (RunningTaskInfo taskInfo : taskInfoList) { 
+
+	        boolean flag = false;
+	    List<RunningTaskInfo> taskInfoList = activityManager.getRunningTasks(10);  //获取从栈顶开始往下查找的10个activity
+        for (RunningTaskInfo taskInfo : taskInfoList) {
 			String eqName = taskInfo.baseActivity .getClassName();
 			Log.v("deviceinfo", "getAllRunningActivityName name eqName =" + eqName +"    name="+name);
 			if(eqName.contains(name)) {
-            flag = true;    
-            break;  //跳出循环，优化效率 
+            flag = true;
+            break;  //跳出循环，优化效率
 			}
-        }  
- 
+        }
+
 
 
 		return flag;
 	}
-   
+
 	private void showSDCardFormatDialog(final Camera var1, final DeviceInfo var2) {
 		final AlertDialog var3 = (new Builder(this.getActivity())).create();
 		var3.setTitle(R.string.page26_dialog_FormatSDCard);
@@ -1701,9 +1694,9 @@ public class MainCameraFragment extends  Fragment implements
 		Button var7 = (Button) var4.findViewById(R.id.btnClose);
 		var6.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View var1x) {
-				
+
 				mCameraManagerment.userIPCFormatExistStorage(var1.getmDevUID());
-				
+
 				var2.ShowTipsForFormatSDCard = var5.isChecked();
 				(new DatabaseManager(MainCameraFragment.this.getActivity()))
 						.updateDeviceAskFormatSDCardByUID(var2.UID,
@@ -1724,7 +1717,7 @@ public class MainCameraFragment extends  Fragment implements
 
 
 
- 
+
 	  protected void requestPermission(int requestCode) {
 		   // TODO Auto-generated method stub
 		   // 6.0以上系统才可以判断权限
@@ -1760,7 +1753,7 @@ public class MainCameraFragment extends  Fragment implements
 			 this.listView.removeFooterView(this.addDeviceView);
 			this.adapter.notifyDataSetChanged();
 		}
- 
+
 	}
 
 	public void onActivityResult(int var1, int var2, Intent var3) {
@@ -1814,9 +1807,9 @@ public class MainCameraFragment extends  Fragment implements
 			}
 		} else if (var1 == 1) {
 			switch (var2) {
-			case 100:	
-				
-				 
+			case 100:
+
+
 //				Fragment newContent = new PhotoManageFragment();
 //				Bundle bundle = new Bundle();
 //				bundle.putInt("key", selectdeviceIndex);
@@ -1825,7 +1818,7 @@ public class MainCameraFragment extends  Fragment implements
 //					MainActivity fca = (MainActivity) getActivity();
 //					fca.switchContent(newContent, "");
 ////					fca.getmFrag().setmSelectedMenuId(3);
-//			 
+//
 //				}
 			break;
 			case -1:
@@ -1843,7 +1836,7 @@ public class MainCameraFragment extends  Fragment implements
 					}
 					DeviceInfo devinfo = (DeviceInfo) DeviceList.get(var10);
 					if (var6.equalsIgnoreCase(devinfo.UID)) {
-						Log.i("images", "uid:" + devinfo.UID); 
+						Log.i("images", "uid:" + devinfo.UID);
 						devinfo.snapshot = getlastsnap(devinfo);
 						devinfo.viewPassword = viewPassword;
 						this.adapter.notifyDataSetChanged();
@@ -1871,13 +1864,13 @@ public class MainCameraFragment extends  Fragment implements
 			String code = var3.getStringExtra("result");
 			DeviceSearchResult result = new DeviceSearchResult();
 			result.UID = code;
-			
+
 			Log.i("ubiacamera", "select Camera :" +MainCameraFragment.this.selectedDevice.UID + "Change to:" + result.UID);
 
 			mCameraManagerment.userUbiaSetUID(MainCameraFragment.this.selectedCamera.getmUID(), result.UID.getBytes());
-			
 
-			
+
+
 //			Intent intent = new Intent(getActivity(), LoginAddDeviceActivity.class);
 //			intent.putExtra("selectUID", result.UID);
 //			startActivityForResult(intent, CAMERA_SCAN_ADD_REQUEST);
@@ -1953,7 +1946,7 @@ public class MainCameraFragment extends  Fragment implements
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+
 		// mHttpClient = new HttpClient(token, tokenSecret);
 		Resources res = getResources();
 		default_snap = BitmapFactory.decodeResource(res, R.drawable.usnap_bg);
@@ -1967,11 +1960,11 @@ public class MainCameraFragment extends  Fragment implements
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-	 
+
 		Log.i("first", "===================================onCreateView");
 		isFirstinit = true;
 		View view = null;
-		
+
 		if (this.isNetworkAvailable()) {
 			view = this.setupView();
 		} else {
@@ -1987,7 +1980,7 @@ public class MainCameraFragment extends  Fragment implements
 
 						}
 					});
-	
+
 		}
 		//init screen
 		WindowManager wm = (WindowManager) getActivity()
@@ -1996,12 +1989,12 @@ public class MainCameraFragment extends  Fragment implements
 		wm.getDefaultDisplay().getMetrics(outMetrics);
 		  screenWidth =wm.getDefaultDisplay().getWidth();// outMetrics.widthPixels;
 		  density =  getActivity().getResources().getDisplayMetrics().density;
-		  
-		  
+
+
 		initView(view);
 		return view;
 	}
-	
+
 	private RelativeLayout title_father;
 	/*** 无摄像头提示展示 */
 	private LinearLayout ll_no_connect_tips;
@@ -2016,15 +2009,15 @@ public class MainCameraFragment extends  Fragment implements
 	/*** 标题栏右图标 */
 	private ImageView rightIco;
 	/*** 是否检查摄像机事件提示状态 */
-	private void initView(final View view) { 
-		title_father = (RelativeLayout) view.findViewById(R.id.title_father); 
+	private void initView(final View view) {
+		title_father = (RelativeLayout) view.findViewById(R.id.title_father);
 		back = (ImageView) view.findViewById(R.id.back);
 		title = (TextView) view.findViewById(R.id.title);
 		refIcon = (ImageView) view.findViewById(R.id.right_image2);
 		refIcon.setImageResource(R.drawable.refresh);
 		refIcon.setVisibility(View.GONE);
 		refIcon.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -2039,7 +2032,7 @@ public class MainCameraFragment extends  Fragment implements
 					if (!isOver) {
 						isOver = true;
 						new Thread() {
-							public void run() { 
+							public void run() {
 								for (int i = 0; i < mCameraManagerment.CameraList.size(); i++) {
 									mCameraManagerment.CameraList.get(i).disconnect();
 
@@ -2051,7 +2044,7 @@ public class MainCameraFragment extends  Fragment implements
 											.start(0,
 													DeviceList.get(i).viewAccount,
 													DeviceList.get(i).viewPassword);
-								 
+
 //									mCameraManagerment.userIPCDeviceInfo(mCameraManagerment.CameraList.get(i).getmUID());
 //									mCameraManagerment.userIPCGetSupportStream(mCameraManagerment.CameraList.get(i).getmUID());
 //									mCameraManagerment.userIPCGetAudioOutFormat(mCameraManagerment.CameraList.get(i).getmUID());
@@ -2070,10 +2063,10 @@ public class MainCameraFragment extends  Fragment implements
 						}.start();
 					}
 				}
-				 
-			
+
+
 			}
- 
+
 		});
 		rightIco = (ImageView) view.findViewById(R.id.right_image);
 		title.setText(getResources().getString(R.string.page26_txhometitle));
@@ -2083,17 +2076,17 @@ public class MainCameraFragment extends  Fragment implements
 		rightIco.setImageResource(R.drawable.about_n);
 		rightIco.setVisibility(View.VISIBLE);
 		view.findViewById(R.id.left_ll).setOnClickListener( new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
-	 
+
 		});
 		rightIco.setOnClickListener( new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -2101,14 +2094,14 @@ public class MainCameraFragment extends  Fragment implements
 				startActivity(intent);
 			}
 
-	 
+
 		});
 		empty_layout = (LinearLayout)view.findViewById(R.id.empty_layout);
-	
+
 	}
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		Log.i("wifi", "MainCameraFragment>>>>>>>>>>>>>onActivityCreated"); 
+		Log.i("wifi", "MainCameraFragment>>>>>>>>>>>>>onActivityCreated");
 
 		this.adapter = new DeviceListAdapter(
 				this.getActivity());
@@ -2146,7 +2139,7 @@ public class MainCameraFragment extends  Fragment implements
 	private boolean isOver = false;
 	private long lasttime = 0;
 	private long nowtime = 0;
-	//MenuItem maddMenu; 
+	//MenuItem maddMenu;
 	public void onCreateOptionsMenu(Menu menu,
 			 MenuInflater inflater) {
 		menu.clear();
@@ -2209,11 +2202,11 @@ public class MainCameraFragment extends  Fragment implements
 		localMenuItem1.setIcon(R.drawable.refresh);
 
 		localMenuItem1.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
- 
-		
+
+
 		SubMenu localSubMenu3 = menu.addSubMenu("");
-	
-		 
+
+
 		MenuItem localMenuItem3 = localSubMenu3.getItem();
 		localMenuItem3.setIcon(R.drawable.info_blue);
 		localMenuItem3.setTitle(R.string.about);
@@ -2227,7 +2220,7 @@ public class MainCameraFragment extends  Fragment implements
 				Intent intent = new Intent(MainCameraFragment.this.getActivity(), AboutActivity.class);
 				startActivity(intent);
 				return true;
-				
+
 			}
 		}
 		);
@@ -2253,7 +2246,7 @@ public class MainCameraFragment extends  Fragment implements
 			break;
 		case OPT_MENU_ITEM_FIRST_SEARCH:
 
-		 
+
 			break;
 		case OPT_MENU_ITEM_FAST_SEARCH:
 
@@ -2345,7 +2338,7 @@ public class MainCameraFragment extends  Fragment implements
 					}
 
 					@Override
-					public void commit(String str) { 
+					public void commit(String str) {
 						isgotoNotifyManagerFirst = true;
 							PreferenceUtil.getInstance().putBoolean(Constants.NOTIFYMANAGER, true);
 					}
@@ -2354,11 +2347,11 @@ public class MainCameraFragment extends  Fragment implements
 					public void cancel() {
 						isgotoNotifyManagerFirst = true;
 							PreferenceUtil.getInstance().putBoolean(Constants.NOTIFYMANAGER, true);
-				 
+
 					}
 				});
 		}else{
-			
+
 			Boolean hasSetjumpauto =  PreferenceUtil.getInstance().getBoolean(Constants.AUTOMANAGER, false);
 			if (!hasSetjumpauto && !isgotoAutoManagerFirst) {
 				DialogUtil.getInstance().showDelDialog(getActivity(),
@@ -2387,24 +2380,24 @@ public class MainCameraFragment extends  Fragment implements
 							}
 						});
 			}
-	         
+
 		}
-		
+
 	/*	if(isgotoNotifyManager){
 			DialogUtil.getInstance().showDelDialog(getActivity(), ""+getString(R.string.notifytiptitle ), ""+getString(R.string.commitnotifymanagercontent), new Dialogcallback() {
-					
+
 				@Override
 				public void commit() {
 					isgotoNotifyManager = false;
 					PreferenceUtil.getInstance().putBoolean(Constants.NOTIFYMANAGER, true);
-					 
 
-					
+
+
 				@Override
 				public void commit(String str) {
 					isgotoNotifyManager = false;
 					PreferenceUtil.getInstance().putBoolean(Constants.NOTIFYMANAGER, true);
-					
+
 				@Override
 				public void cancel() {
 					isgotoNotifyManager = false;
@@ -2413,23 +2406,23 @@ public class MainCameraFragment extends  Fragment implements
 			});
 
 		}*/
-	
-		
+
+
 	/*	if(isgotoAutoManager){
 			DialogUtil.getInstance().showDelDialog(getActivity(), ""+getString(R.string.automanagertiptitle ), ""+getString(R.string.commitautomanagercontent), new Dialogcallback() {
-					
+
 				@Override
 				public void commit() {
 					isgotoAutoManager = false;
 					PreferenceUtil.getInstance().putBoolean(Constants.AUTOMANAGER, true);
-					 
 
-					
+
+
 				@Override
 				public void commit(String str) {
 					isgotoAutoManager = false;
 					PreferenceUtil.getInstance().putBoolean(Constants.AUTOMANAGER, true);
-					
+
 				@Override
 				public void cancel() {
 					isgotoAutoManager = false;
@@ -2439,11 +2432,11 @@ public class MainCameraFragment extends  Fragment implements
 
 		}*/
 		DeviceStateCallbackInterface_Manager.getInstance().setmCallback(new DeviceStateCallbackInterface() {
-			
+
 			@Override
 			public void DeviceStateCallbackInterface(String did, int type, int param) {
 				// TODO Auto-generated method stub
-				
+
 				Log.d("test", "设备状况返回：did==" + did + "  msgType=" + type +"   msgParam ="+param);
 				final DeviceInfo var7 = getexistDevice(did);
 				if (var7 == null)
@@ -2457,21 +2450,21 @@ public class MainCameraFragment extends  Fragment implements
 						Resources res = getResources();
 						String text = res
 								.getString(R.string.page26_page8_connstus_connecting);
-						var7.Status = text; 
+						var7.Status = text;
 						var7.online = false;
 						var7.offline = false;
-						var7.lineing = true; 
+						var7.lineing = true;
 					}
 					break;
 				case CONNSTATUS_STARTDEVICECLIENT:{
 					  {
 							Resources res = getResources();
 							String text = res.getString(R.string.fragment_liveviewactivity_publiccameraactivity_setupadddeviceactivity_state_connected);
-							var7.Status = text; 
+							var7.Status = text;
 							var7.online = true;
 							var7.offline = false;
-							var7.lineing = false; 
-							var7.connect_count = 0; 
+							var7.lineing = false;
+							var7.connect_count = 0;
 						}
 						break;
 				}
@@ -2479,12 +2472,12 @@ public class MainCameraFragment extends  Fragment implements
 					  {
 						Resources res = getResources();
 						String text = res.getString(R.string.fragment_liveviewactivity_publiccameraactivity_setupadddeviceactivity_state_connected);
-						var7.Status = text; 
+						var7.Status = text;
 						var7.online = true;
 						var7.offline = false;
-						var7.lineing = false; 
+						var7.lineing = false;
 						var7.connect_count = 0;
-						 mCameraManagerment.StartClient(  did, var7.viewAccount, var7.viewPassword ) ;	
+						 mCameraManagerment.StartClient(  did, var7.viewAccount, var7.viewPassword ) ;
 					}
 					break;
 				case CONNSTATUS_DISCONNECTED:
@@ -2492,20 +2485,20 @@ public class MainCameraFragment extends  Fragment implements
 						Resources res = getResources();
 						String text = res
 								.getString(R.string.fragment_liveviewactivity_mainactivity_state_disconnected);
-						var7.Status = text; 
+						var7.Status = text;
 						var7.online = false;
 						var7.offline = true;
 						var7.lineing = false;
 						 mCameraManagerment.StopPPPP(did);
 					}
- 
+
 					break;
 				case CONNSTATUS_UNKOWN_DEVICE:
-					if (var7 != null) { 
+					if (var7 != null) {
 						Resources res = getResources();
 						String text = res
 								.getString(R.string.page17_connstus_unknown_device);
-						var7.Status = text; 
+						var7.Status = text;
 						var7.online = false;
 						var7.offline = true;
 						var7.lineing = false;
@@ -2518,11 +2511,11 @@ public class MainCameraFragment extends  Fragment implements
 						String text = res
 								.getString(R.string.page26_connstus_wrong_password);
 						var7.Status = text;
-					
+
 						var7.offline = true;
 						var7.lineing = false;
-						var7.online = false;  
-					
+						var7.online = false;
+
 
 					}
 					break;
@@ -2531,11 +2524,11 @@ public class MainCameraFragment extends  Fragment implements
 						Resources res = getResources();
 						String text = res
 								.getString(R.string.fragment_liveviewactivity_mainactivity_state_disconnected);
-						var7.Status = text; 
+						var7.Status = text;
 						var7.online = false;
 						var7.offline = true;
-						var7.lineing = false; 
-						
+						var7.lineing = false;
+
 						mCameraManagerment.StopPPPP(did);
 						try {
 							Thread.sleep(1000);
@@ -2544,8 +2537,8 @@ public class MainCameraFragment extends  Fragment implements
 							e.printStackTrace();
 						}
 					  mCameraManagerment.StartPPPP(  did, var7.viewAccount, var7.viewPassword ) ;
-						
-						
+
+
 					}
 					break;
 				case CONNSTATUS_CONNECTION_FAILED:
@@ -2553,17 +2546,17 @@ public class MainCameraFragment extends  Fragment implements
 						Resources res = getResources();
 						String text = res
 								.getString(R.string.page26_page8_MyCameraFragment_connstus_connection_failed);
-						var7.Status = text; 
+						var7.Status = text;
 						Log.i("main", " text =" + text);
 						var7.offline = true;
-						var7.lineing = false; 
-						var7.online = false; 
+						var7.lineing = false;
+						var7.online = false;
 						 mCameraManagerment.StopPPPP(did);
 					}
 					break;
 				}
 				 getActivity().runOnUiThread(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
@@ -2572,7 +2565,7 @@ public class MainCameraFragment extends  Fragment implements
 							Resources res = getResources();
 							String text = res
 									.getString(R.string.page26_connstus_wrong_password);
-//							getHelper().showMessage(text); 
+//							getHelper().showMessage(text);
 						}
 					}
 				});
@@ -2582,10 +2575,10 @@ public class MainCameraFragment extends  Fragment implements
 			public void DeviceStateCallbackLiveInterface(String did, int type,
 					int param) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
-			
+
+
 		});
 		new Handler().postDelayed(new Runnable() {
 
@@ -2596,7 +2589,7 @@ public class MainCameraFragment extends  Fragment implements
 
 				} catch (Exception e) {
 					e.printStackTrace();
-				} 
+				}
 			}
 		}, 100);
 		if(adapter!=null)
@@ -2943,8 +2936,14 @@ public class MainCameraFragment extends  Fragment implements
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				 CameraManagerment.getInstance().StartPPPP( 
-							mDeviceInfo.UID, mDeviceInfo.viewAccount, mDeviceInfo.viewPassword );
+				if(getActivity() instanceof MainActivity){
+					MainActivity mainActivity = (MainActivity)getActivity();
+					if(!mainActivity.isBackgroundRunning){
+						CameraManagerment.getInstance().StartPPPP(
+								mDeviceInfo.UID, mDeviceInfo.viewAccount, mDeviceInfo.viewPassword );//前台重连
+					}
+				}
+
 			}
 		}).start();
 	}
