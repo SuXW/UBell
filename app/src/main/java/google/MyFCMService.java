@@ -45,6 +45,7 @@ public class MyFCMService extends FirebaseMessagingService {
                     ,remoteMessage.getData().get("event")
                     ,remoteMessage.getData().get("timestamp")
                     ,remoteMessage.getData().get("state")
+                    ,remoteMessage.getData().get("valud")
 
             );
 

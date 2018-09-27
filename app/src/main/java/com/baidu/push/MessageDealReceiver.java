@@ -109,7 +109,7 @@ public class MessageDealReceiver extends BroadcastReceiver{
 
     Map<String, String> pushDeviceMap = new HashMap();
 
-    public void onReceivePassThroughMessage(Context context, String messuid, String event, String timestamp,String state) {
+    public void onReceivePassThroughMessage(Context context, String messuid, String event, String timestamp,String state,String value) {
 
 
         if (pushDeviceMap.get(messuid) != null) {
@@ -129,7 +129,7 @@ public class MessageDealReceiver extends BroadcastReceiver{
             return;
         }
 
-        startPush(context, messuid, event, timestamp,state);
+        startPush(context, messuid, event, timestamp,state,value);
 
     }
 
@@ -200,7 +200,7 @@ public class MessageDealReceiver extends BroadcastReceiver{
 
         return deviceInfo;
     }
-    private void startPush(Context context, String messuid, String event, String timestamp,String state) {
+    private void startPush(Context context, String messuid, String event, String timestamp,String state,String value) {
 
         DeviceInfo deviceInfo = getDeviceInfo(messuid,context);
 
@@ -254,7 +254,7 @@ public class MessageDealReceiver extends BroadcastReceiver{
                 title = UbiaApplication.getInstance().getString(R.string.page26_page34_MyPushMessageReceiver_alarm_plug_frombell);
             }  else if (event.equals("battery")) {
                 try {
-                    int battery = Integer.valueOf(state);
+                    int battery = Integer.valueOf(value);
                     if (battery > 0 && battery < 20) {
                         //设备电量不足，远程监控功 能将停止使用
                         title = UbiaApplication.getInstance().getString(R.string.push_lowerpower_level_1);

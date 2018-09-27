@@ -138,18 +138,19 @@ public class DemoMessageReceiver extends PushMessageReceiver {
 				String event="";
 				String timestamp="";
 				String state="";
+				String value="";
 			try {
 				jo = new JSONObject(message.getContent());
 				event = jo.optString("event");
 				timestamp= jo.optString("timestamp");
 				state= jo.optString("state");
-
+				value = jo.optString("value");
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
 
 			MessageDealReceiver mMessageDealReceiver = MessageDealReceiver.getInstance();
-			mMessageDealReceiver.onReceivePassThroughMessage(UbiaApplication.getInstance().getApplicationContext(),messuid,event,timestamp,state);
+			mMessageDealReceiver.onReceivePassThroughMessage(UbiaApplication.getInstance().getApplicationContext(),messuid,event,timestamp,state,value);
 
          
     }

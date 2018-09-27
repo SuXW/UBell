@@ -56,20 +56,21 @@ public class MyJPushReceiver extends BroadcastReceiver {
                 String messuid="";
                 String timestamp="";
                 String state="";
+                String value="";
                 try {
                     jo = new JSONObject(bundle.getString(JPushInterface.EXTRA_EXTRA));
                     event = jo.optString("event");
                     messuid =  jo.optString("uid");
                     timestamp =  jo.optString("timestamp");
                     state =  jo.optString("state");
-
+                    value =  jo.optString("value");
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 Log.d(TAG, "[MyReceiver] messuid: " + messuid);
                 MessageDealReceiver mMessageDealReceiver = MessageDealReceiver.getInstance();
-                mMessageDealReceiver.onReceivePassThroughMessage(UbiaApplication.getInstance().getApplicationContext(),messuid,event,timestamp,state);
+                mMessageDealReceiver.onReceivePassThroughMessage(UbiaApplication.getInstance().getApplicationContext(),messuid,event,timestamp,state,value);
 
 
             } else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
