@@ -69,6 +69,9 @@
 
     <uses-permission android:name="${APP_ID}.permission.MIPUSH_RECEIVE"/>
 
+
+
+
     <meta-data
         android:name="android.max_aspect"
         android:value="2.1" />
@@ -77,12 +80,24 @@
         android:name="cn.ubia.UbiaApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
-       android:icon="${APP_ICON}"
+        android:icon="${APP_ICON}"
         android:label="${APP_NAME}"
         android:largeHeap="true"
         android:logo="@drawable/icon_96"
         android:persistent="true" 
         android:vmSafeMode="true" >
+
+        <!-- //修复7.0以上报FileUriExposedException ****.jpg beyond app through Intent.getData()错误-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
         <activity
             android:name="cn.ubia.SplashActivity"
             android:alwaysRetainTaskState="true"

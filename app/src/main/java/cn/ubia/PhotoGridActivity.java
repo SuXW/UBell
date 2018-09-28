@@ -753,17 +753,11 @@ public class PhotoGridActivity extends BaseActivity implements
 					this.setResult(LiveViewGLviewActivity.PHOTOGRID_REQUESTCODE, intent);
 					this.finish();
 				}else {
-					if(getResources().getConfiguration().orientation==1){
-						Bundle bundle = new Bundle();
-						intent.putExtra("uri", imageInfo.uri);
-						intent.putExtras(bundle);
-						this.setResult(LiveViewGLviewActivity.PHOTOGRID_REQUESTCODE, intent);
-						this.finish();
-					}else {
-						this.startActivity(cn.ubia.util.AndroidFileUtil
-								.openFile(imageInfo.uri.substring(7,
-										imageInfo.uri.length())));
-					}
+					Bundle bundle = new Bundle();
+					intent.putExtra("uri", imageInfo.uri);
+					intent.putExtras(bundle);
+					this.setResult(LiveViewGLviewActivity.PHOTOGRID_REQUESTCODE, intent);
+					this.finish();
 				}
 
 

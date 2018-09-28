@@ -106,11 +106,6 @@ public class UbiaApplication extends DaemonApplication {
 
 		LoadedApkHuaWei.hookHuaWeiVerifier(this);//修复华为手机Register too many Broadcast Receivers问题
 
-		if(Build.VERSION.SDK_INT >= 24){  //修复7.0以上报FileUriExposedException ****.jpg beyond app through Intent.getData()错误
-			StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-			StrictMode.setVmPolicy(builder.build());
-		}
-
 		registerActivityLifecycleCallbacks(new com.ubia.IOTC.ActivityLifecycleListener());
 
 		if (UbiaUtil.shouldInitPush(context) ) {
