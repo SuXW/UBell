@@ -92,7 +92,7 @@ public class UbiaApplication extends DaemonApplication {
 	public static final String endpoint_us = "http://oss-us-west-1.aliyuncs.com";
 	//public static final String bucket = "ubell";
 
-	public static boolean isPad = true;
+	public static boolean isSupportPad = false;
 
 	@Override
 	public void onCreate() {
@@ -106,7 +106,7 @@ public class UbiaApplication extends DaemonApplication {
 
 		LoadedApkHuaWei.hookHuaWeiVerifier(this);//修复华为手机Register too many Broadcast Receivers问题
 
-		if(Build.VERSION.SDK_INT > 24){  //修复7.0以上报FileUriExposedException ****.jpg beyond app through Intent.getData()错误
+		if(Build.VERSION.SDK_INT >= 24){  //修复7.0以上报FileUriExposedException ****.jpg beyond app through Intent.getData()错误
 			StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
 			StrictMode.setVmPolicy(builder.build());
 		}

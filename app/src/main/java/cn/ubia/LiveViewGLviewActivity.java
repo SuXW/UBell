@@ -259,6 +259,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 							right_image.setVisibility(View.GONE);
 							txt_time.setVisibility(View.GONE);
 							findViewById(R.id.info_ll).setVisibility(View.GONE );
+							if(UbiaApplication.isSupportPad)
 							findViewById(R.id.left_ll_plan).setVisibility(View.GONE );
 
 						}	else{
@@ -272,6 +273,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 							right_image.setVisibility(View.GONE);
 							txt_time.setVisibility(View.VISIBLE);
 							findViewById(R.id.info_ll).setVisibility(View.VISIBLE );
+							if(UbiaApplication.isSupportPad)
 							findViewById(R.id.left_ll_plan).setVisibility(View.VISIBLE );
 						}
 
@@ -1128,6 +1130,9 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 
 		rockbacktoLive_photo= (TextView) this
 				.findViewById(R.id.rockbacktoLive_photo);
+
+		if(!UbiaApplication.isSupportPad)
+			findViewById(R.id.left_ll_plan).setVisibility(View.GONE );
 
 		img_control_vrmode_land = (ImageButton) findViewById(R.id.img_control_vrmode_land);
 		img_control_vrmode_land.setOnClickListener(new OnClickListener() {
@@ -2125,12 +2130,17 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			handler.sendEmptyMessage(1112);
 		}
 
-		//回放时固定，回到直播时解除
-		if(getResources().getConfiguration().orientation==1){
-			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+		if(UbiaApplication.isSupportPad){
+			//回放时固定，回到直播时解除
+			if(getResources().getConfiguration().orientation==1){
+				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+			}else{
+				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+			}
 		}else{
-			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		}
+
 
 
 	}
@@ -2255,7 +2265,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 
 				MyCamera mMyCamera = new MyCamera(deviceInfo.nickName,deviceInfo.UID, deviceInfo.viewAccount, deviceInfo.viewPassword);
 				mMyCamera.registerIOTCListener(this);
-				mMyCamera.connect(deviceInfo.UID,14);
+				mMyCamera.connect(deviceInfo.UID);
 				mMyCamera.start(0, deviceInfo.viewAccount,  deviceInfo.viewPassword);
 				mMyCamera.LastAudioMode = 1;
 				mMyCamera.hardware_pkg = deviceInfo.hardware_pkg;

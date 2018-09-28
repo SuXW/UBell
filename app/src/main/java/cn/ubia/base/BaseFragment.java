@@ -16,7 +16,7 @@ import android.os.Bundle;
 import cn.ubia.MainActivity;
 import cn.ubia.util.ActivityHelper;
 
-import static cn.ubia.UbiaApplication.isPad;
+import static cn.ubia.UbiaApplication.isSupportPad;
 
 
 public class BaseFragment extends Fragment {
@@ -24,7 +24,7 @@ public class BaseFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		if(!isPad){
+		if(!isSupportPad){
 			getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		}else{
 			getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);

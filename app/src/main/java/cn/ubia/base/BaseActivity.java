@@ -12,7 +12,7 @@ import com.ubia.IOTC.AVFrame;
 import com.ubia.IOTC.Camera;
 import com.ubia.IOTC.IRegisterIOTCListener;
 
-import static cn.ubia.UbiaApplication.isPad;
+import static cn.ubia.UbiaApplication.isSupportPad;
 
 public class BaseActivity extends  Activity implements
 		IRegisterIOTCListener {
@@ -26,7 +26,7 @@ public class BaseActivity extends  Activity implements
 				WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
 						|WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD //| WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
 						|WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
-		if(!isPad){
+		if(!isSupportPad){
 			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		}else{
 			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
