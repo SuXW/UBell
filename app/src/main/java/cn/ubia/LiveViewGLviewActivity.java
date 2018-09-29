@@ -260,7 +260,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 							txt_time.setVisibility(View.GONE);
 							findViewById(R.id.info_ll).setVisibility(View.GONE );
 							if(UbiaApplication.isSupportPad)
-							findViewById(R.id.left_ll_plan).setVisibility(View.GONE );
+								findViewById(R.id.left_ll_plan).setVisibility(View.GONE );
 
 						}	else{
 							title_father.setVisibility(View.VISIBLE);
@@ -274,7 +274,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 							txt_time.setVisibility(View.VISIBLE);
 							findViewById(R.id.info_ll).setVisibility(View.VISIBLE );
 							if(UbiaApplication.isSupportPad)
-							findViewById(R.id.left_ll_plan).setVisibility(View.VISIBLE );
+								findViewById(R.id.left_ll_plan).setVisibility(View.VISIBLE );
 						}
 
 						break;
@@ -2105,12 +2105,12 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 						monitor.attachCamera(mCameraManagerment.getexistCamera(mDevUID), 0,mDevice.installmode,mDevice,mDevice.snapshot,true);
 						monitor.setCameraPutModel(installmode);
 						monitor.setCameraHardware_pkg(hardware_pkg);
-					//	this.monitor.setHorizontal(false);
+						//	this.monitor.setHorizontal(false);
 						monitor.refreshBitmap(bitmap) ;
 					}else if( nameSplit.length<=6){
 						monitor.setCameraPutModel( VRConfig.CameraPutModelFaceFront);
 						monitor.setCameraHardware_pkg(HARDWAEW_PKG.MF_STD_1145);
-					//	this.monitor.setHorizontal(false);
+						//	this.monitor.setHorizontal(false);
 						monitor.refreshBitmap(createDefaultImage(bitmap)) ;
 					}
 					if(getResources().getConfiguration().orientation==1){
@@ -3137,7 +3137,6 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 	protected void onPause() {
 		super.onPause();
 		mCameraManagerment.userIPCStopAlStream(mDevUID);
-		isBackgroundRunning = true;
 		onActivityRuning = false;
 		isruningRefresh = false;
 		timeRunning = false;
@@ -3505,15 +3504,13 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 							case	MainCameraFragment.CONNSTATUS_STARTDEVICECLIENT:
 							{
 
-								if(null !=mCameraManagerment   && mDevice!=null){
+								if(null !=mCameraManagerment   && mDevice!=null)
 									mCameraManagerment.userIPCStart(mDevUID, mDevice.getChannelIndex(),(byte)currentplaySeq );
-									setUpMonitor(isLandorientation);
-								}
 
-								if (  (!showGridViewBitmap)) {
+								if (!showGridViewBitmap){
 									monitor.restartPlay();
 									mCameraManagerment.userIPCstartShow(mDevUID);
-					 				if (LiveViewGLviewActivity.this.mIsListening) {
+									if (LiveViewGLviewActivity.this.mIsListening) {
 										mCameraManagerment.userIPCstartListen (mDevUID);
 									}
 									if (LiveViewGLviewActivity.this.mIsSpeaking) {
@@ -4717,16 +4714,16 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 			handler.postDelayed(new Runnable() {
 				public void run() {
 
-						// initSpeakVolume();
-						monitor.restartPlay();
-						mCameraManagerment.userIPCstartShow(mDevUID);
-						if (mIsListening) {
-							mCameraManagerment.userIPCstartListen(mDevUID);
-						}
+					// initSpeakVolume();
+					monitor.restartPlay();
+					mCameraManagerment.userIPCstartShow(mDevUID);
+					if (mIsListening) {
+						mCameraManagerment.userIPCstartListen(mDevUID);
+					}
 
-						if (mIsSpeaking) {
-							mCameraManagerment.userIPCstartSpeak(mDevUID);
-						}
+					if (mIsSpeaking) {
+						mCameraManagerment.userIPCstartSpeak(mDevUID);
+					}
 					/*	monitor.attachCamera(mCameraManagerment.getexistCamera(mDevUID), 0,mDevice.installmode,mDevice,mDevice.snapshot,true);
 						monitor.setCameraPutModel(mDevice.installmode);
 						MyCamera mCamera = mCameraManagerment .getexistCamera(mDevUID);
