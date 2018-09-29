@@ -216,7 +216,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 	private	long recordStartseccount = 0;
 	private int popwinoffset = 0;
 	private boolean isTenmin;
-	public  boolean isBackgroundRunning = true;
+	public  static boolean isBackgroundRunning = true;
 	private boolean showGridViewBitmap = false;
 
 	private RelativeLayout seek_bar_rl;//mp4播放进度父控件
@@ -3159,13 +3159,8 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 		mlastVideoWidth = 0;
 		UbiaApplication.currentDeviceLive = mDevUID;
 
-		if(  isBackgroundRunning)
-		{
-			mCameraManagerment.Init();
-			mCameraManagerment.StartPPPP(mDevUID, mDevice.viewAccount, mDevice.viewPassword);
-		}
-
-
+		mCameraManagerment.Init();
+		mCameraManagerment.StartPPPP(mDevUID, mDevice.viewAccount, mDevice.viewPassword);
 		Log.d("guo..onResume","showGridViewBitmap="+showGridViewBitmap);
 		if(!showGridViewBitmap ){//mP4前后台切换
 //    		直播前后
@@ -3723,7 +3718,6 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 		super.onDestroy();
 		if(monitor!=null)
 			monitor.deattachCamera() ;
-
 		mCameraManagerment.ClearBuf(mDevUID);
 
 		//unregisterReceiver(newDeviceCallBroadcastReceiver);
