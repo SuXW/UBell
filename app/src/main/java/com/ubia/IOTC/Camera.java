@@ -582,15 +582,19 @@ public class Camera
             this.setName("ThreadDecodeAudio");
             Log.v("main","FdkAACCodec---ThreadDecodeAudio faacret ="+faacret);
             boolean shouldWaitData = true;
-            if(mAudioTrack==null)
-            {
+            if(mAudioTrack==null)  {
                 mAudioTrack = new AudioTrack( AudioManager.STREAM_MUSIC,
                         16000,
                         AudioFormat.CHANNEL_CONFIGURATION_MONO,
                         AudioFormat.ENCODING_PCM_16BIT,
                         AudioTrack.getMinBufferSize( 16000, AudioFormat.CHANNEL_CONFIGURATION_MONO, AudioFormat.ENCODING_PCM_16BIT ),
                         AudioTrack.MODE_STREAM );
-                mAudioTrack.play();
+                try{
+                    mAudioTrack.play();
+                }catch (IllegalStateException e){
+                    e.printStackTrace();
+                }
+
             }
             while(mStopedDecodeAudio  && !Thread.interrupted())
             {
@@ -1110,6 +1114,7 @@ public class Camera
 
                             if (StartisIFrame && SDecoder != null ){
 //									  Utils.LOGD("解码更新    开始取出数据队列>>>>>>>>开始解码了   i帧："+frameInfo[2] );
+
                                 bitmap=	SDecoder.doExtract(avFrame.frmData,
                                         avFrameSize, 1920, 1080,
                                         avFrame.isIFrame() ? 1 : 0,
@@ -2638,18 +2643,23 @@ public class Camera
         }
     }
 
-    public void connect(String uid)
-    {
+    public void connect(String uid) {
         mDevUID = uid;
-        if(mThreadConnectDev == null)
-        {
-            mThreadConnectDev = new ThreadConnectDev(0);
-            mThreadConnectDev.start();
+        try{
+            if(mThreadConnectDev == null){
+                mThreadConnectDev = new ThreadConnectDev(0);
+                mThreadConnectDev.start();
+            }
+        }catch (IllegalThreadStateException e){
+            e.printStackTrace();
         }
-        if(mThreadChkDevStatus == null)
-        {
-            mThreadChkDevStatus = new ThreadCheckDevStatus(null);
-            mThreadChkDevStatus.start();
+        try{
+            if(mThreadChkDevStatus == null) {
+                mThreadChkDevStatus = new ThreadCheckDevStatus(null);
+                mThreadChkDevStatus.start();
+            }
+        }catch (IllegalThreadStateException e){
+            e.printStackTrace();
         }
     }
 
@@ -3140,16 +3150,12 @@ public class Camera
     public void stopSpeaking(int avChannel)
     {
         StartTalk = false;
-        if(mThreadSendAudio != null)
-        {
+        if(mThreadSendAudio != null)  {
             mThreadSendAudio.stopThread();
-            try
-            {
+            try {
                 mThreadSendAudio.interrupt();
                 mThreadSendAudio.join(breakJoinTime);
-            }
-            catch(InterruptedException e)
-            {
+            }catch(Exception e) {
                 e.printStackTrace();
             }
             mThreadSendAudio = null;
@@ -3663,15 +3669,17 @@ public class Camera
 
         for (int j = 0; j < mAVChannels.size(); j++) {
             AVChannel avchannel = (AVChannel) mAVChannels.get(j);
-            if (avchannel.getChannel() != param1) {
+            if (avchannel.getChannel() != param1 || avchannel == null) {
                 continue;
             }
             ubia_UBICAVAPIs.avClientCleanBuf(avchannel.getAVIndex());
-            //ubia_UBICAVAPIs.avClientCleanVideoBuf(avchannel.getAVIndex());
-            //ubia_UBICAVAPIs.avClientCleanAudioBuf(avchannel.getAVIndex());
-            avchannel.AudioFrameQueue.removeAll();
-            avchannel.VideoFrameQueue.removeAll();
+            if(avchannel.AudioFrameQueue!=null){
+                avchannel.AudioFrameQueue.removeAll();
+            }
 
+            if(avchannel.VideoFrameQueue!=null){
+                avchannel.VideoFrameQueue.removeAll();
+            }
         }
     }
     //	public int installmode = -1;//安装方式

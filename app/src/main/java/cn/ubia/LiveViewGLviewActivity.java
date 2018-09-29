@@ -3505,12 +3505,15 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 							case	MainCameraFragment.CONNSTATUS_STARTDEVICECLIENT:
 							{
 
-								if(null !=mCameraManagerment   && mDevice!=null)
+								if(null !=mCameraManagerment   && mDevice!=null){
 									mCameraManagerment.userIPCStart(mDevUID, mDevice.getChannelIndex(),(byte)currentplaySeq );
+									setUpMonitor(isLandorientation);
+								}
+
 								if (  (!showGridViewBitmap)) {
 									monitor.restartPlay();
 									mCameraManagerment.userIPCstartShow(mDevUID);
-									if (LiveViewGLviewActivity.this.mIsListening) {
+					 				if (LiveViewGLviewActivity.this.mIsListening) {
 										mCameraManagerment.userIPCstartListen (mDevUID);
 									}
 									if (LiveViewGLviewActivity.this.mIsSpeaking) {

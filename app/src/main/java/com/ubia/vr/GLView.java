@@ -407,7 +407,10 @@ public class GLView extends GLSurfaceView implements IRegisterIOTCListener,OnGes
 	}
 	
 	public void refreshData(  ) {
-		 mHardDecoderRenderer. refreshData();
+    	if(mHardDecoderRenderer!=null){
+			mHardDecoderRenderer. refreshData();
+		}
+
 	
 	}
 	public void refreshBitmap(  final Bitmap bitmap) {
@@ -623,11 +626,13 @@ public class GLView extends GLSurfaceView implements IRegisterIOTCListener,OnGes
 	    }
 	   
 	  public Bitmap getBitmap(){
- 
-		 lastBitmap=  mHardDecoderRenderer.getBitmap();
-			 
-		return lastBitmap;
-		  
+
+	   	if(mHardDecoderRenderer!=null){
+			lastBitmap=  mHardDecoderRenderer.getBitmap();
+			return lastBitmap;
+		}
+
+		return null;
 	  }
   
 	public Handler getMhandle() {
