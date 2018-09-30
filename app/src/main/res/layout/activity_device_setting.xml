@@ -387,7 +387,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="23dp"
-                    android:text="LED"
+                    android:text="@string/setting_led"
                     android:textColor="@color/color_setting_txt"
                     android:textSize="14dp" />
 
