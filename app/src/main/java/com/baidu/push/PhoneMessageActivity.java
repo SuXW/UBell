@@ -57,6 +57,7 @@ public class PhoneMessageActivity extends BaseActivity {
 	public boolean isruning;
 	 MediaPlayer mMediaPlayer;
 
+
 	private void startAlarm() {  
 		Uri mediaUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);  
          mMediaPlayer = MediaPlayer.create(this,    mediaUri);    
@@ -208,7 +209,6 @@ public class PhoneMessageActivity extends BaseActivity {
 						"view_pwd",deviceInfo.viewPassword);
 				var6.putInt(
 						"camera_channel",deviceInfo.getChannelIndex());
-				var6.putInt("isdoolbeel",100);
 				Intent var7 = new Intent();
 				var7.putExtras(var6);
 				var7.setClass(PhoneMessageActivity.this , LiveViewGLviewActivity .class);
@@ -216,6 +216,7 @@ public class PhoneMessageActivity extends BaseActivity {
 			
 				isruning = false;
 				PhoneMessageActivity.this.finish();
+
 			}
 		});
 
@@ -230,8 +231,10 @@ public class PhoneMessageActivity extends BaseActivity {
 				}
 				isruning = false;
 				diconnect();
+				Intent intent = new Intent();
+				intent.setAction("android.intent.phone.cancel");
+				LocalBroadcastManager.getInstance(PhoneMessageActivity.this).sendBroadcast(intent);
 				PhoneMessageActivity.this.finish();
-				System.exit(0);
 			}
 		});
 //		
@@ -254,9 +257,10 @@ public class PhoneMessageActivity extends BaseActivity {
 							mMediaPlayer = null;
 						}
 						isruning = false;
-						diconnect();
+						Intent intent = new Intent();
+						intent.setAction("android.intent.phone.cancel");
+						LocalBroadcastManager.getInstance(PhoneMessageActivity.this).sendBroadcast(intent);
 						PhoneMessageActivity.this.finish();
-						System.exit(0);
 						return;
 					}
 				}

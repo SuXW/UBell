@@ -85,23 +85,27 @@ public class MainActivity extends BaseActivity {
 
 	private MainCameraFragment mFrag;
 	private static String TAG = "MainActivity";
-	  private void openTwoService() {
+	private void openTwoService() {
 
-	        if(Build.VERSION.SDK_INT < 26) { // 8.0以下
-				try { // 某些型号手机会在省电模式时禁止服务启动，在服务启动的地方进行try catch防止崩溃
+		if(Build.VERSION.SDK_INT < 26) { // 8.0以下
+			try { // 某些型号手机会在省电模式时禁止服务启动，在服务启动的地方进行try catch防止崩溃
 				startService(new Intent(this,MessageService.class));
 				startService(new Intent(this,GuardService.class));
-				}catch (Exception e){
-					e.printStackTrace();
-				}
-				if(Build.VERSION.SDK_INT >= 23){  // 6.0以上
-					scheduleJob(this);
-				}
-	           // startService(new Intent(this, JobWakeUpService.class));
-			}else { //8.0以上
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			if(Build.VERSION.SDK_INT >= 23){  // 6.0以上
 				scheduleJob(this);
 			}
-	    }
+			// startService(new Intent(this, JobWakeUpService.class));
+		}else { //8.0以上
+			scheduleJob(this);
+		}
+
+		IntentFilter filter = new IntentFilter();
+		filter.addAction("android.intent.phone.cancel");
+		LocalBroadcastManager.getInstance(this).registerReceiver(phoneCancelReceiver,filter);
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -119,11 +123,11 @@ public class MainActivity extends BaseActivity {
 
 		mHelper = new ActivityHelper(this);
 
-		 openTwoService();
-	     final Window win = getWindow();
-		    win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
-		            | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
-		            | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+		openTwoService();
+		final Window win = getWindow();
+		win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+				| WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
+				| WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
 
 	}
@@ -177,7 +181,7 @@ public class MainActivity extends BaseActivity {
 	@Override
 	protected void onNewIntent(Intent intent) {
 		super.onNewIntent(intent);
- 		this.setIntent(intent);
+		this.setIntent(intent);
 
 	}
 
@@ -190,29 +194,30 @@ public class MainActivity extends BaseActivity {
 		if(var2!=null){
 			fromReceiverNotify = getIntent().getExtras().getBoolean("NotificationManager");
 		}
- 		Log.i("IOTCamera", "MainActivity onResume  登陆成功！！！！fromReceiverNotify:"+ fromReceiverNotify);
+		Log.i("IOTCamera", "MainActivity onResume  登陆成功！！！！fromReceiverNotify:"+ fromReceiverNotify);
 
 		MainCameraFragment.mCameraLoaded = false;
 		mHelper = new ActivityHelper(this);
 		MyCamera.init();
 
-	    Log.i("IOTCamera", "onResume    登陆成功！！！！UbiaApplication.fromReceiver:"+UbiaApplication.fromReceiver);
-	   if(UbiaApplication.fromReceiver){
-			 PhoneMessageActivity phoneMessageActivity = UbiaUtil.phoneMessageActivity;
+		Log.i("IOTCamera", "onResume    登陆成功！！！！UbiaApplication.fromReceiver:"+UbiaApplication.fromReceiver);
+		if(UbiaApplication.fromReceiver){
+			PhoneMessageActivity phoneMessageActivity = UbiaUtil.phoneMessageActivity;
 			//上次的要finish掉，否则上次的activity内的计时还在继续，重复收到推送时会出现画面没有了，铃声还在响的情况
-		   if (phoneMessageActivity != null) {
-		   		if(phoneMessageActivity.isFinishing()){
+			if (phoneMessageActivity != null) {
+				if(phoneMessageActivity.isFinishing()){
 					phoneMessageActivity.isruning = false;
 					phoneMessageActivity.finish();
 				}
-		   }
+			}
 
 
-		   Intent activityIntent = new Intent(this, PhoneMessageActivity.class);
-		   activityIntent.setClass(this, PhoneMessageActivity.class);
-		   this.startActivity(activityIntent);
+			Intent activityIntent = new Intent(this, PhoneMessageActivity.class);
+			activityIntent.setClass(this, PhoneMessageActivity.class);
+			this.startActivity(activityIntent);
 
-	 	}
+
+		}
 		if(fromReceiverNotify){
 			String mDevUID = var2.getString("dev_uid");
 			Bundle var21 = new Bundle();
@@ -236,7 +241,7 @@ public class MainActivity extends BaseActivity {
 			var3.putExtras(var21);
 			this.setIntent(var3);
 		}
-	   UbiaApplication.fromReceiver = false;
+		UbiaApplication.fromReceiver = false;
 	}
 
 	public void onPause() {
@@ -293,11 +298,11 @@ public class MainActivity extends BaseActivity {
 		} else {
 			return true;
 		}
-		}
+	}
 
 
 	protected void onDestroy() {
-
+		LocalBroadcastManager.getInstance(this).unregisterReceiver(phoneCancelReceiver );
 	};
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
@@ -317,4 +322,15 @@ public class MainActivity extends BaseActivity {
 			Log.d(TAG, "Job scheduling failed");
 		}
 	}
+
+	private BroadcastReceiver phoneCancelReceiver = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			String action = intent.getAction();
+			if ("android.intent.phone.cancel".equals(action)) {
+				//挂断来电
+				MainActivity.this.moveTaskToBack(true);
+			}
+		}
+	};
 }
