@@ -207,7 +207,7 @@ public class CloudSaveVideoListActivity extends BaseActivity implements View.OnC
         mDay = ca.get(Calendar.DAY_OF_MONTH);
 
         String monthStr;
-        if (mMonth < 10)
+        if (mMonth < 9)
             monthStr = "0" + (mMonth + 1);
         else
             monthStr = "" + (mMonth + 1);
@@ -233,7 +233,7 @@ public class CloudSaveVideoListActivity extends BaseActivity implements View.OnC
                         mYear = year;
                         mMonth = month;
                         String monthStr;
-                        if (mMonth < 10)
+                        if (mMonth < 9)
                             monthStr = "0" + (mMonth + 1);
                         else
                             monthStr = "" + (mMonth + 1);
