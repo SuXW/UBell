@@ -86,7 +86,7 @@ public class GLView extends GLSurfaceView implements IRegisterIOTCListener,OnGes
 		this.setEGLContextClientVersion(2);
 		mHardDecoderRenderer	=  new  GLRenderer (context, this);
 		this.setRenderer(mHardDecoderRenderer);
-        
+
     }
     public GLView(Context context, AttributeSet attrs) {
     	super(context, attrs); 
