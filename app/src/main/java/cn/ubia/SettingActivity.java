@@ -665,12 +665,18 @@ public class SettingActivity extends BaseActivity implements
 						if(mDevice.hardware_pkg == HARDWAEW_PKG.SREE_VR_LINUX_PIR_LED){
 							setting_flip_rl.setVisibility(GONE);
 						}else{
-							if(mDevice.firmwareVersionPrefix>=200 || mDevice.firmwareVersionPrefix<=60
+							if(mDevice.firmwareVersionPrefix==61 || mDevice.firmwareVersionPrefix==100){
+								setting_flip_rl.setVisibility(View.GONE);
+							}else{
+								setting_flip_rl.setVisibility(View.VISIBLE);
+							}
+
+							/*if(mDevice.firmwareVersionPrefix>=200 || mDevice.firmwareVersionPrefix<=60
 									|| mDevice.firmwareVersionPrefix==114){
 								setting_flip_rl.setVisibility(View.VISIBLE);
 							}else{
 								setting_flip_rl.setVisibility(GONE);
-							}
+							}*/
 						}
 
 

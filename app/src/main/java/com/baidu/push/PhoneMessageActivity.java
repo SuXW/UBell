@@ -209,6 +209,7 @@ public class PhoneMessageActivity extends BaseActivity {
 						"view_pwd",deviceInfo.viewPassword);
 				var6.putInt(
 						"camera_channel",deviceInfo.getChannelIndex());
+				var6.putInt("isdoolbeel",100);
 				Intent var7 = new Intent();
 				var7.putExtras(var6);
 				var7.setClass(PhoneMessageActivity.this , LiveViewGLviewActivity .class);

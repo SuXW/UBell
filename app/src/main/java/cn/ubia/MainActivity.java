@@ -302,6 +302,7 @@ public class MainActivity extends BaseActivity {
 
 
 	protected void onDestroy() {
+		super.onDestroy();
 		LocalBroadcastManager.getInstance(this).unregisterReceiver(phoneCancelReceiver );
 	};
 	@Override

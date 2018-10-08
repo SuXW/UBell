@@ -216,7 +216,7 @@ public class LiveViewGLviewActivity extends BaseActivity implements ViewFactory,
 	private	long recordStartseccount = 0;
 	private int popwinoffset = 0;
 	private boolean isTenmin;
-	public  static boolean isBackgroundRunning = true;
+	public  boolean isBackgroundRunning = true;
 	private boolean showGridViewBitmap = false;
 
 	private RelativeLayout seek_bar_rl;//mp4播放进度父控件
