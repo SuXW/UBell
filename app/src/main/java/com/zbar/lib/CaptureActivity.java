@@ -1,7 +1,9 @@
 package com.zbar.lib;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Map;
 import java.util.Vector;
 
 import android.annotation.SuppressLint;
@@ -442,8 +444,10 @@ public class CaptureActivity extends BaseActivity implements OnClickListener,
 			return null;
 		}
 
-		Hashtable<DecodeHintType, String> hints = new Hashtable<DecodeHintType, String>();
+		Map<DecodeHintType, Object> hints = new HashMap<>();
 		hints.put(DecodeHintType.CHARACTER_SET, "utf-8");
+		//复杂模式，开启PURE_BARCODE模式
+		hints.put(DecodeHintType.PURE_BARCODE, Boolean.TRUE);
 		BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inJustDecodeBounds = true;
 		scanBitmap = BitmapFactory.decodeFile(path, options);
