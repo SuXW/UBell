@@ -662,22 +662,23 @@ public class SettingActivity extends BaseActivity implements
 						setting_devicemode_tv.setText(""+deviceinfovar23);
 						mDevice.firmwareVersion = getVersion(deviceinfovar25);
 
-						if(mDevice.hardware_pkg == HARDWAEW_PKG.SREE_VR_LINUX_PIR_LED){
+						if(mDevice.firmwareVersionPrefix==52 || mDevice.firmwareVersionPrefix==61 || mDevice.firmwareVersionPrefix==100){
+							setting_flip_rl.setVisibility(View.GONE);
+						}else{
+							setting_flip_rl.setVisibility(View.VISIBLE);
+						}
+
+						/*if(mDevice.hardware_pkg == HARDWAEW_PKG.SREE_VR_LINUX_PIR_LED){
 							setting_flip_rl.setVisibility(GONE);
 						}else{
-							if(mDevice.firmwareVersionPrefix==61 || mDevice.firmwareVersionPrefix==100){
-								setting_flip_rl.setVisibility(View.GONE);
-							}else{
-								setting_flip_rl.setVisibility(View.VISIBLE);
-							}
 
-							/*if(mDevice.firmwareVersionPrefix>=200 || mDevice.firmwareVersionPrefix<=60
+							if(mDevice.firmwareVersionPrefix>=200 || mDevice.firmwareVersionPrefix<=60
 									|| mDevice.firmwareVersionPrefix==114){
 								setting_flip_rl.setVisibility(View.VISIBLE);
 							}else{
 								setting_flip_rl.setVisibility(GONE);
-							}*/
-						}
+							}
+						}*/
 
 
 
