@@ -37,6 +37,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10.0dip"
+                android:singleLine="true"
+                android:ellipsize="end"
                 android:text="@string/page26_lstClickToAddCamera"
                 android:textColor="@color/color_text_color"
                 android:textSize="18.0sp" />
